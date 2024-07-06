@@ -455,7 +455,6 @@ Angeline Aguinaldo
 <li>Meet PlanBot</li>
 <li>Category Theory-based Planning Language</li>
 <li>Using AlgebraicJulia</li>
-<li>Why Julia?</li>
 <li>Wrap up</li>
 </ol>
 </div>
@@ -568,198 +567,197 @@ Follow along! -->
 </div>
 <div class="columns">
 <div class="column" style="width:60%;">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>(arm-empty)</span>
-<span id="cb2-2"><a href=""></a>(object LettuceSliced_1)</span>
-<span id="cb2-3"><a href=""></a>(receptacle LettuceSliced_1)</span>
-<span id="cb2-4"><a href=""></a>(lettuceslice LettuceSliced_1)</span>
-<span id="cb2-5"><a href=""></a>(clear LettuceSliced_1)</span>
-<span id="cb2-6"><a href=""></a>(ontable LettuceSliced_1)</span>
-<span id="cb2-7"><a href=""></a>(temperature LettuceSliced_1 RoomTemp)</span>
-<span id="cb2-8"><a href=""></a>(mass LettuceSliced_1 0.2)</span>
-<span id="cb2-9"><a href=""></a>(material LettuceSliced_1 Organic)</span>
-<span id="cb2-10"><a href=""></a>(object LettuceSliced_2)</span>
-<span id="cb2-11"><a href=""></a>(receptacle LettuceSliced_2)</span>
-<span id="cb2-12"><a href=""></a>(lettuceslice LettuceSliced_2)</span>
-<span id="cb2-13"><a href=""></a>(clear LettuceSliced_2)</span>
-<span id="cb2-14"><a href=""></a>(ontable LettuceSliced_2)</span>
-<span id="cb2-15"><a href=""></a>(temperature LettuceSliced_2 RoomTemp)</span>
-<span id="cb2-16"><a href=""></a>(mass LettuceSliced_2 0.2)</span>
-<span id="cb2-17"><a href=""></a>(material LettuceSliced_2 Organic)</span>
-<span id="cb2-18"><a href=""></a>(object LettuceSliced_3)</span>
-<span id="cb2-19"><a href=""></a>(receptacle LettuceSliced_3)</span>
-<span id="cb2-20"><a href=""></a>(lettuceslice LettuceSliced_3)</span>
-<span id="cb2-21"><a href=""></a>(clear LettuceSliced_3)</span>
-<span id="cb2-22"><a href=""></a>(ontable LettuceSliced_3)</span>
-<span id="cb2-23"><a href=""></a>(temperature LettuceSliced_3 RoomTemp)</span>
-<span id="cb2-24"><a href=""></a>(mass LettuceSliced_3 0.2)</span>
-<span id="cb2-25"><a href=""></a>(material LettuceSliced_3 Organic)</span>
-<span id="cb2-26"><a href=""></a>(object LettuceSliced_4)</span>
-<span id="cb2-27"><a href=""></a>(receptacle LettuceSliced_4)</span>
-<span id="cb2-28"><a href=""></a>(lettuceslice LettuceSliced_4)</span>
-<span id="cb2-29"><a href=""></a>(clear LettuceSliced_4)</span>
-<span id="cb2-30"><a href=""></a>(ontable LettuceSliced_4)</span>
-<span id="cb2-31"><a href=""></a>(temperature LettuceSliced_4 RoomTemp)</span>
-<span id="cb2-32"><a href=""></a>(mass LettuceSliced_4 0.2)</span>
-<span id="cb2-33"><a href=""></a>(material LettuceSliced_4 Organic)</span>
-<span id="cb2-34"><a href=""></a>(object LettuceSliced_5)</span>
-<span id="cb2-35"><a href=""></a>(receptacle LettuceSliced_5)</span>
-<span id="cb2-36"><a href=""></a>(lettuceslice LettuceSliced_5)</span>
-<span id="cb2-37"><a href=""></a>(clear LettuceSliced_5)</span>
-<span id="cb2-38"><a href=""></a>(ontable LettuceSliced_5)</span>
-<span id="cb2-39"><a href=""></a>(temperature LettuceSliced_5 RoomTemp)</span>
-<span id="cb2-40"><a href=""></a>(mass LettuceSliced_5 0.2)</span>
-<span id="cb2-41"><a href=""></a>(material LettuceSliced_5 Organic)</span>
-<span id="cb2-42"><a href=""></a>(object TomatoSliced_1)</span>
-<span id="cb2-43"><a href=""></a>(receptacle TomatoSliced_1)</span>
-<span id="cb2-44"><a href=""></a>(tomatoslice TomatoSliced_1)</span>
-<span id="cb2-45"><a href=""></a>(clear TomatoSliced_1)</span>
-<span id="cb2-46"><a href=""></a>(ontable TomatoSliced_1)</span>
-<span id="cb2-47"><a href=""></a>(temperature TomatoSliced_1 RoomTemp)</span>
-<span id="cb2-48"><a href=""></a>(mass TomatoSliced_1 0.3)</span>
-<span id="cb2-49"><a href=""></a>(material TomatoSliced_1 Organic)</span>
-<span id="cb2-50"><a href=""></a>(object TomatoSliced_2)</span>
-<span id="cb2-51"><a href=""></a>(receptacle TomatoSliced_2)</span>
-<span id="cb2-52"><a href=""></a>(clear TomatoSliced_2)</span>
-<span id="cb2-53"><a href=""></a>(tomatoslice TomatoSliced_2)</span>
-<span id="cb2-54"><a href=""></a>(ontable TomatoSliced_2)</span>
-<span id="cb2-55"><a href=""></a>(temperature TomatoSliced_2 RoomTemp)</span>
-<span id="cb2-56"><a href=""></a>(mass TomatoSliced_2 0.3)</span>
-<span id="cb2-57"><a href=""></a>(material TomatoSliced_2 Organic)</span>
-<span id="cb2-58"><a href=""></a>(object TomatoSliced_3)</span>
-<span id="cb2-59"><a href=""></a>(receptacle TomatoSliced_3)</span>
-<span id="cb2-60"><a href=""></a>(tomatoslice TomatoSliced_3)</span>
-<span id="cb2-61"><a href=""></a>(clear TomatoSliced_3)</span>
-<span id="cb2-62"><a href=""></a>(ontable TomatoSliced_3)</span>
-<span id="cb2-63"><a href=""></a>(temperature TomatoSliced_3 RoomTemp)</span>
-<span id="cb2-64"><a href=""></a>(mass TomatoSliced_3 0.3)</span>
-<span id="cb2-65"><a href=""></a>(material TomatoSliced_3 Organic)</span>
-<span id="cb2-66"><a href=""></a>(object TomatoSliced_4)</span>
-<span id="cb2-67"><a href=""></a>(receptacle TomatoSliced_4)</span>
-<span id="cb2-68"><a href=""></a>(tomatoslice TomatoSliced_4)</span>
-<span id="cb2-69"><a href=""></a>(clear TomatoSliced_4)</span>
-<span id="cb2-70"><a href=""></a>(ontable TomatoSliced_4)</span>
-<span id="cb2-71"><a href=""></a>(temperature TomatoSliced_4 RoomTemp)</span>
-<span id="cb2-72"><a href=""></a>(mass TomatoSliced_4 0.3)</span>
-<span id="cb2-73"><a href=""></a>(material TomatoSliced_4 Organic)</span>
-<span id="cb2-74"><a href=""></a>(object TomatoSliced_5)</span>
-<span id="cb2-75"><a href=""></a>(receptacle TomatoSliced_5)</span>
-<span id="cb2-76"><a href=""></a>(tomatoslice TomatoSliced_5)</span>
-<span id="cb2-77"><a href=""></a>(clear TomatoSliced_5)</span>
-<span id="cb2-78"><a href=""></a>(ontable TomatoSliced_5)</span>
-<span id="cb2-79"><a href=""></a>(temperature TomatoSliced_5 RoomTemp)</span>
-<span id="cb2-80"><a href=""></a>(mass TomatoSliced_5 0.3)</span>
-<span id="cb2-81"><a href=""></a>(material TomatoSliced_5 Organic)</span>
-<span id="cb2-82"><a href=""></a>(object TomatoSliced_6)</span>
-<span id="cb2-83"><a href=""></a>(receptacle TomatoSliced_6)</span>
-<span id="cb2-84"><a href=""></a>(tomatoslice TomatoSliced_6)</span>
-<span id="cb2-85"><a href=""></a>(clear TomatoSliced_6)</span>
-<span id="cb2-86"><a href=""></a>(ontable TomatoSliced_6)</span>
-<span id="cb2-87"><a href=""></a>(temperature TomatoSliced_6 RoomTemp)</span>
-<span id="cb2-88"><a href=""></a>(mass TomatoSliced_6 0.3)</span>
-<span id="cb2-89"><a href=""></a>(material TomatoSliced_6 Organic)</span>
-<span id="cb2-90"><a href=""></a>(object TomatoSliced_7)</span>
-<span id="cb2-91"><a href=""></a>(receptacle TomatoSliced_7)</span>
-<span id="cb2-92"><a href=""></a>(tomatoslice TomatoSliced_7)</span>
-<span id="cb2-93"><a href=""></a>(clear TomatoSliced_7)</span>
-<span id="cb2-94"><a href=""></a>(ontable TomatoSliced_7)</span>
-<span id="cb2-95"><a href=""></a>(temperature TomatoSliced_7 RoomTemp)</span>
-<span id="cb2-96"><a href=""></a>(mass TomatoSliced_7 0.3)</span>
-<span id="cb2-97"><a href=""></a>(material TomatoSliced_7 Organic)</span>
-<span id="cb2-98"><a href=""></a>(object TomatoSliced_8)</span>
-<span id="cb2-99"><a href=""></a>(receptacle TomatoSliced_8)</span>
-<span id="cb2-100"><a href=""></a>(tomatoslice TomatoSliced_8)</span>
-<span id="cb2-101"><a href=""></a>(clear TomatoSliced_8)</span>
-<span id="cb2-102"><a href=""></a>(ontable TomatoSliced_8)</span>
-<span id="cb2-103"><a href=""></a>(temperature TomatoSliced_8 RoomTemp)</span>
-<span id="cb2-104"><a href=""></a>(mass TomatoSliced_8 0.3)</span>
-<span id="cb2-105"><a href=""></a>(material TomatoSliced_8 Organic)</span>
-<span id="cb2-106"><a href=""></a>(object TomatoSliced_9)</span>
-<span id="cb2-107"><a href=""></a>(receptacle TomatoSliced_9)</span>
-<span id="cb2-108"><a href=""></a>(tomatoslice TomatoSliced_9)</span>
-<span id="cb2-109"><a href=""></a>(clear TomatoSliced_9)</span>
-<span id="cb2-110"><a href=""></a>(ontable TomatoSliced_9)</span>
-<span id="cb2-111"><a href=""></a>(temperature TomatoSliced_9 RoomTemp)</span>
-<span id="cb2-112"><a href=""></a>(mass TomatoSliced_9 0.3)</span>
-<span id="cb2-113"><a href=""></a>(material TomatoSliced_9 Organic)</span>
-<span id="cb2-114"><a href=""></a>(object TomatoSliced_10)</span>
-<span id="cb2-115"><a href=""></a>(receptacle TomatoSliced_10)</span>
-<span id="cb2-116"><a href=""></a>(tomatoslice TomatoSliced_10)</span>
-<span id="cb2-117"><a href=""></a>(clear TomatoSliced_10)</span>
-<span id="cb2-118"><a href=""></a>(ontable TomatoSliced_10)</span>
-<span id="cb2-119"><a href=""></a>(temperature TomatoSliced_10 RoomTemp)</span>
-<span id="cb2-120"><a href=""></a>(mass TomatoSliced_10 0.3)</span>
-<span id="cb2-121"><a href=""></a>(material TomatoSliced_10 Organic)</span>
-<span id="cb2-122"><a href=""></a>(object Plate_1)</span>
-<span id="cb2-123"><a href=""></a>(receptacle Plate_1)</span>
-<span id="cb2-124"><a href=""></a>(plate Plate_1)</span>
-<span id="cb2-125"><a href=""></a>(clear Plate_1)</span>
-<span id="cb2-126"><a href=""></a>(ontable Plate_1)</span>
-<span id="cb2-127"><a href=""></a>(temperature Plate_1 RoomTemp)</span>
-<span id="cb2-128"><a href=""></a>(mass Plate_1 0.4)</span>
-<span id="cb2-129"><a href=""></a>(material Plate_1 Ceramic)</span>
-<span id="cb2-130"><a href=""></a>(object Plate_2)</span>
-<span id="cb2-131"><a href=""></a>(receptacle Plate_2)</span>
-<span id="cb2-132"><a href=""></a>(plate Plate_2)</span>
-<span id="cb2-133"><a href=""></a>(clear Plate_2)</span>
-<span id="cb2-134"><a href=""></a>(ontable Plate_2)</span>
-<span id="cb2-135"><a href=""></a>(temperature Plate_2 RoomTemp)</span>
-<span id="cb2-136"><a href=""></a>(mass Plate_2 0.4)</span>
-<span id="cb2-137"><a href=""></a>(material Plate_2 Ceramic)</span>
-<span id="cb2-138"><a href=""></a>(object Plate_3)</span>
-<span id="cb2-139"><a href=""></a>(receptacle Plate_3)</span>
-<span id="cb2-140"><a href=""></a>(plate Plate_3)</span>
-<span id="cb2-141"><a href=""></a>(clear Plate_3)</span>
-<span id="cb2-142"><a href=""></a>(ontable Plate_3)</span>
-<span id="cb2-143"><a href=""></a>(temperature Plate_3 RoomTemp)</span>
-<span id="cb2-144"><a href=""></a>(mass Plate_3 0.4)</span>
-<span id="cb2-145"><a href=""></a>(material Plate_3 Ceramic)</span>
-<span id="cb2-146"><a href=""></a>(object Knife_1)</span>
-<span id="cb2-147"><a href=""></a>(knife Knife_1)</span>
-<span id="cb2-148"><a href=""></a>(clear Knife_1)</span>
-<span id="cb2-149"><a href=""></a>(ontable Knife_1)</span>
-<span id="cb2-150"><a href=""></a>(temperature Knife_1 RoomTemp)</span>
-<span id="cb2-151"><a href=""></a>(mass Knife_1 0.5)</span>
-<span id="cb2-152"><a href=""></a>(material Knife_1 Metal)</span>
-<span id="cb2-153"><a href=""></a>(object BreadSliced_1)</span>
-<span id="cb2-154"><a href=""></a>(receptacle BreadSliced_1)</span>
-<span id="cb2-155"><a href=""></a>(breadslice BreadSliced_1)</span>
-<span id="cb2-156"><a href=""></a>(clear BreadSliced_1)</span>
-<span id="cb2-157"><a href=""></a>(ontable BreadSliced_1)</span>
-<span id="cb2-158"><a href=""></a>(temperature BreadSliced_1 RoomTemp)</span>
-<span id="cb2-159"><a href=""></a>(mass BreadSliced_1 0.1)</span>
-<span id="cb2-160"><a href=""></a>(material BreadSliced_1 Organic)</span>
-<span id="cb2-161"><a href=""></a>(object BreadSliced_2)</span>
-<span id="cb2-162"><a href=""></a>(receptacle BreadSliced_2)</span>
-<span id="cb2-163"><a href=""></a>(breadslice BreadSliced_2)</span>
-<span id="cb2-164"><a href=""></a>(clear BreadSliced_2)</span>
-<span id="cb2-165"><a href=""></a>(ontable BreadSliced_2)</span>
-<span id="cb2-166"><a href=""></a>(temperature BreadSliced_2 RoomTemp)</span>
-<span id="cb2-167"><a href=""></a>(mass BreadSliced_2 0.1)</span>
-<span id="cb2-168"><a href=""></a>(material BreadSliced_2 Organic)</span>
-<span id="cb2-169"><a href=""></a>(object BreadSliced_3)</span>
-<span id="cb2-170"><a href=""></a>(receptacle BreadSliced_3)</span>
-<span id="cb2-171"><a href=""></a>(breadslice BreadSliced_3)</span>
-<span id="cb2-172"><a href=""></a>(clear BreadSliced_3)</span>
-<span id="cb2-173"><a href=""></a>(ontable BreadSliced_3)</span>
-<span id="cb2-174"><a href=""></a>(temperature BreadSliced_3 RoomTemp)</span>
-<span id="cb2-175"><a href=""></a>(mass BreadSliced_3 0.1)</span>
-<span id="cb2-176"><a href=""></a>(material BreadSliced_3 Organic)</span>
-<span id="cb2-177"><a href=""></a>(object BreadSliced_4)</span>
-<span id="cb2-178"><a href=""></a>(receptacle BreadSliced_4)</span>
-<span id="cb2-179"><a href=""></a>(breadslice BreadSliced_4)</span>
-<span id="cb2-180"><a href=""></a>(clear BreadSliced_4)</span>
-<span id="cb2-181"><a href=""></a>(ontable BreadSliced_4)</span>
-<span id="cb2-182"><a href=""></a>(temperature BreadSliced_4 RoomTemp)</span>
-<span id="cb2-183"><a href=""></a>(mass BreadSliced_4 0.1)</span>
-<span id="cb2-184"><a href=""></a>(material BreadSliced_4 Organic)</span>
-<span id="cb2-185"><a href=""></a>(object BreadSliced_5)</span>
-<span id="cb2-186"><a href=""></a>(receptacle BreadSliced_5)</span>
-<span id="cb2-187"><a href=""></a>(breadslice BreadSliced_5)</span>
-<span id="cb2-188"><a href=""></a>(clear BreadSliced_5)</span>
-<span id="cb2-189"><a href=""></a>(ontable BreadSliced_5)</span>
-<span id="cb2-190"><a href=""></a>(temperature BreadSliced_5 RoomTemp)</span>
-<span id="cb2-191"><a href=""></a>(mass BreadSliced_5 0.1)</span>
-<span id="cb2-192"><a href=""></a>(material BreadSliced_5 Organic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href=""></a>(object LettuceSliced_1)</span>
+<span id="cb2-2"><a href=""></a>(receptacle LettuceSliced_1)</span>
+<span id="cb2-3"><a href=""></a>(lettuceslice LettuceSliced_1)</span>
+<span id="cb2-4"><a href=""></a>(clear LettuceSliced_1)</span>
+<span id="cb2-5"><a href=""></a>(ontable LettuceSliced_1)</span>
+<span id="cb2-6"><a href=""></a>(temperature LettuceSliced_1 RoomTemp)</span>
+<span id="cb2-7"><a href=""></a>(mass LettuceSliced_1 0.2)</span>
+<span id="cb2-8"><a href=""></a>(material LettuceSliced_1 Organic)</span>
+<span id="cb2-9"><a href=""></a>(object LettuceSliced_2)</span>
+<span id="cb2-10"><a href=""></a>(receptacle LettuceSliced_2)</span>
+<span id="cb2-11"><a href=""></a>(lettuceslice LettuceSliced_2)</span>
+<span id="cb2-12"><a href=""></a>(clear LettuceSliced_2)</span>
+<span id="cb2-13"><a href=""></a>(ontable LettuceSliced_2)</span>
+<span id="cb2-14"><a href=""></a>(temperature LettuceSliced_2 RoomTemp)</span>
+<span id="cb2-15"><a href=""></a>(mass LettuceSliced_2 0.2)</span>
+<span id="cb2-16"><a href=""></a>(material LettuceSliced_2 Organic)</span>
+<span id="cb2-17"><a href=""></a>(object LettuceSliced_3)</span>
+<span id="cb2-18"><a href=""></a>(receptacle LettuceSliced_3)</span>
+<span id="cb2-19"><a href=""></a>(lettuceslice LettuceSliced_3)</span>
+<span id="cb2-20"><a href=""></a>(clear LettuceSliced_3)</span>
+<span id="cb2-21"><a href=""></a>(ontable LettuceSliced_3)</span>
+<span id="cb2-22"><a href=""></a>(temperature LettuceSliced_3 RoomTemp)</span>
+<span id="cb2-23"><a href=""></a>(mass LettuceSliced_3 0.2)</span>
+<span id="cb2-24"><a href=""></a>(material LettuceSliced_3 Organic)</span>
+<span id="cb2-25"><a href=""></a>(object LettuceSliced_4)</span>
+<span id="cb2-26"><a href=""></a>(receptacle LettuceSliced_4)</span>
+<span id="cb2-27"><a href=""></a>(lettuceslice LettuceSliced_4)</span>
+<span id="cb2-28"><a href=""></a>(clear LettuceSliced_4)</span>
+<span id="cb2-29"><a href=""></a>(ontable LettuceSliced_4)</span>
+<span id="cb2-30"><a href=""></a>(temperature LettuceSliced_4 RoomTemp)</span>
+<span id="cb2-31"><a href=""></a>(mass LettuceSliced_4 0.2)</span>
+<span id="cb2-32"><a href=""></a>(material LettuceSliced_4 Organic)</span>
+<span id="cb2-33"><a href=""></a>(object LettuceSliced_5)</span>
+<span id="cb2-34"><a href=""></a>(receptacle LettuceSliced_5)</span>
+<span id="cb2-35"><a href=""></a>(lettuceslice LettuceSliced_5)</span>
+<span id="cb2-36"><a href=""></a>(clear LettuceSliced_5)</span>
+<span id="cb2-37"><a href=""></a>(ontable LettuceSliced_5)</span>
+<span id="cb2-38"><a href=""></a>(temperature LettuceSliced_5 RoomTemp)</span>
+<span id="cb2-39"><a href=""></a>(mass LettuceSliced_5 0.2)</span>
+<span id="cb2-40"><a href=""></a>(material LettuceSliced_5 Organic)</span>
+<span id="cb2-41"><a href=""></a>(object TomatoSliced_1)</span>
+<span id="cb2-42"><a href=""></a>(receptacle TomatoSliced_1)</span>
+<span id="cb2-43"><a href=""></a>(tomatoslice TomatoSliced_1)</span>
+<span id="cb2-44"><a href=""></a>(clear TomatoSliced_1)</span>
+<span id="cb2-45"><a href=""></a>(ontable TomatoSliced_1)</span>
+<span id="cb2-46"><a href=""></a>(temperature TomatoSliced_1 RoomTemp)</span>
+<span id="cb2-47"><a href=""></a>(mass TomatoSliced_1 0.3)</span>
+<span id="cb2-48"><a href=""></a>(material TomatoSliced_1 Organic)</span>
+<span id="cb2-49"><a href=""></a>(object TomatoSliced_2)</span>
+<span id="cb2-50"><a href=""></a>(receptacle TomatoSliced_2)</span>
+<span id="cb2-51"><a href=""></a>(clear TomatoSliced_2)</span>
+<span id="cb2-52"><a href=""></a>(tomatoslice TomatoSliced_2)</span>
+<span id="cb2-53"><a href=""></a>(ontable TomatoSliced_2)</span>
+<span id="cb2-54"><a href=""></a>(temperature TomatoSliced_2 RoomTemp)</span>
+<span id="cb2-55"><a href=""></a>(mass TomatoSliced_2 0.3)</span>
+<span id="cb2-56"><a href=""></a>(material TomatoSliced_2 Organic)</span>
+<span id="cb2-57"><a href=""></a>(object TomatoSliced_3)</span>
+<span id="cb2-58"><a href=""></a>(receptacle TomatoSliced_3)</span>
+<span id="cb2-59"><a href=""></a>(tomatoslice TomatoSliced_3)</span>
+<span id="cb2-60"><a href=""></a>(clear TomatoSliced_3)</span>
+<span id="cb2-61"><a href=""></a>(ontable TomatoSliced_3)</span>
+<span id="cb2-62"><a href=""></a>(temperature TomatoSliced_3 RoomTemp)</span>
+<span id="cb2-63"><a href=""></a>(mass TomatoSliced_3 0.3)</span>
+<span id="cb2-64"><a href=""></a>(material TomatoSliced_3 Organic)</span>
+<span id="cb2-65"><a href=""></a>(object TomatoSliced_4)</span>
+<span id="cb2-66"><a href=""></a>(receptacle TomatoSliced_4)</span>
+<span id="cb2-67"><a href=""></a>(tomatoslice TomatoSliced_4)</span>
+<span id="cb2-68"><a href=""></a>(clear TomatoSliced_4)</span>
+<span id="cb2-69"><a href=""></a>(ontable TomatoSliced_4)</span>
+<span id="cb2-70"><a href=""></a>(temperature TomatoSliced_4 RoomTemp)</span>
+<span id="cb2-71"><a href=""></a>(mass TomatoSliced_4 0.3)</span>
+<span id="cb2-72"><a href=""></a>(material TomatoSliced_4 Organic)</span>
+<span id="cb2-73"><a href=""></a>(object TomatoSliced_5)</span>
+<span id="cb2-74"><a href=""></a>(receptacle TomatoSliced_5)</span>
+<span id="cb2-75"><a href=""></a>(tomatoslice TomatoSliced_5)</span>
+<span id="cb2-76"><a href=""></a>(clear TomatoSliced_5)</span>
+<span id="cb2-77"><a href=""></a>(ontable TomatoSliced_5)</span>
+<span id="cb2-78"><a href=""></a>(temperature TomatoSliced_5 RoomTemp)</span>
+<span id="cb2-79"><a href=""></a>(mass TomatoSliced_5 0.3)</span>
+<span id="cb2-80"><a href=""></a>(material TomatoSliced_5 Organic)</span>
+<span id="cb2-81"><a href=""></a>(object TomatoSliced_6)</span>
+<span id="cb2-82"><a href=""></a>(receptacle TomatoSliced_6)</span>
+<span id="cb2-83"><a href=""></a>(tomatoslice TomatoSliced_6)</span>
+<span id="cb2-84"><a href=""></a>(clear TomatoSliced_6)</span>
+<span id="cb2-85"><a href=""></a>(ontable TomatoSliced_6)</span>
+<span id="cb2-86"><a href=""></a>(temperature TomatoSliced_6 RoomTemp)</span>
+<span id="cb2-87"><a href=""></a>(mass TomatoSliced_6 0.3)</span>
+<span id="cb2-88"><a href=""></a>(material TomatoSliced_6 Organic)</span>
+<span id="cb2-89"><a href=""></a>(object TomatoSliced_7)</span>
+<span id="cb2-90"><a href=""></a>(receptacle TomatoSliced_7)</span>
+<span id="cb2-91"><a href=""></a>(tomatoslice TomatoSliced_7)</span>
+<span id="cb2-92"><a href=""></a>(clear TomatoSliced_7)</span>
+<span id="cb2-93"><a href=""></a>(ontable TomatoSliced_7)</span>
+<span id="cb2-94"><a href=""></a>(temperature TomatoSliced_7 RoomTemp)</span>
+<span id="cb2-95"><a href=""></a>(mass TomatoSliced_7 0.3)</span>
+<span id="cb2-96"><a href=""></a>(material TomatoSliced_7 Organic)</span>
+<span id="cb2-97"><a href=""></a>(object TomatoSliced_8)</span>
+<span id="cb2-98"><a href=""></a>(receptacle TomatoSliced_8)</span>
+<span id="cb2-99"><a href=""></a>(tomatoslice TomatoSliced_8)</span>
+<span id="cb2-100"><a href=""></a>(clear TomatoSliced_8)</span>
+<span id="cb2-101"><a href=""></a>(ontable TomatoSliced_8)</span>
+<span id="cb2-102"><a href=""></a>(temperature TomatoSliced_8 RoomTemp)</span>
+<span id="cb2-103"><a href=""></a>(mass TomatoSliced_8 0.3)</span>
+<span id="cb2-104"><a href=""></a>(material TomatoSliced_8 Organic)</span>
+<span id="cb2-105"><a href=""></a>(object TomatoSliced_9)</span>
+<span id="cb2-106"><a href=""></a>(receptacle TomatoSliced_9)</span>
+<span id="cb2-107"><a href=""></a>(tomatoslice TomatoSliced_9)</span>
+<span id="cb2-108"><a href=""></a>(clear TomatoSliced_9)</span>
+<span id="cb2-109"><a href=""></a>(ontable TomatoSliced_9)</span>
+<span id="cb2-110"><a href=""></a>(temperature TomatoSliced_9 RoomTemp)</span>
+<span id="cb2-111"><a href=""></a>(mass TomatoSliced_9 0.3)</span>
+<span id="cb2-112"><a href=""></a>(material TomatoSliced_9 Organic)</span>
+<span id="cb2-113"><a href=""></a>(object TomatoSliced_10)</span>
+<span id="cb2-114"><a href=""></a>(receptacle TomatoSliced_10)</span>
+<span id="cb2-115"><a href=""></a>(tomatoslice TomatoSliced_10)</span>
+<span id="cb2-116"><a href=""></a>(clear TomatoSliced_10)</span>
+<span id="cb2-117"><a href=""></a>(ontable TomatoSliced_10)</span>
+<span id="cb2-118"><a href=""></a>(temperature TomatoSliced_10 RoomTemp)</span>
+<span id="cb2-119"><a href=""></a>(mass TomatoSliced_10 0.3)</span>
+<span id="cb2-120"><a href=""></a>(material TomatoSliced_10 Organic)</span>
+<span id="cb2-121"><a href=""></a>(object Plate_1)</span>
+<span id="cb2-122"><a href=""></a>(receptacle Plate_1)</span>
+<span id="cb2-123"><a href=""></a>(plate Plate_1)</span>
+<span id="cb2-124"><a href=""></a>(clear Plate_1)</span>
+<span id="cb2-125"><a href=""></a>(ontable Plate_1)</span>
+<span id="cb2-126"><a href=""></a>(temperature Plate_1 RoomTemp)</span>
+<span id="cb2-127"><a href=""></a>(mass Plate_1 0.4)</span>
+<span id="cb2-128"><a href=""></a>(material Plate_1 Ceramic)</span>
+<span id="cb2-129"><a href=""></a>(object Plate_2)</span>
+<span id="cb2-130"><a href=""></a>(receptacle Plate_2)</span>
+<span id="cb2-131"><a href=""></a>(plate Plate_2)</span>
+<span id="cb2-132"><a href=""></a>(clear Plate_2)</span>
+<span id="cb2-133"><a href=""></a>(ontable Plate_2)</span>
+<span id="cb2-134"><a href=""></a>(temperature Plate_2 RoomTemp)</span>
+<span id="cb2-135"><a href=""></a>(mass Plate_2 0.4)</span>
+<span id="cb2-136"><a href=""></a>(material Plate_2 Ceramic)</span>
+<span id="cb2-137"><a href=""></a>(object Plate_3)</span>
+<span id="cb2-138"><a href=""></a>(receptacle Plate_3)</span>
+<span id="cb2-139"><a href=""></a>(plate Plate_3)</span>
+<span id="cb2-140"><a href=""></a>(clear Plate_3)</span>
+<span id="cb2-141"><a href=""></a>(ontable Plate_3)</span>
+<span id="cb2-142"><a href=""></a>(temperature Plate_3 RoomTemp)</span>
+<span id="cb2-143"><a href=""></a>(mass Plate_3 0.4)</span>
+<span id="cb2-144"><a href=""></a>(material Plate_3 Ceramic)</span>
+<span id="cb2-145"><a href=""></a>(object Knife_1)</span>
+<span id="cb2-146"><a href=""></a>(knife Knife_1)</span>
+<span id="cb2-147"><a href=""></a>(clear Knife_1)</span>
+<span id="cb2-148"><a href=""></a>(ontable Knife_1)</span>
+<span id="cb2-149"><a href=""></a>(temperature Knife_1 RoomTemp)</span>
+<span id="cb2-150"><a href=""></a>(mass Knife_1 0.5)</span>
+<span id="cb2-151"><a href=""></a>(material Knife_1 Metal)</span>
+<span id="cb2-152"><a href=""></a>(object BreadSliced_1)</span>
+<span id="cb2-153"><a href=""></a>(receptacle BreadSliced_1)</span>
+<span id="cb2-154"><a href=""></a>(breadslice BreadSliced_1)</span>
+<span id="cb2-155"><a href=""></a>(clear BreadSliced_1)</span>
+<span id="cb2-156"><a href=""></a>(ontable BreadSliced_1)</span>
+<span id="cb2-157"><a href=""></a>(temperature BreadSliced_1 RoomTemp)</span>
+<span id="cb2-158"><a href=""></a>(mass BreadSliced_1 0.1)</span>
+<span id="cb2-159"><a href=""></a>(material BreadSliced_1 Organic)</span>
+<span id="cb2-160"><a href=""></a>(object BreadSliced_2)</span>
+<span id="cb2-161"><a href=""></a>(receptacle BreadSliced_2)</span>
+<span id="cb2-162"><a href=""></a>(breadslice BreadSliced_2)</span>
+<span id="cb2-163"><a href=""></a>(clear BreadSliced_2)</span>
+<span id="cb2-164"><a href=""></a>(ontable BreadSliced_2)</span>
+<span id="cb2-165"><a href=""></a>(temperature BreadSliced_2 RoomTemp)</span>
+<span id="cb2-166"><a href=""></a>(mass BreadSliced_2 0.1)</span>
+<span id="cb2-167"><a href=""></a>(material BreadSliced_2 Organic)</span>
+<span id="cb2-168"><a href=""></a>(object BreadSliced_3)</span>
+<span id="cb2-169"><a href=""></a>(receptacle BreadSliced_3)</span>
+<span id="cb2-170"><a href=""></a>(breadslice BreadSliced_3)</span>
+<span id="cb2-171"><a href=""></a>(clear BreadSliced_3)</span>
+<span id="cb2-172"><a href=""></a>(ontable BreadSliced_3)</span>
+<span id="cb2-173"><a href=""></a>(temperature BreadSliced_3 RoomTemp)</span>
+<span id="cb2-174"><a href=""></a>(mass BreadSliced_3 0.1)</span>
+<span id="cb2-175"><a href=""></a>(material BreadSliced_3 Organic)</span>
+<span id="cb2-176"><a href=""></a>(object BreadSliced_4)</span>
+<span id="cb2-177"><a href=""></a>(receptacle BreadSliced_4)</span>
+<span id="cb2-178"><a href=""></a>(breadslice BreadSliced_4)</span>
+<span id="cb2-179"><a href=""></a>(clear BreadSliced_4)</span>
+<span id="cb2-180"><a href=""></a>(ontable BreadSliced_4)</span>
+<span id="cb2-181"><a href=""></a>(temperature BreadSliced_4 RoomTemp)</span>
+<span id="cb2-182"><a href=""></a>(mass BreadSliced_4 0.1)</span>
+<span id="cb2-183"><a href=""></a>(material BreadSliced_4 Organic)</span>
+<span id="cb2-184"><a href=""></a>(object BreadSliced_5)</span>
+<span id="cb2-185"><a href=""></a>(receptacle BreadSliced_5)</span>
+<span id="cb2-186"><a href=""></a>(breadslice BreadSliced_5)</span>
+<span id="cb2-187"><a href=""></a>(clear BreadSliced_5)</span>
+<span id="cb2-188"><a href=""></a>(ontable BreadSliced_5)</span>
+<span id="cb2-189"><a href=""></a>(temperature BreadSliced_5 RoomTemp)</span>
+<span id="cb2-190"><a href=""></a>(mass BreadSliced_5 0.1)</span>
+<span id="cb2-191"><a href=""></a>(material BreadSliced_5 Organic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -790,6 +788,9 @@ Follow along! -->
 (object E) (tomatoslice A) (lettucesliced B) 
 (breadsliced C) (breadsliced D) (plate E)
 (on C E) (on B C) (on A B) (on D A)</code></pre>
+<div style="text-align: left; font-size: 75%">
+<p>Based on PDDL <span class="citation" data-cites="Knoblock1998">(<a href="#/references" role="doc-biblioref" onclick="">Knoblock et al. 1998</a>)</span></p>
+</div>
 </div><div class="column" style="width:60%;">
 <p><em>Predicates</em></p>
 <div class="sourceCode" id="cb4" style="height:130px"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb4-1"><a href=""></a>(object ?x)</span>
@@ -800,212 +801,36 @@ Follow along! -->
 <span id="cb4-6"><a href=""></a>(breadslice ?x)</span>
 <span id="cb4-7"><a href=""></a>(plate ?x)</span>
 <span id="cb4-8"><a href=""></a>(knife ?x)</span>
-<span id="cb4-9"><a href=""></a>(ispartof ?x ?y)</span>
-<span id="cb4-10"><a href=""></a>(holding ?x)</span>
-<span id="cb4-11"><a href=""></a>(arm-empty)</span>
-<span id="cb4-12"><a href=""></a>(clear ?x)</span>
-<span id="cb4-13"><a href=""></a>(ontable ?x)</span>
-<span id="cb4-14"><a href=""></a>(on ?x ?y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em><code>Pickup</code> Action</em></p>
-<div class="sourceCode" id="cb5" data-code-line-numbers="|3"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>(:action pickup</span>
-<span id="cb5-2"><a href=""></a>  :parameters (?ob)</span>
-<span id="cb5-3"><a href=""></a>  :precondition (and (object ?ob) (clear ?ob) (ontable ?ob) (arm-empty))</span>
-<span id="cb5-4"><a href=""></a>  :effect (and (holding ?ob) (not (clear ?ob)) (not (ontable ?ob) </span>
-<span id="cb5-5"><a href=""></a>            (not (arm-empty))))</span>
-<span id="cb5-6"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-9"><a href=""></a>(temperature ?x ?y)</span>
+<span id="cb4-10"><a href=""></a>(mass ?x ?y)</span>
+<span id="cb4-11"><a href=""></a>(material ?x ?y)</span>
+<span id="cb4-12"><a href=""></a>(ispartof ?x ?y)</span>
+<span id="cb4-13"><a href=""></a>(holding ?x)</span>
+<span id="cb4-14"><a href=""></a>(arm-empty)</span>
+<span id="cb4-15"><a href=""></a>(clear ?x)</span>
+<span id="cb4-16"><a href=""></a>(ontable ?x)</span>
+<span id="cb4-17"><a href=""></a>(on ?x ?y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em><code>Stack</code> Action</em></p>
+<div class="sourceCode" id="cb5" data-code-line-numbers="|3"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb5-1"><a href=""></a>(:action stack</span>
+<span id="cb5-2"><a href=""></a>  :parameters  (?ob ?underob)</span>
+<span id="cb5-3"><a href=""></a>  :precondition (and  (clear ?underob) (holding ?ob))</span>
+<span id="cb5-4"><a href=""></a>  :effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)</span>
+<span id="cb5-5"><a href=""></a>               (not (clear ?underob)) (not (holding ?ob))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>World State</em> <!-- code-line-numbers="|1|1,4|1,4-5|9,12-13|17,20-21|152,155-156" --></p>
-<div class="sourceCode" id="cb6" style="height:200px" data-code-line-numbers="|1|2|2-3|2,4|2,5|2,5,1|2,5,3|2,5,4|2,5,6|2,5,6,1"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>(arm-empty)</span>
-<span id="cb6-2"><a href=""></a>(object LettuceSliced_1)</span>
-<span id="cb6-3"><a href=""></a>(receptacle LettuceSliced_1)</span>
-<span id="cb6-4"><a href=""></a>(lettuceslice LettuceSliced_1)</span>
-<span id="cb6-5"><a href=""></a>(clear LettuceSliced_1)</span>
-<span id="cb6-6"><a href=""></a>(ontable LettuceSliced_1)</span>
-<span id="cb6-7"><a href=""></a>(temperature LettuceSliced_1 RoomTemp)</span>
-<span id="cb6-8"><a href=""></a>(mass LettuceSliced_1 0.2)</span>
-<span id="cb6-9"><a href=""></a>(material LettuceSliced_1 Organic)</span>
-<span id="cb6-10"><a href=""></a>(object LettuceSliced_2)</span>
-<span id="cb6-11"><a href=""></a>(receptacle LettuceSliced_2)</span>
-<span id="cb6-12"><a href=""></a>(lettuceslice LettuceSliced_2)</span>
-<span id="cb6-13"><a href=""></a>(clear LettuceSliced_2)</span>
-<span id="cb6-14"><a href=""></a>(ontable LettuceSliced_2)</span>
-<span id="cb6-15"><a href=""></a>(temperature LettuceSliced_2 RoomTemp)</span>
-<span id="cb6-16"><a href=""></a>(mass LettuceSliced_2 0.2)</span>
-<span id="cb6-17"><a href=""></a>(material LettuceSliced_2 Organic)</span>
-<span id="cb6-18"><a href=""></a>(object LettuceSliced_3)</span>
-<span id="cb6-19"><a href=""></a>(receptacle LettuceSliced_3)</span>
-<span id="cb6-20"><a href=""></a>(lettuceslice LettuceSliced_3)</span>
-<span id="cb6-21"><a href=""></a>(clear LettuceSliced_3)</span>
-<span id="cb6-22"><a href=""></a>(ontable LettuceSliced_3)</span>
-<span id="cb6-23"><a href=""></a>(temperature LettuceSliced_3 RoomTemp)</span>
-<span id="cb6-24"><a href=""></a>(mass LettuceSliced_3 0.2)</span>
-<span id="cb6-25"><a href=""></a>(material LettuceSliced_3 Organic)</span>
-<span id="cb6-26"><a href=""></a>(object LettuceSliced_4)</span>
-<span id="cb6-27"><a href=""></a>(receptacle LettuceSliced_4)</span>
-<span id="cb6-28"><a href=""></a>(lettuceslice LettuceSliced_4)</span>
-<span id="cb6-29"><a href=""></a>(clear LettuceSliced_4)</span>
-<span id="cb6-30"><a href=""></a>(ontable LettuceSliced_4)</span>
-<span id="cb6-31"><a href=""></a>(temperature LettuceSliced_4 RoomTemp)</span>
-<span id="cb6-32"><a href=""></a>(mass LettuceSliced_4 0.2)</span>
-<span id="cb6-33"><a href=""></a>(material LettuceSliced_4 Organic)</span>
-<span id="cb6-34"><a href=""></a>(object LettuceSliced_5)</span>
-<span id="cb6-35"><a href=""></a>(receptacle LettuceSliced_5)</span>
-<span id="cb6-36"><a href=""></a>(lettuceslice LettuceSliced_5)</span>
-<span id="cb6-37"><a href=""></a>(clear LettuceSliced_5)</span>
-<span id="cb6-38"><a href=""></a>(ontable LettuceSliced_5)</span>
-<span id="cb6-39"><a href=""></a>(temperature LettuceSliced_5 RoomTemp)</span>
-<span id="cb6-40"><a href=""></a>(mass LettuceSliced_5 0.2)</span>
-<span id="cb6-41"><a href=""></a>(material LettuceSliced_5 Organic)</span>
-<span id="cb6-42"><a href=""></a>(object TomatoSliced_1)</span>
-<span id="cb6-43"><a href=""></a>(receptacle TomatoSliced_1)</span>
-<span id="cb6-44"><a href=""></a>(tomatoslice TomatoSliced_1)</span>
-<span id="cb6-45"><a href=""></a>(clear TomatoSliced_1)</span>
-<span id="cb6-46"><a href=""></a>(ontable TomatoSliced_1)</span>
-<span id="cb6-47"><a href=""></a>(temperature TomatoSliced_1 RoomTemp)</span>
-<span id="cb6-48"><a href=""></a>(mass TomatoSliced_1 0.3)</span>
-<span id="cb6-49"><a href=""></a>(material TomatoSliced_1 Organic)</span>
-<span id="cb6-50"><a href=""></a>(object TomatoSliced_2)</span>
-<span id="cb6-51"><a href=""></a>(receptacle TomatoSliced_2)</span>
-<span id="cb6-52"><a href=""></a>(clear TomatoSliced_2)</span>
-<span id="cb6-53"><a href=""></a>(tomatoslice TomatoSliced_2)</span>
-<span id="cb6-54"><a href=""></a>(ontable TomatoSliced_2)</span>
-<span id="cb6-55"><a href=""></a>(temperature TomatoSliced_2 RoomTemp)</span>
-<span id="cb6-56"><a href=""></a>(mass TomatoSliced_2 0.3)</span>
-<span id="cb6-57"><a href=""></a>(material TomatoSliced_2 Organic)</span>
-<span id="cb6-58"><a href=""></a>(object TomatoSliced_3)</span>
-<span id="cb6-59"><a href=""></a>(receptacle TomatoSliced_3)</span>
-<span id="cb6-60"><a href=""></a>(tomatoslice TomatoSliced_3)</span>
-<span id="cb6-61"><a href=""></a>(clear TomatoSliced_3)</span>
-<span id="cb6-62"><a href=""></a>(ontable TomatoSliced_3)</span>
-<span id="cb6-63"><a href=""></a>(temperature TomatoSliced_3 RoomTemp)</span>
-<span id="cb6-64"><a href=""></a>(mass TomatoSliced_3 0.3)</span>
-<span id="cb6-65"><a href=""></a>(material TomatoSliced_3 Organic)</span>
-<span id="cb6-66"><a href=""></a>(object TomatoSliced_4)</span>
-<span id="cb6-67"><a href=""></a>(receptacle TomatoSliced_4)</span>
-<span id="cb6-68"><a href=""></a>(tomatoslice TomatoSliced_4)</span>
-<span id="cb6-69"><a href=""></a>(clear TomatoSliced_4)</span>
-<span id="cb6-70"><a href=""></a>(ontable TomatoSliced_4)</span>
-<span id="cb6-71"><a href=""></a>(temperature TomatoSliced_4 RoomTemp)</span>
-<span id="cb6-72"><a href=""></a>(mass TomatoSliced_4 0.3)</span>
-<span id="cb6-73"><a href=""></a>(material TomatoSliced_4 Organic)</span>
-<span id="cb6-74"><a href=""></a>(object TomatoSliced_5)</span>
-<span id="cb6-75"><a href=""></a>(receptacle TomatoSliced_5)</span>
-<span id="cb6-76"><a href=""></a>(tomatoslice TomatoSliced_5)</span>
-<span id="cb6-77"><a href=""></a>(clear TomatoSliced_5)</span>
-<span id="cb6-78"><a href=""></a>(ontable TomatoSliced_5)</span>
-<span id="cb6-79"><a href=""></a>(temperature TomatoSliced_5 RoomTemp)</span>
-<span id="cb6-80"><a href=""></a>(mass TomatoSliced_5 0.3)</span>
-<span id="cb6-81"><a href=""></a>(material TomatoSliced_5 Organic)</span>
-<span id="cb6-82"><a href=""></a>(object TomatoSliced_6)</span>
-<span id="cb6-83"><a href=""></a>(receptacle TomatoSliced_6)</span>
-<span id="cb6-84"><a href=""></a>(tomatoslice TomatoSliced_6)</span>
-<span id="cb6-85"><a href=""></a>(clear TomatoSliced_6)</span>
-<span id="cb6-86"><a href=""></a>(ontable TomatoSliced_6)</span>
-<span id="cb6-87"><a href=""></a>(temperature TomatoSliced_6 RoomTemp)</span>
-<span id="cb6-88"><a href=""></a>(mass TomatoSliced_6 0.3)</span>
-<span id="cb6-89"><a href=""></a>(material TomatoSliced_6 Organic)</span>
-<span id="cb6-90"><a href=""></a>(object TomatoSliced_7)</span>
-<span id="cb6-91"><a href=""></a>(receptacle TomatoSliced_7)</span>
-<span id="cb6-92"><a href=""></a>(tomatoslice TomatoSliced_7)</span>
-<span id="cb6-93"><a href=""></a>(clear TomatoSliced_7)</span>
-<span id="cb6-94"><a href=""></a>(ontable TomatoSliced_7)</span>
-<span id="cb6-95"><a href=""></a>(temperature TomatoSliced_7 RoomTemp)</span>
-<span id="cb6-96"><a href=""></a>(mass TomatoSliced_7 0.3)</span>
-<span id="cb6-97"><a href=""></a>(material TomatoSliced_7 Organic)</span>
-<span id="cb6-98"><a href=""></a>(object TomatoSliced_8)</span>
-<span id="cb6-99"><a href=""></a>(receptacle TomatoSliced_8)</span>
-<span id="cb6-100"><a href=""></a>(tomatoslice TomatoSliced_8)</span>
-<span id="cb6-101"><a href=""></a>(clear TomatoSliced_8)</span>
-<span id="cb6-102"><a href=""></a>(ontable TomatoSliced_8)</span>
-<span id="cb6-103"><a href=""></a>(temperature TomatoSliced_8 RoomTemp)</span>
-<span id="cb6-104"><a href=""></a>(mass TomatoSliced_8 0.3)</span>
-<span id="cb6-105"><a href=""></a>(material TomatoSliced_8 Organic)</span>
-<span id="cb6-106"><a href=""></a>(object TomatoSliced_9)</span>
-<span id="cb6-107"><a href=""></a>(receptacle TomatoSliced_9)</span>
-<span id="cb6-108"><a href=""></a>(tomatoslice TomatoSliced_9)</span>
-<span id="cb6-109"><a href=""></a>(clear TomatoSliced_9)</span>
-<span id="cb6-110"><a href=""></a>(ontable TomatoSliced_9)</span>
-<span id="cb6-111"><a href=""></a>(temperature TomatoSliced_9 RoomTemp)</span>
-<span id="cb6-112"><a href=""></a>(mass TomatoSliced_9 0.3)</span>
-<span id="cb6-113"><a href=""></a>(material TomatoSliced_9 Organic)</span>
-<span id="cb6-114"><a href=""></a>(object TomatoSliced_10)</span>
-<span id="cb6-115"><a href=""></a>(receptacle TomatoSliced_10)</span>
-<span id="cb6-116"><a href=""></a>(tomatoslice TomatoSliced_10)</span>
-<span id="cb6-117"><a href=""></a>(clear TomatoSliced_10)</span>
-<span id="cb6-118"><a href=""></a>(ontable TomatoSliced_10)</span>
-<span id="cb6-119"><a href=""></a>(temperature TomatoSliced_10 RoomTemp)</span>
-<span id="cb6-120"><a href=""></a>(mass TomatoSliced_10 0.3)</span>
-<span id="cb6-121"><a href=""></a>(material TomatoSliced_10 Organic)</span>
-<span id="cb6-122"><a href=""></a>(object Plate_1)</span>
-<span id="cb6-123"><a href=""></a>(receptacle Plate_1)</span>
-<span id="cb6-124"><a href=""></a>(plate Plate_1)</span>
-<span id="cb6-125"><a href=""></a>(clear Plate_1)</span>
-<span id="cb6-126"><a href=""></a>(ontable Plate_1)</span>
-<span id="cb6-127"><a href=""></a>(temperature Plate_1 RoomTemp)</span>
-<span id="cb6-128"><a href=""></a>(mass Plate_1 0.4)</span>
-<span id="cb6-129"><a href=""></a>(material Plate_1 Ceramic)</span>
-<span id="cb6-130"><a href=""></a>(object Plate_2)</span>
-<span id="cb6-131"><a href=""></a>(receptacle Plate_2)</span>
-<span id="cb6-132"><a href=""></a>(plate Plate_2)</span>
-<span id="cb6-133"><a href=""></a>(clear Plate_2)</span>
-<span id="cb6-134"><a href=""></a>(ontable Plate_2)</span>
-<span id="cb6-135"><a href=""></a>(temperature Plate_2 RoomTemp)</span>
-<span id="cb6-136"><a href=""></a>(mass Plate_2 0.4)</span>
-<span id="cb6-137"><a href=""></a>(material Plate_2 Ceramic)</span>
-<span id="cb6-138"><a href=""></a>(object Plate_3)</span>
-<span id="cb6-139"><a href=""></a>(receptacle Plate_3)</span>
-<span id="cb6-140"><a href=""></a>(plate Plate_3)</span>
-<span id="cb6-141"><a href=""></a>(clear Plate_3)</span>
-<span id="cb6-142"><a href=""></a>(ontable Plate_3)</span>
-<span id="cb6-143"><a href=""></a>(temperature Plate_3 RoomTemp)</span>
-<span id="cb6-144"><a href=""></a>(mass Plate_3 0.4)</span>
-<span id="cb6-145"><a href=""></a>(material Plate_3 Ceramic)</span>
-<span id="cb6-146"><a href=""></a>(object Knife_1)</span>
-<span id="cb6-147"><a href=""></a>(knife Knife_1)</span>
-<span id="cb6-148"><a href=""></a>(clear Knife_1)</span>
-<span id="cb6-149"><a href=""></a>(ontable Knife_1)</span>
-<span id="cb6-150"><a href=""></a>(temperature Knife_1 RoomTemp)</span>
-<span id="cb6-151"><a href=""></a>(mass Knife_1 0.5)</span>
-<span id="cb6-152"><a href=""></a>(material Knife_1 Metal)</span>
-<span id="cb6-153"><a href=""></a>(object BreadSliced_1)</span>
-<span id="cb6-154"><a href=""></a>(receptacle BreadSliced_1)</span>
-<span id="cb6-155"><a href=""></a>(breadslice BreadSliced_1)</span>
-<span id="cb6-156"><a href=""></a>(clear BreadSliced_1)</span>
-<span id="cb6-157"><a href=""></a>(ontable BreadSliced_1)</span>
-<span id="cb6-158"><a href=""></a>(temperature BreadSliced_1 RoomTemp)</span>
-<span id="cb6-159"><a href=""></a>(mass BreadSliced_1 0.1)</span>
-<span id="cb6-160"><a href=""></a>(material BreadSliced_1 Organic)</span>
-<span id="cb6-161"><a href=""></a>(object BreadSliced_2)</span>
-<span id="cb6-162"><a href=""></a>(receptacle BreadSliced_2)</span>
-<span id="cb6-163"><a href=""></a>(breadslice BreadSliced_2)</span>
-<span id="cb6-164"><a href=""></a>(clear BreadSliced_2)</span>
-<span id="cb6-165"><a href=""></a>(ontable BreadSliced_2)</span>
-<span id="cb6-166"><a href=""></a>(temperature BreadSliced_2 RoomTemp)</span>
-<span id="cb6-167"><a href=""></a>(mass BreadSliced_2 0.1)</span>
-<span id="cb6-168"><a href=""></a>(material BreadSliced_2 Organic)</span>
-<span id="cb6-169"><a href=""></a>(object BreadSliced_3)</span>
-<span id="cb6-170"><a href=""></a>(receptacle BreadSliced_3)</span>
-<span id="cb6-171"><a href=""></a>(breadslice BreadSliced_3)</span>
-<span id="cb6-172"><a href=""></a>(clear BreadSliced_3)</span>
-<span id="cb6-173"><a href=""></a>(ontable BreadSliced_3)</span>
-<span id="cb6-174"><a href=""></a>(temperature BreadSliced_3 RoomTemp)</span>
-<span id="cb6-175"><a href=""></a>(mass BreadSliced_3 0.1)</span>
-<span id="cb6-176"><a href=""></a>(material BreadSliced_3 Organic)</span>
-<span id="cb6-177"><a href=""></a>(object BreadSliced_4)</span>
-<span id="cb6-178"><a href=""></a>(receptacle BreadSliced_4)</span>
-<span id="cb6-179"><a href=""></a>(breadslice BreadSliced_4)</span>
-<span id="cb6-180"><a href=""></a>(clear BreadSliced_4)</span>
-<span id="cb6-181"><a href=""></a>(ontable BreadSliced_4)</span>
-<span id="cb6-182"><a href=""></a>(temperature BreadSliced_4 RoomTemp)</span>
-<span id="cb6-183"><a href=""></a>(mass BreadSliced_4 0.1)</span>
-<span id="cb6-184"><a href=""></a>(material BreadSliced_4 Organic)</span>
-<span id="cb6-185"><a href=""></a>(object BreadSliced_5)</span>
-<span id="cb6-186"><a href=""></a>(receptacle BreadSliced_5)</span>
-<span id="cb6-187"><a href=""></a>(breadslice BreadSliced_5)</span>
-<span id="cb6-188"><a href=""></a>(clear BreadSliced_5)</span>
-<span id="cb6-189"><a href=""></a>(ontable BreadSliced_5)</span>
-<span id="cb6-190"><a href=""></a>(temperature BreadSliced_5 RoomTemp)</span>
-<span id="cb6-191"><a href=""></a>(mass BreadSliced_5 0.1)</span>
-<span id="cb6-192"><a href=""></a>(material BreadSliced_5 Organic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6" style="height:200px" data-code-line-numbers="|4|4,6"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb6-1"><a href=""></a>(object LettuceSliced_1)</span>
+<span id="cb6-2"><a href=""></a>(receptacle LettuceSliced_1)</span>
+<span id="cb6-3"><a href=""></a>(lettuceslice LettuceSliced_1)</span>
+<span id="cb6-4"><a href=""></a>(clear LettuceSliced_1)</span>
+<span id="cb6-5"><a href=""></a>(ontable LettuceSliced_1)</span>
+<span id="cb6-6"><a href=""></a>(holding BreadSliced_1)</span>
+<span id="cb6-7"><a href=""></a>(object BreadSliced_1)</span>
+<span id="cb6-8"><a href=""></a>(receptacle BreadSliced_1)</span>
+<span id="cb6-9"><a href=""></a>(breadslice BreadSliced_1)</span>
+<span id="cb6-10"><a href=""></a>(clear BreadSliced_1)</span>
+<span id="cb6-11"><a href=""></a>(ontable BreadSliced_1)</span>
+<span id="cb6-12"><a href=""></a>(temperature BreadSliced_1 RoomTemp)</span>
+<span id="cb6-13"><a href=""></a>(mass BreadSliced_1 0.1)</span>
+<span id="cb6-14"><a href=""></a>(material BreadSliced_1 Organic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1025,6 +850,9 @@ Follow along! -->
 (object E) (tomatoslice A) (lettucesliced B) 
 (breadsliced C) (breadsliced D) (plate E)
 (on C E) (on B C) (on A B) (on D A)</code></pre>
+<div style="text-align: left; font-size: 75%">
+<p>Based on PDDL <span class="citation" data-cites="Knoblock1998">(<a href="#/references" role="doc-biblioref" onclick="">Knoblock et al. 1998</a>)</span></p>
+</div>
 </div><div class="column" style="width:60%;">
 <p><em>Predicates</em></p>
 <div class="sourceCode" id="cb8" style="height:130px"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb8-1"><a href=""></a>(object ?x)</span>
@@ -1035,210 +863,37 @@ Follow along! -->
 <span id="cb8-6"><a href=""></a>(breadslice ?x)</span>
 <span id="cb8-7"><a href=""></a>(plate ?x)</span>
 <span id="cb8-8"><a href=""></a>(knife ?x)</span>
-<span id="cb8-9"><a href=""></a>(ispartof ?x ?y)</span>
-<span id="cb8-10"><a href=""></a>(holding ?x)</span>
-<span id="cb8-11"><a href=""></a>(arm-empty)</span>
-<span id="cb8-12"><a href=""></a>(clear ?x)</span>
-<span id="cb8-13"><a href=""></a>(ontable ?x)</span>
-<span id="cb8-14"><a href=""></a>(on ?x ?y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em><code>Pickup</code> Action</em></p>
-<div class="sourceCode" id="cb9" data-code-line-numbers="4,5"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>(:action pickup</span>
-<span id="cb9-2"><a href=""></a>  :parameters (?ob)</span>
-<span id="cb9-3"><a href=""></a>  :precondition (and (object ?ob) (clear ?ob) (ontable ?ob) (arm-empty))</span>
-<span id="cb9-4"><a href=""></a>  :effect (and (holding ?ob) (not (clear ?ob)) (not (ontable ?ob) </span>
-<span id="cb9-5"><a href=""></a>            (not (arm-empty))))</span>
-<span id="cb9-6"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em>World State</em> <!-- code-line-numbers="|1|1,4|1,4-5|9,12-13|17,20-21|152,155-156" --></p>
-<div class="sourceCode" id="cb10" style="height:200px" data-code-line-numbers="1|2,4"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>(holding LettuceSliced_1)</span>
-<span id="cb10-2"><a href=""></a>(object LettuceSliced_1)</span>
-<span id="cb10-3"><a href=""></a>(receptacle LettuceSliced_1)</span>
-<span id="cb10-4"><a href=""></a>(lettuceslice LettuceSliced_1)</span>
-<span id="cb10-5"><a href=""></a>(temperature LettuceSliced_1 RoomTemp)</span>
-<span id="cb10-6"><a href=""></a>(mass LettuceSliced_1 0.2)</span>
-<span id="cb10-7"><a href=""></a>(material LettuceSliced_1 Organic)</span>
-<span id="cb10-8"><a href=""></a>(object LettuceSliced_2)</span>
-<span id="cb10-9"><a href=""></a>(receptacle LettuceSliced_2)</span>
-<span id="cb10-10"><a href=""></a>(lettuceslice LettuceSliced_2)</span>
-<span id="cb10-11"><a href=""></a>(clear LettuceSliced_2)</span>
-<span id="cb10-12"><a href=""></a>(ontable LettuceSliced_2)</span>
-<span id="cb10-13"><a href=""></a>(temperature LettuceSliced_2 RoomTemp)</span>
-<span id="cb10-14"><a href=""></a>(mass LettuceSliced_2 0.2)</span>
-<span id="cb10-15"><a href=""></a>(material LettuceSliced_2 Organic)</span>
-<span id="cb10-16"><a href=""></a>(object LettuceSliced_3)</span>
-<span id="cb10-17"><a href=""></a>(receptacle LettuceSliced_3)</span>
-<span id="cb10-18"><a href=""></a>(lettuceslice LettuceSliced_3)</span>
-<span id="cb10-19"><a href=""></a>(clear LettuceSliced_3)</span>
-<span id="cb10-20"><a href=""></a>(ontable LettuceSliced_3)</span>
-<span id="cb10-21"><a href=""></a>(temperature LettuceSliced_3 RoomTemp)</span>
-<span id="cb10-22"><a href=""></a>(mass LettuceSliced_3 0.2)</span>
-<span id="cb10-23"><a href=""></a>(material LettuceSliced_3 Organic)</span>
-<span id="cb10-24"><a href=""></a>(object LettuceSliced_4)</span>
-<span id="cb10-25"><a href=""></a>(receptacle LettuceSliced_4)</span>
-<span id="cb10-26"><a href=""></a>(lettuceslice LettuceSliced_4)</span>
-<span id="cb10-27"><a href=""></a>(clear LettuceSliced_4)</span>
-<span id="cb10-28"><a href=""></a>(ontable LettuceSliced_4)</span>
-<span id="cb10-29"><a href=""></a>(temperature LettuceSliced_4 RoomTemp)</span>
-<span id="cb10-30"><a href=""></a>(mass LettuceSliced_4 0.2)</span>
-<span id="cb10-31"><a href=""></a>(material LettuceSliced_4 Organic)</span>
-<span id="cb10-32"><a href=""></a>(object LettuceSliced_5)</span>
-<span id="cb10-33"><a href=""></a>(receptacle LettuceSliced_5)</span>
-<span id="cb10-34"><a href=""></a>(lettuceslice LettuceSliced_5)</span>
-<span id="cb10-35"><a href=""></a>(clear LettuceSliced_5)</span>
-<span id="cb10-36"><a href=""></a>(ontable LettuceSliced_5)</span>
-<span id="cb10-37"><a href=""></a>(temperature LettuceSliced_5 RoomTemp)</span>
-<span id="cb10-38"><a href=""></a>(mass LettuceSliced_5 0.2)</span>
-<span id="cb10-39"><a href=""></a>(material LettuceSliced_5 Organic)</span>
-<span id="cb10-40"><a href=""></a>(object TomatoSliced_1)</span>
-<span id="cb10-41"><a href=""></a>(receptacle TomatoSliced_1)</span>
-<span id="cb10-42"><a href=""></a>(tomatoslice TomatoSliced_1)</span>
-<span id="cb10-43"><a href=""></a>(clear TomatoSliced_1)</span>
-<span id="cb10-44"><a href=""></a>(ontable TomatoSliced_1)</span>
-<span id="cb10-45"><a href=""></a>(temperature TomatoSliced_1 RoomTemp)</span>
-<span id="cb10-46"><a href=""></a>(mass TomatoSliced_1 0.3)</span>
-<span id="cb10-47"><a href=""></a>(material TomatoSliced_1 Organic)</span>
-<span id="cb10-48"><a href=""></a>(object TomatoSliced_2)</span>
-<span id="cb10-49"><a href=""></a>(receptacle TomatoSliced_2)</span>
-<span id="cb10-50"><a href=""></a>(clear TomatoSliced_2)</span>
-<span id="cb10-51"><a href=""></a>(tomatoslice TomatoSliced_2)</span>
-<span id="cb10-52"><a href=""></a>(ontable TomatoSliced_2)</span>
-<span id="cb10-53"><a href=""></a>(temperature TomatoSliced_2 RoomTemp)</span>
-<span id="cb10-54"><a href=""></a>(mass TomatoSliced_2 0.3)</span>
-<span id="cb10-55"><a href=""></a>(material TomatoSliced_2 Organic)</span>
-<span id="cb10-56"><a href=""></a>(object TomatoSliced_3)</span>
-<span id="cb10-57"><a href=""></a>(receptacle TomatoSliced_3)</span>
-<span id="cb10-58"><a href=""></a>(tomatoslice TomatoSliced_3)</span>
-<span id="cb10-59"><a href=""></a>(clear TomatoSliced_3)</span>
-<span id="cb10-60"><a href=""></a>(ontable TomatoSliced_3)</span>
-<span id="cb10-61"><a href=""></a>(temperature TomatoSliced_3 RoomTemp)</span>
-<span id="cb10-62"><a href=""></a>(mass TomatoSliced_3 0.3)</span>
-<span id="cb10-63"><a href=""></a>(material TomatoSliced_3 Organic)</span>
-<span id="cb10-64"><a href=""></a>(object TomatoSliced_4)</span>
-<span id="cb10-65"><a href=""></a>(receptacle TomatoSliced_4)</span>
-<span id="cb10-66"><a href=""></a>(tomatoslice TomatoSliced_4)</span>
-<span id="cb10-67"><a href=""></a>(clear TomatoSliced_4)</span>
-<span id="cb10-68"><a href=""></a>(ontable TomatoSliced_4)</span>
-<span id="cb10-69"><a href=""></a>(temperature TomatoSliced_4 RoomTemp)</span>
-<span id="cb10-70"><a href=""></a>(mass TomatoSliced_4 0.3)</span>
-<span id="cb10-71"><a href=""></a>(material TomatoSliced_4 Organic)</span>
-<span id="cb10-72"><a href=""></a>(object TomatoSliced_5)</span>
-<span id="cb10-73"><a href=""></a>(receptacle TomatoSliced_5)</span>
-<span id="cb10-74"><a href=""></a>(tomatoslice TomatoSliced_5)</span>
-<span id="cb10-75"><a href=""></a>(clear TomatoSliced_5)</span>
-<span id="cb10-76"><a href=""></a>(ontable TomatoSliced_5)</span>
-<span id="cb10-77"><a href=""></a>(temperature TomatoSliced_5 RoomTemp)</span>
-<span id="cb10-78"><a href=""></a>(mass TomatoSliced_5 0.3)</span>
-<span id="cb10-79"><a href=""></a>(material TomatoSliced_5 Organic)</span>
-<span id="cb10-80"><a href=""></a>(object TomatoSliced_6)</span>
-<span id="cb10-81"><a href=""></a>(receptacle TomatoSliced_6)</span>
-<span id="cb10-82"><a href=""></a>(tomatoslice TomatoSliced_6)</span>
-<span id="cb10-83"><a href=""></a>(clear TomatoSliced_6)</span>
-<span id="cb10-84"><a href=""></a>(ontable TomatoSliced_6)</span>
-<span id="cb10-85"><a href=""></a>(temperature TomatoSliced_6 RoomTemp)</span>
-<span id="cb10-86"><a href=""></a>(mass TomatoSliced_6 0.3)</span>
-<span id="cb10-87"><a href=""></a>(material TomatoSliced_6 Organic)</span>
-<span id="cb10-88"><a href=""></a>(object TomatoSliced_7)</span>
-<span id="cb10-89"><a href=""></a>(receptacle TomatoSliced_7)</span>
-<span id="cb10-90"><a href=""></a>(tomatoslice TomatoSliced_7)</span>
-<span id="cb10-91"><a href=""></a>(clear TomatoSliced_7)</span>
-<span id="cb10-92"><a href=""></a>(ontable TomatoSliced_7)</span>
-<span id="cb10-93"><a href=""></a>(temperature TomatoSliced_7 RoomTemp)</span>
-<span id="cb10-94"><a href=""></a>(mass TomatoSliced_7 0.3)</span>
-<span id="cb10-95"><a href=""></a>(material TomatoSliced_7 Organic)</span>
-<span id="cb10-96"><a href=""></a>(object TomatoSliced_8)</span>
-<span id="cb10-97"><a href=""></a>(receptacle TomatoSliced_8)</span>
-<span id="cb10-98"><a href=""></a>(tomatoslice TomatoSliced_8)</span>
-<span id="cb10-99"><a href=""></a>(clear TomatoSliced_8)</span>
-<span id="cb10-100"><a href=""></a>(ontable TomatoSliced_8)</span>
-<span id="cb10-101"><a href=""></a>(temperature TomatoSliced_8 RoomTemp)</span>
-<span id="cb10-102"><a href=""></a>(mass TomatoSliced_8 0.3)</span>
-<span id="cb10-103"><a href=""></a>(material TomatoSliced_8 Organic)</span>
-<span id="cb10-104"><a href=""></a>(object TomatoSliced_9)</span>
-<span id="cb10-105"><a href=""></a>(receptacle TomatoSliced_9)</span>
-<span id="cb10-106"><a href=""></a>(tomatoslice TomatoSliced_9)</span>
-<span id="cb10-107"><a href=""></a>(clear TomatoSliced_9)</span>
-<span id="cb10-108"><a href=""></a>(ontable TomatoSliced_9)</span>
-<span id="cb10-109"><a href=""></a>(temperature TomatoSliced_9 RoomTemp)</span>
-<span id="cb10-110"><a href=""></a>(mass TomatoSliced_9 0.3)</span>
-<span id="cb10-111"><a href=""></a>(material TomatoSliced_9 Organic)</span>
-<span id="cb10-112"><a href=""></a>(object TomatoSliced_10)</span>
-<span id="cb10-113"><a href=""></a>(receptacle TomatoSliced_10)</span>
-<span id="cb10-114"><a href=""></a>(tomatoslice TomatoSliced_10)</span>
-<span id="cb10-115"><a href=""></a>(clear TomatoSliced_10)</span>
-<span id="cb10-116"><a href=""></a>(ontable TomatoSliced_10)</span>
-<span id="cb10-117"><a href=""></a>(temperature TomatoSliced_10 RoomTemp)</span>
-<span id="cb10-118"><a href=""></a>(mass TomatoSliced_10 0.3)</span>
-<span id="cb10-119"><a href=""></a>(material TomatoSliced_10 Organic)</span>
-<span id="cb10-120"><a href=""></a>(object Plate_1)</span>
-<span id="cb10-121"><a href=""></a>(receptacle Plate_1)</span>
-<span id="cb10-122"><a href=""></a>(plate Plate_1)</span>
-<span id="cb10-123"><a href=""></a>(clear Plate_1)</span>
-<span id="cb10-124"><a href=""></a>(ontable Plate_1)</span>
-<span id="cb10-125"><a href=""></a>(temperature Plate_1 RoomTemp)</span>
-<span id="cb10-126"><a href=""></a>(mass Plate_1 0.4)</span>
-<span id="cb10-127"><a href=""></a>(material Plate_1 Ceramic)</span>
-<span id="cb10-128"><a href=""></a>(object Plate_2)</span>
-<span id="cb10-129"><a href=""></a>(receptacle Plate_2)</span>
-<span id="cb10-130"><a href=""></a>(plate Plate_2)</span>
-<span id="cb10-131"><a href=""></a>(clear Plate_2)</span>
-<span id="cb10-132"><a href=""></a>(ontable Plate_2)</span>
-<span id="cb10-133"><a href=""></a>(temperature Plate_2 RoomTemp)</span>
-<span id="cb10-134"><a href=""></a>(mass Plate_2 0.4)</span>
-<span id="cb10-135"><a href=""></a>(material Plate_2 Ceramic)</span>
-<span id="cb10-136"><a href=""></a>(object Plate_3)</span>
-<span id="cb10-137"><a href=""></a>(receptacle Plate_3)</span>
-<span id="cb10-138"><a href=""></a>(plate Plate_3)</span>
-<span id="cb10-139"><a href=""></a>(clear Plate_3)</span>
-<span id="cb10-140"><a href=""></a>(ontable Plate_3)</span>
-<span id="cb10-141"><a href=""></a>(temperature Plate_3 RoomTemp)</span>
-<span id="cb10-142"><a href=""></a>(mass Plate_3 0.4)</span>
-<span id="cb10-143"><a href=""></a>(material Plate_3 Ceramic)</span>
-<span id="cb10-144"><a href=""></a>(object Knife_1)</span>
-<span id="cb10-145"><a href=""></a>(knife Knife_1)</span>
-<span id="cb10-146"><a href=""></a>(clear Knife_1)</span>
-<span id="cb10-147"><a href=""></a>(ontable Knife_1)</span>
-<span id="cb10-148"><a href=""></a>(temperature Knife_1 RoomTemp)</span>
-<span id="cb10-149"><a href=""></a>(mass Knife_1 0.5)</span>
-<span id="cb10-150"><a href=""></a>(material Knife_1 Metal)</span>
-<span id="cb10-151"><a href=""></a>(object BreadSliced_1)</span>
-<span id="cb10-152"><a href=""></a>(receptacle BreadSliced_1)</span>
-<span id="cb10-153"><a href=""></a>(breadslice BreadSliced_1)</span>
-<span id="cb10-154"><a href=""></a>(clear BreadSliced_1)</span>
-<span id="cb10-155"><a href=""></a>(ontable BreadSliced_1)</span>
-<span id="cb10-156"><a href=""></a>(temperature BreadSliced_1 RoomTemp)</span>
-<span id="cb10-157"><a href=""></a>(mass BreadSliced_1 0.1)</span>
-<span id="cb10-158"><a href=""></a>(material BreadSliced_1 Organic)</span>
-<span id="cb10-159"><a href=""></a>(object BreadSliced_2)</span>
-<span id="cb10-160"><a href=""></a>(receptacle BreadSliced_2)</span>
-<span id="cb10-161"><a href=""></a>(breadslice BreadSliced_2)</span>
-<span id="cb10-162"><a href=""></a>(clear BreadSliced_2)</span>
-<span id="cb10-163"><a href=""></a>(ontable BreadSliced_2)</span>
-<span id="cb10-164"><a href=""></a>(temperature BreadSliced_2 RoomTemp)</span>
-<span id="cb10-165"><a href=""></a>(mass BreadSliced_2 0.1)</span>
-<span id="cb10-166"><a href=""></a>(material BreadSliced_2 Organic)</span>
-<span id="cb10-167"><a href=""></a>(object BreadSliced_3)</span>
-<span id="cb10-168"><a href=""></a>(receptacle BreadSliced_3)</span>
-<span id="cb10-169"><a href=""></a>(breadslice BreadSliced_3)</span>
-<span id="cb10-170"><a href=""></a>(clear BreadSliced_3)</span>
-<span id="cb10-171"><a href=""></a>(ontable BreadSliced_3)</span>
-<span id="cb10-172"><a href=""></a>(temperature BreadSliced_3 RoomTemp)</span>
-<span id="cb10-173"><a href=""></a>(mass BreadSliced_3 0.1)</span>
-<span id="cb10-174"><a href=""></a>(material BreadSliced_3 Organic)</span>
-<span id="cb10-175"><a href=""></a>(object BreadSliced_4)</span>
-<span id="cb10-176"><a href=""></a>(receptacle BreadSliced_4)</span>
-<span id="cb10-177"><a href=""></a>(breadslice BreadSliced_4)</span>
-<span id="cb10-178"><a href=""></a>(clear BreadSliced_4)</span>
-<span id="cb10-179"><a href=""></a>(ontable BreadSliced_4)</span>
-<span id="cb10-180"><a href=""></a>(temperature BreadSliced_4 RoomTemp)</span>
-<span id="cb10-181"><a href=""></a>(mass BreadSliced_4 0.1)</span>
-<span id="cb10-182"><a href=""></a>(material BreadSliced_4 Organic)</span>
-<span id="cb10-183"><a href=""></a>(object BreadSliced_5)</span>
-<span id="cb10-184"><a href=""></a>(receptacle BreadSliced_5)</span>
-<span id="cb10-185"><a href=""></a>(breadslice BreadSliced_5)</span>
-<span id="cb10-186"><a href=""></a>(clear BreadSliced_5)</span>
-<span id="cb10-187"><a href=""></a>(ontable BreadSliced_5)</span>
-<span id="cb10-188"><a href=""></a>(temperature BreadSliced_5 RoomTemp)</span>
-<span id="cb10-189"><a href=""></a>(mass BreadSliced_5 0.1)</span>
-<span id="cb10-190"><a href=""></a>(material BreadSliced_5 Organic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-9"><a href=""></a>(temperature ?x ?y)</span>
+<span id="cb8-10"><a href=""></a>(mass ?x ?y)</span>
+<span id="cb8-11"><a href=""></a>(material ?x ?y)</span>
+<span id="cb8-12"><a href=""></a>(ispartof ?x ?y)</span>
+<span id="cb8-13"><a href=""></a>(holding ?x)</span>
+<span id="cb8-14"><a href=""></a>(arm-empty)</span>
+<span id="cb8-15"><a href=""></a>(clear ?x)</span>
+<span id="cb8-16"><a href=""></a>(ontable ?x)</span>
+<span id="cb8-17"><a href=""></a>(on ?x ?y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em><code>Stack</code> Action</em></p>
+<div class="sourceCode" id="cb9" data-code-line-numbers="4,5|"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb9-1"><a href=""></a>(:action stack</span>
+<span id="cb9-2"><a href=""></a>  :parameters  (?ob ?underob)</span>
+<span id="cb9-3"><a href=""></a>  :precondition (and  (clear ?underob) (holding ?ob))</span>
+<span id="cb9-4"><a href=""></a>  :effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)</span>
+<span id="cb9-5"><a href=""></a>               (not (clear ?underob)) (not (holding ?ob))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em>World State</em> <!-- ```{.pddl style="height:200px" code-line-numbers="|4|12|20|155|139,151"} --></p>
+<div class="sourceCode" id="cb10" style="height:200px" data-code-line-numbers="6,7,11|1,3,7,10"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb10-1"><a href=""></a>(object LettuceSliced_1)</span>
+<span id="cb10-2"><a href=""></a>(receptacle LettuceSliced_1)</span>
+<span id="cb10-3"><a href=""></a>(lettuceslice LettuceSliced_1)</span>
+<span id="cb10-4"><a href=""></a>(clear LettuceSliced_1)</span>
+<span id="cb10-5"><a href=""></a>(ontable LettuceSliced_1)</span>
+<span id="cb10-6"><a href=""></a>(arm-empty)</span>
+<span id="cb10-7"><a href=""></a>(on BreadSliced_1 LettuceSliced_1)</span>
+<span id="cb10-8"><a href=""></a>(object BreadSliced_1)</span>
+<span id="cb10-9"><a href=""></a>(receptacle BreadSliced_1)</span>
+<span id="cb10-10"><a href=""></a>(breadslice BreadSliced_1)</span>
+<span id="cb10-11"><a href=""></a>(clear BreadSliced_1)</span>
+<span id="cb10-12"><a href=""></a>(ontable BreadSliced_1)</span>
+<span id="cb10-13"><a href=""></a>(temperature BreadSliced_1 RoomTemp)</span>
+<span id="cb10-14"><a href=""></a>(mass BreadSliced_1 0.1)</span>
+<span id="cb10-15"><a href=""></a>(material BreadSliced_1 Organic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
@@ -1258,6 +913,9 @@ Follow along! -->
 (object E) (tomatoslice A) (lettucesliced B) 
 (breadsliced C) (breadsliced D) (plate E)
 (on C E) (on B C) (on A B) (on D A)</code></pre>
+<div style="text-align: left; font-size: 75%">
+<p>Based on PDDL <span class="citation" data-cites="Knoblock1998">(<a href="#/references" role="doc-biblioref" onclick="">Knoblock et al. 1998</a>)</span></p>
+</div>
 </div><div class="column" style="width:60%;">
 <p><em>Predicates</em></p>
 <div class="sourceCode" id="cb12" style="height:130px"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb12-1"><a href=""></a>(object ?x)</span>
@@ -1268,211 +926,38 @@ Follow along! -->
 <span id="cb12-6"><a href=""></a>(breadslice ?x)</span>
 <span id="cb12-7"><a href=""></a>(plate ?x)</span>
 <span id="cb12-8"><a href=""></a>(knife ?x)</span>
-<span id="cb12-9"><a href=""></a>(ispartof ?x ?y)</span>
-<span id="cb12-10"><a href=""></a>(holding ?x)</span>
-<span id="cb12-11"><a href=""></a>(arm-empty)</span>
-<span id="cb12-12"><a href=""></a>(clear ?x)</span>
-<span id="cb12-13"><a href=""></a>(ontable ?x)</span>
-<span id="cb12-14"><a href=""></a>(on ?x ?y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><em><code>Pickup</code> Action</em></p>
-<div class="sourceCode" id="cb13" data-code-line-numbers="4,5"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>(:action pickup</span>
-<span id="cb13-2"><a href=""></a>  :parameters (?ob)</span>
-<span id="cb13-3"><a href=""></a>  :precondition (and (object ?ob) (clear ?ob) (ontable ?ob) (arm-empty))</span>
-<span id="cb13-4"><a href=""></a>  :effect (and (holding ?ob) (not (clear ?ob)) (not (ontable ?ob) </span>
-<span id="cb13-5"><a href=""></a>            (not (arm-empty))))</span>
-<span id="cb13-6"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-9"><a href=""></a>(temperature ?x ?y)</span>
+<span id="cb12-10"><a href=""></a>(mass ?x ?y)</span>
+<span id="cb12-11"><a href=""></a>(material ?x ?y)</span>
+<span id="cb12-12"><a href=""></a>(ispartof ?x ?y)</span>
+<span id="cb12-13"><a href=""></a>(holding ?x)</span>
+<span id="cb12-14"><a href=""></a>(arm-empty)</span>
+<span id="cb12-15"><a href=""></a>(clear ?x)</span>
+<span id="cb12-16"><a href=""></a>(ontable ?x)</span>
+<span id="cb12-17"><a href=""></a>(on ?x ?y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><em><code>Stack</code> Action</em></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb13-1"><a href=""></a>(:action stack</span>
+<span id="cb13-2"><a href=""></a>  :parameters  (?ob ?underob)</span>
+<span id="cb13-3"><a href=""></a>  :precondition (and  (clear ?underob) (holding ?ob))</span>
+<span id="cb13-4"><a href=""></a>  :effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)</span>
+<span id="cb13-5"><a href=""></a>               (not (clear ?underob)) (not (holding ?ob))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><em>World State</em> <!-- code-line-numbers="|1|1,4|1,4-5|9,12-13|17,20-21|152,155-156" --></p>
-<div class="sourceCode" id="cb14" style="height:200px" data-code-line-numbers="2,4,5"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href=""></a>(holding LettuceSliced_1)</span>
-<span id="cb14-2"><a href=""></a>(object LettuceSliced_1)</span>
-<span id="cb14-3"><a href=""></a>(receptacle LettuceSliced_1)</span>
-<span id="cb14-4"><a href=""></a>(lettuceslice LettuceSliced_1)</span>
-<span id="cb14-5"><a href=""></a>(tomatoslice LettuceSliced_1)</span>
-<span id="cb14-6"><a href=""></a>(temperature LettuceSliced_1 RoomTemp)</span>
-<span id="cb14-7"><a href=""></a>(mass LettuceSliced_1 0.2)</span>
-<span id="cb14-8"><a href=""></a>(material LettuceSliced_1 Organic)</span>
-<span id="cb14-9"><a href=""></a>(object LettuceSliced_2)</span>
-<span id="cb14-10"><a href=""></a>(receptacle LettuceSliced_2)</span>
-<span id="cb14-11"><a href=""></a>(lettuceslice LettuceSliced_2)</span>
-<span id="cb14-12"><a href=""></a>(clear LettuceSliced_2)</span>
-<span id="cb14-13"><a href=""></a>(ontable LettuceSliced_2)</span>
-<span id="cb14-14"><a href=""></a>(temperature LettuceSliced_2 RoomTemp)</span>
-<span id="cb14-15"><a href=""></a>(mass LettuceSliced_2 0.2)</span>
-<span id="cb14-16"><a href=""></a>(material LettuceSliced_2 Organic)</span>
-<span id="cb14-17"><a href=""></a>(object LettuceSliced_3)</span>
-<span id="cb14-18"><a href=""></a>(receptacle LettuceSliced_3)</span>
-<span id="cb14-19"><a href=""></a>(lettuceslice LettuceSliced_3)</span>
-<span id="cb14-20"><a href=""></a>(clear LettuceSliced_3)</span>
-<span id="cb14-21"><a href=""></a>(ontable LettuceSliced_3)</span>
-<span id="cb14-22"><a href=""></a>(temperature LettuceSliced_3 RoomTemp)</span>
-<span id="cb14-23"><a href=""></a>(mass LettuceSliced_3 0.2)</span>
-<span id="cb14-24"><a href=""></a>(material LettuceSliced_3 Organic)</span>
-<span id="cb14-25"><a href=""></a>(object LettuceSliced_4)</span>
-<span id="cb14-26"><a href=""></a>(receptacle LettuceSliced_4)</span>
-<span id="cb14-27"><a href=""></a>(lettuceslice LettuceSliced_4)</span>
-<span id="cb14-28"><a href=""></a>(clear LettuceSliced_4)</span>
-<span id="cb14-29"><a href=""></a>(ontable LettuceSliced_4)</span>
-<span id="cb14-30"><a href=""></a>(temperature LettuceSliced_4 RoomTemp)</span>
-<span id="cb14-31"><a href=""></a>(mass LettuceSliced_4 0.2)</span>
-<span id="cb14-32"><a href=""></a>(material LettuceSliced_4 Organic)</span>
-<span id="cb14-33"><a href=""></a>(object LettuceSliced_5)</span>
-<span id="cb14-34"><a href=""></a>(receptacle LettuceSliced_5)</span>
-<span id="cb14-35"><a href=""></a>(lettuceslice LettuceSliced_5)</span>
-<span id="cb14-36"><a href=""></a>(clear LettuceSliced_5)</span>
-<span id="cb14-37"><a href=""></a>(ontable LettuceSliced_5)</span>
-<span id="cb14-38"><a href=""></a>(temperature LettuceSliced_5 RoomTemp)</span>
-<span id="cb14-39"><a href=""></a>(mass LettuceSliced_5 0.2)</span>
-<span id="cb14-40"><a href=""></a>(material LettuceSliced_5 Organic)</span>
-<span id="cb14-41"><a href=""></a>(object TomatoSliced_1)</span>
-<span id="cb14-42"><a href=""></a>(receptacle TomatoSliced_1)</span>
-<span id="cb14-43"><a href=""></a>(tomatoslice TomatoSliced_1)</span>
-<span id="cb14-44"><a href=""></a>(clear TomatoSliced_1)</span>
-<span id="cb14-45"><a href=""></a>(ontable TomatoSliced_1)</span>
-<span id="cb14-46"><a href=""></a>(temperature TomatoSliced_1 RoomTemp)</span>
-<span id="cb14-47"><a href=""></a>(mass TomatoSliced_1 0.3)</span>
-<span id="cb14-48"><a href=""></a>(material TomatoSliced_1 Organic)</span>
-<span id="cb14-49"><a href=""></a>(object TomatoSliced_2)</span>
-<span id="cb14-50"><a href=""></a>(receptacle TomatoSliced_2)</span>
-<span id="cb14-51"><a href=""></a>(clear TomatoSliced_2)</span>
-<span id="cb14-52"><a href=""></a>(tomatoslice TomatoSliced_2)</span>
-<span id="cb14-53"><a href=""></a>(ontable TomatoSliced_2)</span>
-<span id="cb14-54"><a href=""></a>(temperature TomatoSliced_2 RoomTemp)</span>
-<span id="cb14-55"><a href=""></a>(mass TomatoSliced_2 0.3)</span>
-<span id="cb14-56"><a href=""></a>(material TomatoSliced_2 Organic)</span>
-<span id="cb14-57"><a href=""></a>(object TomatoSliced_3)</span>
-<span id="cb14-58"><a href=""></a>(receptacle TomatoSliced_3)</span>
-<span id="cb14-59"><a href=""></a>(tomatoslice TomatoSliced_3)</span>
-<span id="cb14-60"><a href=""></a>(clear TomatoSliced_3)</span>
-<span id="cb14-61"><a href=""></a>(ontable TomatoSliced_3)</span>
-<span id="cb14-62"><a href=""></a>(temperature TomatoSliced_3 RoomTemp)</span>
-<span id="cb14-63"><a href=""></a>(mass TomatoSliced_3 0.3)</span>
-<span id="cb14-64"><a href=""></a>(material TomatoSliced_3 Organic)</span>
-<span id="cb14-65"><a href=""></a>(object TomatoSliced_4)</span>
-<span id="cb14-66"><a href=""></a>(receptacle TomatoSliced_4)</span>
-<span id="cb14-67"><a href=""></a>(tomatoslice TomatoSliced_4)</span>
-<span id="cb14-68"><a href=""></a>(clear TomatoSliced_4)</span>
-<span id="cb14-69"><a href=""></a>(ontable TomatoSliced_4)</span>
-<span id="cb14-70"><a href=""></a>(temperature TomatoSliced_4 RoomTemp)</span>
-<span id="cb14-71"><a href=""></a>(mass TomatoSliced_4 0.3)</span>
-<span id="cb14-72"><a href=""></a>(material TomatoSliced_4 Organic)</span>
-<span id="cb14-73"><a href=""></a>(object TomatoSliced_5)</span>
-<span id="cb14-74"><a href=""></a>(receptacle TomatoSliced_5)</span>
-<span id="cb14-75"><a href=""></a>(tomatoslice TomatoSliced_5)</span>
-<span id="cb14-76"><a href=""></a>(clear TomatoSliced_5)</span>
-<span id="cb14-77"><a href=""></a>(ontable TomatoSliced_5)</span>
-<span id="cb14-78"><a href=""></a>(temperature TomatoSliced_5 RoomTemp)</span>
-<span id="cb14-79"><a href=""></a>(mass TomatoSliced_5 0.3)</span>
-<span id="cb14-80"><a href=""></a>(material TomatoSliced_5 Organic)</span>
-<span id="cb14-81"><a href=""></a>(object TomatoSliced_6)</span>
-<span id="cb14-82"><a href=""></a>(receptacle TomatoSliced_6)</span>
-<span id="cb14-83"><a href=""></a>(tomatoslice TomatoSliced_6)</span>
-<span id="cb14-84"><a href=""></a>(clear TomatoSliced_6)</span>
-<span id="cb14-85"><a href=""></a>(ontable TomatoSliced_6)</span>
-<span id="cb14-86"><a href=""></a>(temperature TomatoSliced_6 RoomTemp)</span>
-<span id="cb14-87"><a href=""></a>(mass TomatoSliced_6 0.3)</span>
-<span id="cb14-88"><a href=""></a>(material TomatoSliced_6 Organic)</span>
-<span id="cb14-89"><a href=""></a>(object TomatoSliced_7)</span>
-<span id="cb14-90"><a href=""></a>(receptacle TomatoSliced_7)</span>
-<span id="cb14-91"><a href=""></a>(tomatoslice TomatoSliced_7)</span>
-<span id="cb14-92"><a href=""></a>(clear TomatoSliced_7)</span>
-<span id="cb14-93"><a href=""></a>(ontable TomatoSliced_7)</span>
-<span id="cb14-94"><a href=""></a>(temperature TomatoSliced_7 RoomTemp)</span>
-<span id="cb14-95"><a href=""></a>(mass TomatoSliced_7 0.3)</span>
-<span id="cb14-96"><a href=""></a>(material TomatoSliced_7 Organic)</span>
-<span id="cb14-97"><a href=""></a>(object TomatoSliced_8)</span>
-<span id="cb14-98"><a href=""></a>(receptacle TomatoSliced_8)</span>
-<span id="cb14-99"><a href=""></a>(tomatoslice TomatoSliced_8)</span>
-<span id="cb14-100"><a href=""></a>(clear TomatoSliced_8)</span>
-<span id="cb14-101"><a href=""></a>(ontable TomatoSliced_8)</span>
-<span id="cb14-102"><a href=""></a>(temperature TomatoSliced_8 RoomTemp)</span>
-<span id="cb14-103"><a href=""></a>(mass TomatoSliced_8 0.3)</span>
-<span id="cb14-104"><a href=""></a>(material TomatoSliced_8 Organic)</span>
-<span id="cb14-105"><a href=""></a>(object TomatoSliced_9)</span>
-<span id="cb14-106"><a href=""></a>(receptacle TomatoSliced_9)</span>
-<span id="cb14-107"><a href=""></a>(tomatoslice TomatoSliced_9)</span>
-<span id="cb14-108"><a href=""></a>(clear TomatoSliced_9)</span>
-<span id="cb14-109"><a href=""></a>(ontable TomatoSliced_9)</span>
-<span id="cb14-110"><a href=""></a>(temperature TomatoSliced_9 RoomTemp)</span>
-<span id="cb14-111"><a href=""></a>(mass TomatoSliced_9 0.3)</span>
-<span id="cb14-112"><a href=""></a>(material TomatoSliced_9 Organic)</span>
-<span id="cb14-113"><a href=""></a>(object TomatoSliced_10)</span>
-<span id="cb14-114"><a href=""></a>(receptacle TomatoSliced_10)</span>
-<span id="cb14-115"><a href=""></a>(tomatoslice TomatoSliced_10)</span>
-<span id="cb14-116"><a href=""></a>(clear TomatoSliced_10)</span>
-<span id="cb14-117"><a href=""></a>(ontable TomatoSliced_10)</span>
-<span id="cb14-118"><a href=""></a>(temperature TomatoSliced_10 RoomTemp)</span>
-<span id="cb14-119"><a href=""></a>(mass TomatoSliced_10 0.3)</span>
-<span id="cb14-120"><a href=""></a>(material TomatoSliced_10 Organic)</span>
-<span id="cb14-121"><a href=""></a>(object Plate_1)</span>
-<span id="cb14-122"><a href=""></a>(receptacle Plate_1)</span>
-<span id="cb14-123"><a href=""></a>(plate Plate_1)</span>
-<span id="cb14-124"><a href=""></a>(clear Plate_1)</span>
-<span id="cb14-125"><a href=""></a>(ontable Plate_1)</span>
-<span id="cb14-126"><a href=""></a>(temperature Plate_1 RoomTemp)</span>
-<span id="cb14-127"><a href=""></a>(mass Plate_1 0.4)</span>
-<span id="cb14-128"><a href=""></a>(material Plate_1 Ceramic)</span>
-<span id="cb14-129"><a href=""></a>(object Plate_2)</span>
-<span id="cb14-130"><a href=""></a>(receptacle Plate_2)</span>
-<span id="cb14-131"><a href=""></a>(plate Plate_2)</span>
-<span id="cb14-132"><a href=""></a>(clear Plate_2)</span>
-<span id="cb14-133"><a href=""></a>(ontable Plate_2)</span>
-<span id="cb14-134"><a href=""></a>(temperature Plate_2 RoomTemp)</span>
-<span id="cb14-135"><a href=""></a>(mass Plate_2 0.4)</span>
-<span id="cb14-136"><a href=""></a>(material Plate_2 Ceramic)</span>
-<span id="cb14-137"><a href=""></a>(object Plate_3)</span>
-<span id="cb14-138"><a href=""></a>(receptacle Plate_3)</span>
-<span id="cb14-139"><a href=""></a>(plate Plate_3)</span>
-<span id="cb14-140"><a href=""></a>(clear Plate_3)</span>
-<span id="cb14-141"><a href=""></a>(ontable Plate_3)</span>
-<span id="cb14-142"><a href=""></a>(temperature Plate_3 RoomTemp)</span>
-<span id="cb14-143"><a href=""></a>(mass Plate_3 0.4)</span>
-<span id="cb14-144"><a href=""></a>(material Plate_3 Ceramic)</span>
-<span id="cb14-145"><a href=""></a>(object Knife_1)</span>
-<span id="cb14-146"><a href=""></a>(knife Knife_1)</span>
-<span id="cb14-147"><a href=""></a>(clear Knife_1)</span>
-<span id="cb14-148"><a href=""></a>(ontable Knife_1)</span>
-<span id="cb14-149"><a href=""></a>(temperature Knife_1 RoomTemp)</span>
-<span id="cb14-150"><a href=""></a>(mass Knife_1 0.5)</span>
-<span id="cb14-151"><a href=""></a>(material Knife_1 Metal)</span>
-<span id="cb14-152"><a href=""></a>(object BreadSliced_1)</span>
-<span id="cb14-153"><a href=""></a>(receptacle BreadSliced_1)</span>
-<span id="cb14-154"><a href=""></a>(breadslice BreadSliced_1)</span>
-<span id="cb14-155"><a href=""></a>(clear BreadSliced_1)</span>
-<span id="cb14-156"><a href=""></a>(ontable BreadSliced_1)</span>
-<span id="cb14-157"><a href=""></a>(temperature BreadSliced_1 RoomTemp)</span>
-<span id="cb14-158"><a href=""></a>(mass BreadSliced_1 0.1)</span>
-<span id="cb14-159"><a href=""></a>(material BreadSliced_1 Organic)</span>
-<span id="cb14-160"><a href=""></a>(object BreadSliced_2)</span>
-<span id="cb14-161"><a href=""></a>(receptacle BreadSliced_2)</span>
-<span id="cb14-162"><a href=""></a>(breadslice BreadSliced_2)</span>
-<span id="cb14-163"><a href=""></a>(clear BreadSliced_2)</span>
-<span id="cb14-164"><a href=""></a>(ontable BreadSliced_2)</span>
-<span id="cb14-165"><a href=""></a>(temperature BreadSliced_2 RoomTemp)</span>
-<span id="cb14-166"><a href=""></a>(mass BreadSliced_2 0.1)</span>
-<span id="cb14-167"><a href=""></a>(material BreadSliced_2 Organic)</span>
-<span id="cb14-168"><a href=""></a>(object BreadSliced_3)</span>
-<span id="cb14-169"><a href=""></a>(receptacle BreadSliced_3)</span>
-<span id="cb14-170"><a href=""></a>(breadslice BreadSliced_3)</span>
-<span id="cb14-171"><a href=""></a>(clear BreadSliced_3)</span>
-<span id="cb14-172"><a href=""></a>(ontable BreadSliced_3)</span>
-<span id="cb14-173"><a href=""></a>(temperature BreadSliced_3 RoomTemp)</span>
-<span id="cb14-174"><a href=""></a>(mass BreadSliced_3 0.1)</span>
-<span id="cb14-175"><a href=""></a>(material BreadSliced_3 Organic)</span>
-<span id="cb14-176"><a href=""></a>(object BreadSliced_4)</span>
-<span id="cb14-177"><a href=""></a>(receptacle BreadSliced_4)</span>
-<span id="cb14-178"><a href=""></a>(breadslice BreadSliced_4)</span>
-<span id="cb14-179"><a href=""></a>(clear BreadSliced_4)</span>
-<span id="cb14-180"><a href=""></a>(ontable BreadSliced_4)</span>
-<span id="cb14-181"><a href=""></a>(temperature BreadSliced_4 RoomTemp)</span>
-<span id="cb14-182"><a href=""></a>(mass BreadSliced_4 0.1)</span>
-<span id="cb14-183"><a href=""></a>(material BreadSliced_4 Organic)</span>
-<span id="cb14-184"><a href=""></a>(object BreadSliced_5)</span>
-<span id="cb14-185"><a href=""></a>(receptacle BreadSliced_5)</span>
-<span id="cb14-186"><a href=""></a>(breadslice BreadSliced_5)</span>
-<span id="cb14-187"><a href=""></a>(clear BreadSliced_5)</span>
-<span id="cb14-188"><a href=""></a>(ontable BreadSliced_5)</span>
-<span id="cb14-189"><a href=""></a>(temperature BreadSliced_5 RoomTemp)</span>
-<span id="cb14-190"><a href=""></a>(mass BreadSliced_5 0.1)</span>
-<span id="cb14-191"><a href=""></a>(material BreadSliced_5 Organic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14" style="height:200px" data-code-line-numbers="1,3,7,10,11"><pre class="sourceCode numberSource pddl number-lines code-with-copy"><code class="sourceCode"><span id="cb14-1"><a href=""></a>(object LettuceSliced_1)</span>
+<span id="cb14-2"><a href=""></a>(receptacle LettuceSliced_1)</span>
+<span id="cb14-3"><a href=""></a>(lettuceslice LettuceSliced_1)</span>
+<span id="cb14-4"><a href=""></a>(clear LettuceSliced_1)</span>
+<span id="cb14-5"><a href=""></a>(ontable LettuceSliced_1)</span>
+<span id="cb14-6"><a href=""></a>(arm-empty)</span>
+<span id="cb14-7"><a href=""></a>(on BreadSliced_1 LettuceSliced_1)</span>
+<span id="cb14-8"><a href=""></a>(object BreadSliced_1)</span>
+<span id="cb14-9"><a href=""></a>(receptacle BreadSliced_1)</span>
+<span id="cb14-10"><a href=""></a>(breadslice BreadSliced_1)</span>
+<span id="cb14-11"><a href=""></a>(tomatoslice BreadSliced_1)</span>
+<span id="cb14-12"><a href=""></a>(clear BreadSliced_1)</span>
+<span id="cb14-13"><a href=""></a>(ontable BreadSliced_1)</span>
+<span id="cb14-14"><a href=""></a>(temperature BreadSliced_1 RoomTemp)</span>
+<span id="cb14-15"><a href=""></a>(mass BreadSliced_1 0.1)</span>
+<span id="cb14-16"><a href=""></a>(material BreadSliced_1 Organic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="hidden">
@@ -1559,7 +1044,7 @@ This work is centered around the desire to represent world states for task plann
 <p><img data-src="assets/cset-small.svg" class="quarto-figure quarto-figure-center" height="300"></p>
 </figure>
 </div>
-<p>The category of elements construction <span class="citation" data-cites="Riehl2016">(<a href="#/references" role="doc-biblioref" onclick="">Riehl 2016</a>)</span> packages the data of <span class="math inline">\(G\)</span> into a category resembling a knowledge graph <span class="citation" data-cites="Spivak2012a">(<a href="#/references" role="doc-biblioref" onclick="">Spivak and Kent 2012</a>)</span>.</p>
+<p>The category of elements construction <span class="citation" data-cites="Riehl2016">(<a href="#/references" role="doc-biblioref" onclick="">Riehl 2016</a>)</span> enables interoperability of <span class="math inline">\(X\)</span> with RDF syntax for knowledge graphs <span class="citation" data-cites="Spivak2012a">(<a href="#/references" role="doc-biblioref" onclick="">Spivak and Kent 2012</a>)</span>.</p>
 </section>
 <section id="what-is-a-functor-and-natural-transformation" class="slide level2">
 <h2>What is a functor and natural transformation?</h2>
@@ -1923,6 +1408,11 @@ end
 :::
 
 :::: -->
+</section></section>
+<section>
+<section id="wrap-up" class="title-slide slide level1 center">
+<h1>Wrap up</h1>
+
 </section>
 <section id="algebraicjulia" class="slide level2">
 <h2>AlgebraicJulia <img data-src="assets/AlgebraicJuliaLogo.png" height="50"></h2>
@@ -2208,6 +1698,9 @@ Research Software Engineers</p>
 </div>
 </div>
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Knoblock1998" class="csl-entry" role="listitem">
+Knoblock, Craig, Anthony Barrett, Dave Christianson, Marc Friedman, Chung Kwok, Keith Golden, Scott Penberthy, David E Smith, Ying Sun, and Daniel Weld. 1998. <span>“<span>PDDL | The Planning Domain Definition Language</span>.”</span> Yale Center for Computational Vision; Control.
+</div>
 <div id="ref-Kolve2017" class="csl-entry" role="listitem">
 Kolve, Eric, Roozbeh Mottaghi, Winson Han, Eli VanderBilt, Luca Weihs, Alvaro Herrasti, Matt Deitke, et al. 2017. <span>“<span class="nocase">AI2-THOR: An Interactive 3D Environment for Visual AI</span>.”</span> <em>arXiv</em>, 1–12. <a href="http://arxiv.org/abs/1712.05474">http://arxiv.org/abs/1712.05474</a>.
 </div>
