@@ -1,0 +1,1384 @@
+---
+title: "'What's the plan?' asked my robot"
+subtitle: "JuliaCon 2024"
+author: "Angeline Aguinaldo"
+institute: "University of Maryland, College Park<br>Johns Hopkins University Applied Physics Laboratory"
+date: "7/12/2024"
+date-format: long
+bibliography: assets/ref.bib
+footer: "JuliaCon 2024"
+number-sections: false
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    logo: assets/umdcslogo.png
+    css: style.css
+jupyter: julia-1.10
+execute: 
+  # enabled: false
+  cache: true
+---
+
+## Follow along!
+&nbsp; 
+
+::::{.columns}
+:::{.column width=40%}
+![](assets/qr-code.png){fig-align="center" width="400px"}
+
+::: {style="text-align: center; font-size:130%"}
+[tinyurl.com/planbot](https://tinyurl.com/planbot)
+:::
+
+:::
+
+:::{.column width=60%}
+
+::: {style="font-size:30px;"}
+&nbsp; 
+
+1. Story
+2. Category Theory-based Planning Language
+3. Using AlgebraicJulia
+4. Wrap up
+:::
+  
+:::
+::::
+
+
+# Meet PlanBot 
+
+
+<!-- # 
+
+```julia
+using QRCoders
+qrcode("https://angelineaguinaldo.com/")
+```
+Follow along! -->
+
+## Story 
+
+::: {.center-text}
+PlanBot is a robot that has decided to accomplish the task of making a sandwich.
+:::
+
+![](assets/PlanBot.png){fig-align="center" height="550"}
+
+## Story 
+
+::: {.center-text}
+PlanBot heads over to the kitchen.
+:::
+
+:::: {.columns}
+
+::: {.column width="60%"}
+![AI2-THOR [@Kolve2017]](assets/kitchen_scene_2.png){ fig-align="center" height="500"}
+:::
+
+::: {.column width="40%"}
+![](assets/PlanBot_close.png){fig-align="center" height="400"}
+
+::: {.center-text}
+_\*walk\*_
+:::
+
+:::
+
+::::
+
+## Story 
+::: {.center-text}
+It seems like PlanBot's is still processing (must still be waking up...).
+:::
+
+:::: {.columns}
+
+::: {.column width="60%"}
+&nbsp;  
+<!-- ![](assets/2darray.png){ fig-align="center" height="500"} -->
+```{julia}
+#| echo: false
+#| output: true
+using Random
+Random.seed!(1234)
+random_array = rand(1:100, 50, 50)
+```
+:::
+
+::: {.column width="40%"}
+![](assets/PlanBot_squint_2.png){fig-align="center" height="400"}
+
+::: {.center-text}
+_Uhh..._
+:::
+
+:::
+
+::::
+
+## Story 
+
+::: {.center-text}
+Ah, that's better! 
+:::
+
+:::: {.columns}
+
+::: {.column width="60%"}
+```pddl
+(object LettuceSliced_1)
+(receptacle LettuceSliced_1)
+(lettuceslice LettuceSliced_1)
+(clear LettuceSliced_1)
+(ontable LettuceSliced_1)
+(temperature LettuceSliced_1 RoomTemp)
+(mass LettuceSliced_1 0.2)
+(material LettuceSliced_1 Organic)
+(object LettuceSliced_2)
+(receptacle LettuceSliced_2)
+(lettuceslice LettuceSliced_2)
+(clear LettuceSliced_2)
+(ontable LettuceSliced_2)
+(temperature LettuceSliced_2 RoomTemp)
+(mass LettuceSliced_2 0.2)
+(material LettuceSliced_2 Organic)
+(object LettuceSliced_3)
+(receptacle LettuceSliced_3)
+(lettuceslice LettuceSliced_3)
+(clear LettuceSliced_3)
+(ontable LettuceSliced_3)
+(temperature LettuceSliced_3 RoomTemp)
+(mass LettuceSliced_3 0.2)
+(material LettuceSliced_3 Organic)
+(object LettuceSliced_4)
+(receptacle LettuceSliced_4)
+(lettuceslice LettuceSliced_4)
+(clear LettuceSliced_4)
+(ontable LettuceSliced_4)
+(temperature LettuceSliced_4 RoomTemp)
+(mass LettuceSliced_4 0.2)
+(material LettuceSliced_4 Organic)
+(object LettuceSliced_5)
+(receptacle LettuceSliced_5)
+(lettuceslice LettuceSliced_5)
+(clear LettuceSliced_5)
+(ontable LettuceSliced_5)
+(temperature LettuceSliced_5 RoomTemp)
+(mass LettuceSliced_5 0.2)
+(material LettuceSliced_5 Organic)
+(object TomatoSliced_1)
+(receptacle TomatoSliced_1)
+(tomatoslice TomatoSliced_1)
+(clear TomatoSliced_1)
+(ontable TomatoSliced_1)
+(temperature TomatoSliced_1 RoomTemp)
+(mass TomatoSliced_1 0.3)
+(material TomatoSliced_1 Organic)
+(object TomatoSliced_2)
+(receptacle TomatoSliced_2)
+(clear TomatoSliced_2)
+(tomatoslice TomatoSliced_2)
+(ontable TomatoSliced_2)
+(temperature TomatoSliced_2 RoomTemp)
+(mass TomatoSliced_2 0.3)
+(material TomatoSliced_2 Organic)
+(object TomatoSliced_3)
+(receptacle TomatoSliced_3)
+(tomatoslice TomatoSliced_3)
+(clear TomatoSliced_3)
+(ontable TomatoSliced_3)
+(temperature TomatoSliced_3 RoomTemp)
+(mass TomatoSliced_3 0.3)
+(material TomatoSliced_3 Organic)
+(object TomatoSliced_4)
+(receptacle TomatoSliced_4)
+(tomatoslice TomatoSliced_4)
+(clear TomatoSliced_4)
+(ontable TomatoSliced_4)
+(temperature TomatoSliced_4 RoomTemp)
+(mass TomatoSliced_4 0.3)
+(material TomatoSliced_4 Organic)
+(object TomatoSliced_5)
+(receptacle TomatoSliced_5)
+(tomatoslice TomatoSliced_5)
+(clear TomatoSliced_5)
+(ontable TomatoSliced_5)
+(temperature TomatoSliced_5 RoomTemp)
+(mass TomatoSliced_5 0.3)
+(material TomatoSliced_5 Organic)
+(object TomatoSliced_6)
+(receptacle TomatoSliced_6)
+(tomatoslice TomatoSliced_6)
+(clear TomatoSliced_6)
+(ontable TomatoSliced_6)
+(temperature TomatoSliced_6 RoomTemp)
+(mass TomatoSliced_6 0.3)
+(material TomatoSliced_6 Organic)
+(object TomatoSliced_7)
+(receptacle TomatoSliced_7)
+(tomatoslice TomatoSliced_7)
+(clear TomatoSliced_7)
+(ontable TomatoSliced_7)
+(temperature TomatoSliced_7 RoomTemp)
+(mass TomatoSliced_7 0.3)
+(material TomatoSliced_7 Organic)
+(object TomatoSliced_8)
+(receptacle TomatoSliced_8)
+(tomatoslice TomatoSliced_8)
+(clear TomatoSliced_8)
+(ontable TomatoSliced_8)
+(temperature TomatoSliced_8 RoomTemp)
+(mass TomatoSliced_8 0.3)
+(material TomatoSliced_8 Organic)
+(object TomatoSliced_9)
+(receptacle TomatoSliced_9)
+(tomatoslice TomatoSliced_9)
+(clear TomatoSliced_9)
+(ontable TomatoSliced_9)
+(temperature TomatoSliced_9 RoomTemp)
+(mass TomatoSliced_9 0.3)
+(material TomatoSliced_9 Organic)
+(object TomatoSliced_10)
+(receptacle TomatoSliced_10)
+(tomatoslice TomatoSliced_10)
+(clear TomatoSliced_10)
+(ontable TomatoSliced_10)
+(temperature TomatoSliced_10 RoomTemp)
+(mass TomatoSliced_10 0.3)
+(material TomatoSliced_10 Organic)
+(object Plate_1)
+(receptacle Plate_1)
+(plate Plate_1)
+(clear Plate_1)
+(ontable Plate_1)
+(temperature Plate_1 RoomTemp)
+(mass Plate_1 0.4)
+(material Plate_1 Ceramic)
+(object Plate_2)
+(receptacle Plate_2)
+(plate Plate_2)
+(clear Plate_2)
+(ontable Plate_2)
+(temperature Plate_2 RoomTemp)
+(mass Plate_2 0.4)
+(material Plate_2 Ceramic)
+(object Plate_3)
+(receptacle Plate_3)
+(plate Plate_3)
+(clear Plate_3)
+(ontable Plate_3)
+(temperature Plate_3 RoomTemp)
+(mass Plate_3 0.4)
+(material Plate_3 Ceramic)
+(object Knife_1)
+(knife Knife_1)
+(clear Knife_1)
+(ontable Knife_1)
+(temperature Knife_1 RoomTemp)
+(mass Knife_1 0.5)
+(material Knife_1 Metal)
+(object BreadSliced_1)
+(receptacle BreadSliced_1)
+(breadslice BreadSliced_1)
+(clear BreadSliced_1)
+(ontable BreadSliced_1)
+(temperature BreadSliced_1 RoomTemp)
+(mass BreadSliced_1 0.1)
+(material BreadSliced_1 Organic)
+(object BreadSliced_2)
+(receptacle BreadSliced_2)
+(breadslice BreadSliced_2)
+(clear BreadSliced_2)
+(ontable BreadSliced_2)
+(temperature BreadSliced_2 RoomTemp)
+(mass BreadSliced_2 0.1)
+(material BreadSliced_2 Organic)
+(object BreadSliced_3)
+(receptacle BreadSliced_3)
+(breadslice BreadSliced_3)
+(clear BreadSliced_3)
+(ontable BreadSliced_3)
+(temperature BreadSliced_3 RoomTemp)
+(mass BreadSliced_3 0.1)
+(material BreadSliced_3 Organic)
+(object BreadSliced_4)
+(receptacle BreadSliced_4)
+(breadslice BreadSliced_4)
+(clear BreadSliced_4)
+(ontable BreadSliced_4)
+(temperature BreadSliced_4 RoomTemp)
+(mass BreadSliced_4 0.1)
+(material BreadSliced_4 Organic)
+(object BreadSliced_5)
+(receptacle BreadSliced_5)
+(breadslice BreadSliced_5)
+(clear BreadSliced_5)
+(ontable BreadSliced_5)
+(temperature BreadSliced_5 RoomTemp)
+(mass BreadSliced_5 0.1)
+(material BreadSliced_5 Organic)
+```
+:::
+
+::: {.column width="40%"}
+![](assets/PlanBot.png){fig-align="center" height="400"}
+
+::: {.fragment}
+::: {.center-text}
+_Now, what's the plan?_
+:::
+:::
+
+:::
+
+::::
+
+## Story 
+
+:::: {.columns}
+
+::: {.column width="40%"}
+![](assets/PlanBot_thinking.png){fig-align="center" height="400"}
+
+_Goal_
+```
+# tomato-on-lettuce sandwich on a plate
+
+(object A) (object B) (object C) (object D) 
+(object E) (tomatoslice A) (lettucesliced B) 
+(breadsliced C) (breadsliced D) (plate E)
+(on C E) (on B C) (on A B) (on D A)
+```
+
+::: {style="text-align: left; font-size: 75%"}
+Based on PDDL [@Knoblock1998]
+:::
+
+:::
+
+::: {.column width="60%"}
+
+_Predicates_ 
+```{.pddl style="height:130px"}
+(object ?x)
+(receptacle ?x)
+(lettuceslice ?x)
+(tomatoslice ?x)
+(breadloaf ?x)
+(breadslice ?x)
+(plate ?x)
+(knife ?x)
+(temperature ?x ?y)
+(mass ?x ?y)
+(material ?x ?y)
+(ispartof ?x ?y)
+(holding ?x)
+(arm-empty)
+(clear ?x)
+(ontable ?x)
+(on ?x ?y)
+```
+
+_`Stack` Action_
+```{.pddl code-line-numbers="|3"}
+(:action stack
+  :parameters  (?ob ?underob)
+  :precondition (and  (clear ?underob) (holding ?ob))
+  :effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)
+               (not (clear ?underob)) (not (holding ?ob))))
+```
+
+_World State_
+<!-- code-line-numbers="|1|1,4|1,4-5|9,12-13|17,20-21|152,155-156" -->
+```{.pddl style="height:200px" code-line-numbers="|4|4,6"}
+(object LettuceSliced_1)
+(receptacle LettuceSliced_1)
+(lettuceslice LettuceSliced_1)
+(clear LettuceSliced_1)
+(ontable LettuceSliced_1)
+(holding BreadSliced_1)
+(object BreadSliced_1)
+(receptacle BreadSliced_1)
+(breadslice BreadSliced_1)
+(clear BreadSliced_1)
+(ontable BreadSliced_1)
+(temperature BreadSliced_1 RoomTemp)
+(mass BreadSliced_1 0.1)
+(material BreadSliced_1 Organic)
+```
+:::
+
+::::
+
+## Story 
+
+:::: {.columns}
+
+::: {.column width="40%"}
+![](assets/PlanBot_thinking.png){fig-align="center" height="400"}
+
+_Goal_
+```
+# tomato-on-lettuce sandwich on a plate
+
+(object A) (object B) (object C) (object D) 
+(object E) (tomatoslice A) (lettucesliced B) 
+(breadsliced C) (breadsliced D) (plate E)
+(on C E) (on B C) (on A B) (on D A)
+```
+
+::: {style="text-align: left; font-size: 75%"}
+Based on PDDL [@Knoblock1998]
+:::
+
+:::
+
+::: {.column width="60%"}
+
+_Predicates_
+```{.pddl style="height:130px"}
+(object ?x)
+(receptacle ?x)
+(lettuceslice ?x)
+(tomatoslice ?x)
+(breadloaf ?x)
+(breadslice ?x)
+(plate ?x)
+(knife ?x)
+(temperature ?x ?y)
+(mass ?x ?y)
+(material ?x ?y)
+(ispartof ?x ?y)
+(holding ?x)
+(arm-empty)
+(clear ?x)
+(ontable ?x)
+(on ?x ?y)
+```
+
+_`Stack` Action_
+```{.pddl code-line-numbers="4,5|"}
+(:action stack
+  :parameters  (?ob ?underob)
+  :precondition (and  (clear ?underob) (holding ?ob))
+  :effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)
+               (not (clear ?underob)) (not (holding ?ob))))
+```
+
+_World State_
+<!-- ```{.pddl style="height:200px" code-line-numbers="|4|12|20|155|139,151"} -->
+```{.pddl style="height:200px" code-line-numbers="6,7,11|1,3,7,10"}
+(object LettuceSliced_1)
+(receptacle LettuceSliced_1)
+(lettuceslice LettuceSliced_1)
+(clear LettuceSliced_1)
+(ontable LettuceSliced_1)
+(arm-empty)
+(on BreadSliced_1 LettuceSliced_1)
+(object BreadSliced_1)
+(receptacle BreadSliced_1)
+(breadslice BreadSliced_1)
+(clear BreadSliced_1)
+(ontable BreadSliced_1)
+(temperature BreadSliced_1 RoomTemp)
+(mass BreadSliced_1 0.1)
+(material BreadSliced_1 Organic)
+```
+:::
+
+::::
+
+## Story 
+
+:::: {.columns}
+
+::: {.column width="40%"}
+![](assets/PlanBot_thinking.png){fig-align="center" height="400"}
+
+_Goal_
+```
+# tomato-on-lettuce sandwich on a plate
+
+(object A) (object B) (object C) (object D) 
+(object E) (tomatoslice A) (lettucesliced B) 
+(breadsliced C) (breadsliced D) (plate E)
+(on C E) (on B C) (on A B) (on D A)
+```
+
+::: {style="text-align: left; font-size: 75%"}
+Based on PDDL [@Knoblock1998]
+:::
+
+:::
+
+::: {.column width="60%"}
+
+_Predicates_
+```{.pddl style="height:130px"}
+(object ?x)
+(receptacle ?x)
+(lettuceslice ?x)
+(tomatoslice ?x)
+(breadloaf ?x)
+(breadslice ?x)
+(plate ?x)
+(knife ?x)
+(temperature ?x ?y)
+(mass ?x ?y)
+(material ?x ?y)
+(ispartof ?x ?y)
+(holding ?x)
+(arm-empty)
+(clear ?x)
+(ontable ?x)
+(on ?x ?y)
+```
+
+_`Stack` Action_
+```{.pddl}
+(:action stack
+  :parameters  (?ob ?underob)
+  :precondition (and  (clear ?underob) (holding ?ob))
+  :effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)
+               (not (clear ?underob)) (not (holding ?ob))))
+```
+
+_World State_
+<!-- code-line-numbers="|1|1,4|1,4-5|9,12-13|17,20-21|152,155-156" -->
+```{.pddl style="height:200px" code-line-numbers="1,3,7,10,11"}
+(object LettuceSliced_1)
+(receptacle LettuceSliced_1)
+(lettuceslice LettuceSliced_1)
+(clear LettuceSliced_1)
+(ontable LettuceSliced_1)
+(arm-empty)
+(on BreadSliced_1 LettuceSliced_1)
+(object BreadSliced_1)
+(receptacle BreadSliced_1)
+(breadslice BreadSliced_1)
+(tomatoslice BreadSliced_1)
+(clear BreadSliced_1)
+(ontable BreadSliced_1)
+(temperature BreadSliced_1 RoomTemp)
+(mass BreadSliced_1 0.1)
+(material BreadSliced_1 Organic)
+```
+:::
+
+::::
+
+::: {.hidden}
+$$
+  \newcommand{\N}{\mathbb{N}}
+  \newcommand{\R}{\mathbb{R}}
+  \newcommand{\cat}[1]{\mathsf{#1}}
+  \newcommand{\CAT}[1]{\mathsf{#1}}
+  \newcommand{\Set}{\CAT{Set}}
+  \DeclareMathOperator{\Path}{Path}
+  \newcommand{\catSet}[1]{\cat{#1}\text{-}\Set}
+  \DeclareMathOperator{\Ob}{Ob}
+  \DeclareMathOperator{\Hom}{Hom}
+$$
+:::
+
+<!-- # Overview {.unnumbered}
+
+1. Motivation & Related Work
+2. Category theory background
+3. Approach: C-sets and Double-Pushout (DPO) rewriting
+4. Let's plan!
+5. Future work -->
+
+## What is PlanBot's problem? (*Challenges in robot task planning*) 
+
+::::{.columns}
+
+:::{.column width=60%}
+&nbsp; 
+
+**Wants to be able to model everything about the world.**
+
+But having many predicates can result in expressive states which can cause a combinatorial explosion of the search space.
+
+&nbsp; 
+
+**Wants the world state to be valid according to an implicit model.** 
+
+But this representation does not allow you to express complex knowledge constraints.
+
+&nbsp; 
+
+**Wants actions to be defined generically.** 
+
+But this representation requires that all action preconditions and effects are explicit in the action model.
+
+:::
+
+::: {.column width=40%}
+&nbsp; 
+&nbsp; 
+
+![](assets/PlanBot_tired.png){fig-align="center"}
+
+:::
+
+::::
+
+
+<!-- ::: {.callout-tip title="Goal" icon="false"}
+The goal of this research is to develop more **structured and concise representations** of the world states and action models that **preserve ontological relationships** found in real-world planning problems.
+::: -->
+
+<!-- Now that we have sufficiently anthropomorphized our computers... -->
+
+<!-- ## Where does this fit?
+This work is centered around the desire to represent world states for task planning that adhere to ontological constraints.
+&nbsp;  
+&nbsp;  
+![](assets/History.png){.center}  -->
+
+
+<!-- ^[Credit to Evan Patterson for ACSet implementation]
+^[Credit to Kevin Arlin for `@acset_colim` implementation]
+^[`runtime()` from [CompTime.jl](https://github.com/AlgebraicJulia/CompTime.jl). Credit to Owen Lynch.] -->
+# Category Theory-based Planning Language using AlgebraicJulia
+
+# In theory
+
+## What is Double-Pushout (DPO) rewrite rule?
+
+::: {.center-text}
+![](assets/DPO_Rewriting.png)
+
+[Action rules]{.define} and [pushouts]{.define} are in $\catSet{C}$.
+:::
+
+
+## What is a C-set?
+&nbsp;  
+**Definition**: A [$\cat{C}$-set]{.define} is a functor from $\cat{C} \rightarrow \cat{Set}$. $\cat{C}$ is referred to as the **schema category**. $\cat{Set}$ is a category whose objects are sets and whose morphisms are set function maps.
+
+&nbsp;  
+**Example**: An example $\cat{C}$-set, called $X$, that stores data about people's favorite pet.
+
+![](assets/cset-small.svg){fig-align="center" height="300"}
+
+The category of elements construction [@Riehl2016] enables interoperability of $X$ with RDF syntax for knowledge graphs [@Spivak2012a].
+
+
+## What is a functor and natural transformation?
+:::: {.columns}
+
+::: {.column width="70%"}
+&nbsp;  
+**Definition**: A [functor]{.define}, $F: \cat{C} \rightarrow \cat{D}$, from a category $\cat{C}$ to a category $\cat{D}$, has two components, $F_0$ and $F_1$, where:
+
+- $F_0$ is a map between objects 
+
+    $F_0: \text{Ob}(\cat{C}) \rightarrow \text{Ob}(\cat{D})$
+
+- $F_1$ is a map between morphism sets 
+
+    $F_1: \text{Hom}_\cat{C}(X, Y) \rightarrow \text{Hom}_\cat{D}(F_0(X), F_0(Y))$
+
+such that,
+
+- $F_1(g \circ f) = F_1(g) \circ F_1(f)$ for $f: X \rightarrow Y$ and $g: Y \rightarrow Z$ in $\cat{C}$
+- $F_1(1_X) = 1_{F_0(X)}$ for every $X \in \cat{C}$
+:::
+
+::: {.column width="30%"}
+&nbsp;  
+
+![](assets/functor.jpeg)
+
+:::{.center-text}
+Functor [nLab](https://ncatlab.org/nlab/show/functor)
+:::
+:::
+
+::::
+**Definition**: For functors, $F: \cat{C} \rightarrow \cat{D}$ and $G: \cat{C} \rightarrow \cat{D}$, a [natural transformation]{.define} between $\alpha: F \rightarrow G$ that associates every object in $C$ and with a morphism in $D$ such that composition is preserved.
+
+
+## What is a span in $\catSet{C}$?
+
+**Definition**: The category [$\catSet{C}$]{.define} is a category whose objects are $\cat{C}$-set functors and whose morphisms are natural transformations.
+
+&nbsp;  
+
+A span in $\catSet{C}$ is a diagram of shape ($\bullet \leftarrow \bullet \rightarrow \bullet$) in $\catSet{C}$.
+
+&nbsp;  
+
+In this approach, spans are presented as **colimits of representable functors**. This means connected objects (via outgoing morphisms) in $\cat{C}$ are also matched during rewriting.
+
+![](assets/representable.svg){fig-align="center" height="250"}
+
+# Using AlgebraicJulia
+
+## Let's define a world state
+
+::: {.panel-tabset}
+
+### Ontology
+
+:::: {.columns}
+
+::: {.column width="50%"}
+```{julia}
+#| echo: false
+#| output: false
+using Pkg
+# cd("/Users/aguinam1/Documents/Git/kr2023-csetplanning/aaai-urrad-presentation/julia")  # use this environment to avoid `constructor` error
+cd("julia")
+Pkg.activate(".")
+include("AlgebraicPlanning.jl")
+using PrettyTables
+```
+
+```{julia}
+#| echo: true
+#| output: false
+using Catlab
+using AlgebraicRewriting
+
+@present OntBreadOnly(FreeSchema) begin
+  ## Objects
+  Thing::Ob
+  BreadLoaf::Ob
+  BreadSlice::Ob
+  Countertop::Ob
+  Stool::Ob
+
+  ## Morphisms
+  f::Hom(BreadSlice, BreadLoaf)  # is part of
+  g::Hom(BreadLoaf, Thing)  # is-a
+  h::Hom(Countertop, Thing)  # is-a
+  l::Hom(Stool, Thing)  # is-a
+
+  ## Relations
+  InOn::Ob
+  inOn_l::Hom(InOn, Thing)
+  inOn_r::Hom(InOn, Thing)
+end
+
+# Create a C-set type based on ontology
+const BreadOnly = DynamicACSet("BreadOnly", OntBreadOnly)
+```
+:::
+
+::: {.column width="50%"}
+![`OntBreadOnly` schema](assets/OntBreadOnly.png){ fig-align="center" height="350"}
+:::
+
+::::
+
+&nbsp;  
+
+### Data
+
+```{julia}
+#| echo: false
+#| output: false
+function make_cache(type, schema)
+  cache_dir = mkpath(joinpath(@__DIR__, "cache"))
+  cache = Dict(Iterators.map(ob -> begin
+      name = nameof(ob)
+      path = joinpath(cache_dir, "$name.json")
+      if isfile(path)
+        @info "Reading representables from $path"
+        rep = read_json_acset(type, path)
+      else
+        @info "Computing representable $name"
+        rep = representable(type, schema, name)
+        write_json_acset(rep, path)
+      end
+      name => (rep, 1)
+    end, generators(schema, :Ob)))
+end
+
+# compute representables 
+cache = make_cache(BreadOnly, OntBreadOnly)
+yBreadOnly = yoneda(BreadOnly; cache=cache)
+```
+
+::: {#foo .div style="height:50px"}
+```{julia}
+#| echo: true
+#| output: true
+#| output-location: column
+state = @acset_colim yBreadOnly begin
+
+  # Items in the scene
+  myCountertop::Countertop
+  myStool::Stool
+  naturesOwn::BreadLoaf
+  (slice0, slice1, slice2)::BreadSlice
+
+  # Nature's Own Breadloaf has three slices
+  # f::Hom(BreadSlice, BreadLoaf)
+  f(slice0) == naturesOwn  # is part of
+  f(slice1) == naturesOwn  # is part of
+  f(slice2) == naturesOwn  # is part of
+
+  # Breadloaf is on countertop (relation)
+  thing_on_thing::InOn
+  inOn_l(thing_on_thing) == naturesOwn
+  inOn_r(thing_on_thing) == myCountertop
+
+  # Breadloaf, counterop, and stool are things
+  # g::Hom(BreadLoaf, Thing)
+  # h::Hom(Countertop, Thing)
+  # l::Hom(Stool, Thing)
+  (thing1, thing2, thing3)::Thing
+  g(naturesOwn) == thing1
+  h(myCountertop) == thing2
+  l(myStool) == thing3
+
+end
+pretty_tables(state)
+```
+:::
+
+:::
+
+
+## Let's define a rewrite rule 
+
+<!-- :::: {.columns}
+
+::: {.column width="35%"} -->
+&nbsp;  
+
+::: {.container style="font-size:40px;"}
+```{.julia}
+d = DRule(@migration(SchRule, OntBreadOnly, begin
+  L => @join begin
+    (thing1, thing2)::Thing
+    breadloaf::BreadLoaf
+    countertop::Countertop
+    stool::Stool
+
+    g(breadloaf) == thing1
+    h(countertop) == thing2
+
+    thing_on_thing::InOn
+    inOn_l(thing_on_thing) == breadloaf
+    inOn_r(thing_on_thing) == countertop
+  end
+  K => @join begin
+    thing::Thing
+    breadloaf::BreadLoaf
+    countertop::Countertop
+    stool::Stool
+  end
+  R => @join begin
+    (thing1, thing2)::Thing
+    breadloaf::BreadLoaf
+    countertop::Countertop
+    stool::Stool
+
+    g(breadloaf) == thing1
+    h(stool) == thing2
+
+    thing_on_thing::InOn
+    inOn_l(thing_on_thing) == breadloaf
+    inOn_r(thing_on_thing) == stool
+  end
+  l => begin
+    thing => thing1
+    breadloaf => breadloaf
+    countertop => countertop
+    stool => stool
+  end
+  r => begin
+    thing => thing1
+    breadloaf => breadloaf
+    countertop => countertop
+    stool => stool
+  end
+end))
+```
+:::
+
+```{julia}
+#| echo: false
+#| output: false
+d = DRule(@migration(SchRule, OntBreadOnly, begin
+  L => @join begin
+    (thing1, thing2)::Thing
+    breadloaf::BreadLoaf
+    countertop::Countertop
+    stool::Stool
+
+    g(breadloaf) == thing1
+    h(countertop) == thing2
+
+    thing_on_thing::InOn
+    inOn_l(thing_on_thing) == breadloaf
+    inOn_r(thing_on_thing) == countertop
+  end
+  K => @join begin
+    thing::Thing
+    breadloaf::BreadLoaf
+    countertop::Countertop
+    stool::Stool
+  end
+  R => @join begin
+    (thing1, thing2)::Thing
+    breadloaf::BreadLoaf
+    countertop::Countertop
+    stool::Stool
+
+    g(breadloaf) == thing1
+    h(stool) == thing2
+
+    thing_on_thing::InOn
+    inOn_l(thing_on_thing) == breadloaf
+    inOn_r(thing_on_thing) == stool
+  end
+  l => begin
+    thing => thing1
+    breadloaf => breadloaf
+    countertop => countertop
+    stool => stool
+  end
+  r => begin
+    thing => thing1
+    breadloaf => breadloaf
+    countertop => countertop
+    stool => stool
+  end
+end))
+```
+
+```{julia}
+#| echo: false
+#| output: false
+move_bread_action = make_rule(d.diag, yBreadOnly)
+```
+<!-- :::
+
+::: {.column width="65%"}
+![](assets/movebread.png){fig-align="center"}
+:::
+
+:::: -->
+
+## Let's apply the rule
+&nbsp;  
+&nbsp;  
+
+```{julia}
+#| echo: true
+#| output: true
+#| output-location: column-fragment
+new_state = apply_rule(move_bread_action, state)
+pretty_tables(new_state)
+
+
+#=
+
+Thing::Ob
+BreadLoaf::Ob
+BreadSlice::Ob
+Countertop::Ob
+Stool::Ob
+
+f::Hom(BreadSlice, BreadLoaf)  # is part of
+g::Hom(BreadLoaf, Thing)  # is-a
+h::Hom(Countertop, Thing)  # is-a
+l::Hom(Stool, Thing)  # is-a
+
+InOn::Ob
+inOn_l::Hom(InOn, Thing)
+inOn_r::Hom(InOn, Thing)
+
+=#
+```
+
+<!-- ### Ways rewriting can fail
+
+- Dangling condition, unable to resolve mapping after the double pushout
+- Objects are not properly identified because they not being included in the `K` (keep) part of the rule -->
+
+<!-- ## What does forward planning look like?
+
+:::: {.columns}
+
+::: {.column width="40%"}
+![](assets/forwardplan.png){fig-align="center" height="600"}
+:::
+
+::: {.column width="60%"}
+```
+ForwardPlan(world::ACSet, goal::ACSet, rules_dict::Dict, rule_limits::Dict, config::FFConfig)
+Executes forward planning search to find a sequence or all sequences of applicable DPO rewriting rules. A sequence of applicable DPO rewriting rules that transform an initial state to a goal state is called a plan.
+```
+
+```{.julia}
+function ForwardPlan(world::ACSet, goal::ACSet, rules_dict::Dict, rule_limits::Dict, config::FFConfig)
+
+  # Exit criteria: goal is reached
+  if homomorphism(goal, world, monic=true) !== nothing 
+    println("Goal reached.")
+    return plan
+  end
+
+  applicable = find_applicable_rules(world, rules_dict)
+
+  # Backtrack criteria: no applicable rules
+  if length(applicable) <= 0
+    throw("No applicable rules found! Terminate path...")
+  end
+
+  try
+    for rule_hom in applicable  # try all applicable rules in order
+      selected = rule_hom.first
+
+      # Backtrack criteria: rule applied too many times
+      try
+        if config.rule_usage[selected] >= rule_limits[selected]
+          println("Abort path. Rule used too many times.")
+          continue
+        end
+      catch
+        config.rule_usage[selected] = 1  # fails if key doesn't exist, initialize
+      end
+
+      # apply rule and add to plan
+      prev_world = world
+      try
+        world = rewrite(rules_dict[selected].rule, world)
+      catch e
+        throw("Could not apply rule! " * string(e))
+      end
+      append!(config.plan, [rules_dict[selected].rule => rule_hom.second])  # include both rule and matched homomorphism
+
+      try
+        config.num_step =+ 1
+        config.plan = ForwardPlan(world, goal, rules_dict, rule_limits, config)
+        return config.plan
+      catch e
+        world = prev_world
+        pop!(config.plan)
+        println("Path failed. Try a different path.")
+        # println(string(e))
+      end
+    end
+  catch e
+    throw("Something went wrong with error: " * string(e))
+  end
+
+  println("No plan found.")
+end
+```
+:::
+
+:::: -->
+
+# Wrap up
+
+## AlgebraicJulia ![](assets/AlgebraicJuliaLogo.png){height="50px"}
+
+&nbsp; 
+
+::: {.center-text}
+
+```{mermaid}
+flowchart BT
+  A("`**ACSets.jl**
+  ACSets: Algebraic databases 
+  as in-memory data structures`") --> B("`**Catlab.jl**
+  A framework for applied 
+  category theory in the 
+  Julia language`")
+  %% E("`**CompTime.jl**
+  %% Library for compile-time 
+  %% computing in Julia`")  --> C("`**AlgebraicRewriting.jl**
+  %% Implementations of algebraic 
+  %% rewriting techniques like 
+  %% DPO, SPO, SqPO`")
+  B("`**Catlab.jl**
+  A framework for applied 
+  category theory in the 
+  Julia language`") --> C("`**AlgebraicRewriting.jl**
+  Implementations of algebraic 
+  rewriting techniques like 
+  DPO, SPO, SqPO`")
+  A("`**ACSets.jl**
+  ACSets: Algebraic databases 
+  as in-memory data structures`") --> C("`**AlgebraicRewriting.jl**
+  Implementations of algebraic 
+  rewriting techniques like 
+  DPO, SPO, SqPO`")
+  %% B("`**Catlab.jl**
+  %% A framework for applied 
+  %% category theory in the 
+  %% Julia language`") --> G("`**AlgebraicPetri.jl**
+  %% Build Petri net models 
+  %% compositionally`")
+  B("`**Catlab.jl**
+  A framework for applied 
+  category theory in the 
+  Julia language`") --> D("`**DataMigrations.jl**
+  Package for contravariant 
+  data migrations using 
+  Catlab`")
+  A("`**ACSets.jl**
+  ACSets: Algebraic databases 
+  as in-memory data structures`") --> D("`**DataMigrations.jl**
+  Package for contravariant 
+  data migrations using 
+  Catlab`")
+  %% F("`**GATlab.jl**
+  %% GATlab: a computer algebra 
+  %% system based on generalized 
+  %% algebraic theories (GATs)`") --> D("`**DataMigrations.jl**
+  %% Package for contravariant 
+  %% data migrations using 
+  %% Catlab`")
+  %% E("`**CompTime.jl**
+  %% Library for compile-time 
+  %% computing in Julia`") --> D("`**DataMigrations.jl**
+  %% Package for contravariant 
+  %% data migrations using 
+  %% Catlab`")
+  %% F("`**GATlab.jl**
+  %% GATlab: a computer algebra 
+  %% system based on generalized 
+  %% algebraic theories (GATs)`") --> B("`**Catlab.jl**
+  %% A framework for applied 
+  %% category theory in the 
+  %% Julia language`")
+  %% E("`**CompTime.jl**
+  %% Library for compile-time 
+  %% computing in Julia`") --> B("`**Catlab.jl**
+  %% A framework for applied 
+  %% category theory in the 
+  %% Julia language`")
+
+  %% linkStyle 1,2,3,4,5 stroke:#333,stroke-width:3px
+  style A fill:#e4f1f5,stroke:#333,stroke-width:2px
+  style B fill:#e4f1f5,stroke:#333,stroke-width:2px
+  style C fill:#e4f1f5,stroke:#333,stroke-width:2px
+  style D fill:#e4f1f5,stroke:#333,stroke-width:2px
+
+  click A "https://github.com/AlgebraicJulia/ACSets.jl"
+  click B "https://github.com/AlgebraicJulia/Catlab.jl"
+  click C "https://github.com/AlgebraicJulia/AlgebraicRewriting.jl"
+  click D "https://github.com/AlgebraicJulia/DataMigrations.jl"
+```
+:::
+
+## Why Julia?
+
+1. **Metaprogramming** allows us to define custom DSLs aligned with our mathematical theory, e.g. `@acset_colim` for defining world states using diagrammatic syntax.
+
+
+```{.julia}
+data = @acset_colim yTowersOfHanoi begin
+  (disk1, disk2, disk3)::Disk
+  (peg1, peg2)::Peg
+  (smaller1, smaller2, smaller3)::Smaller
+  isSmaller_l(smaller1) == disk1  # disk1 < disk2
+  isSmaller_r(smaller1) == disk2
+  isSmaller_l(smaller2) == disk2  # disk2 < disk3
+  isSmaller_r(smaller2) == disk3
+  isSmaller_l(smaller3) == disk1  # disk1 < disk3
+  isSmaller_r(smaller3) == disk3
+  diskIsOnPeg(disk1) == peg1
+  diskIsOnPeg(disk2) == peg1
+  diskIsOnPeg(disk3) == peg2
+  isClear(disk1) == true
+  isClear(disk2) == false
+  isClear(disk3) == true
+end
+```
+<!-- Show implementation of macros. Credit appropriately -->
+
+2. **Multiple dispatch** allows us to efficiently implement new logic for existing interfaces, e.g. helpful when expanding [ACSets.jl](https://github.com/AlgebraicJulia/ACSets.jl) to support dynamic, as opposed to static, instantiations of data.
+
+```{.julia}
+ACSetInterface.codom_parts(acs::StructACSet{S}, f::Symbol) where {S} = _codom_parts(acs, Val{S}, Val{f})
+ACSetInterface.codom_parts(acs::DynamicACSet, f::Symbol) = runtime(_codom_parts, acs, acs.schema, f)
+```
+
+3. **Fast!** Homomorphism search is computationally intensive and frequently invoked. The time complexity is $O(n^k)$ where $k$ is the size of the source ACSet and $n$ is the size of a substructure of the target ACSet.
+
+<!-- Show dynamic acsets vs static acsets implementation. Credit appropriately -->
+
+## In Summary
+
+::::{.columns}
+
+:::{.column width=40%}
+&nbsp;  
+
+![](assets/PlanBot.png){fig-align="center"}
+:::
+
+:::{.column width=60%}
+&nbsp;  
+
+Using our approach, we can:
+
+- **Model complex dependencies and relationships** between objects that are hard to capture in traditional planning languages, e.g. PDDL
+- **Formally validate** the world state by
+  - Checking for matching schemas
+  - Checking for unique assignment of objects throughout 
+  - Enforcing that all data adheres to the structure of the schema
+- **Concisely express actions and states** by using colimits of representable functors
+:::
+
+::::
+
+## Contributors & Collaborators {.unnumbered}
+
+:::: {.columns}
+
+::: {.column width="20%"}
+::: {style="text-align: center; font-size: 80%"}
+![](assets/evan.jpeg){fig-align="center"}
+*Evan Patterson*
+:::
+:::
+
+::: {.column width="20%"}
+::: {style="text-align: center; font-size: 80%"}
+![](assets/KrisBrown.jpg){fig-align="center" width="180"}
+*Kris Brown*
+:::
+:::
+
+::: {.column width="20%"}
+::: {style="text-align: center; font-size: 80%"}
+![](assets/KevinArlin.jpeg){fig-align="center" width="180"}
+*Kevin Arlin*
+:::
+:::
+
+::: {.column width="20%"}
+::: {style="text-align: center; font-size: 80%"}
+![](assets/OwenLynch.jpeg){fig-align="center" width="180"}
+*Owen Lynch*
+:::
+:::
+
+::: {.column width="20%"}
+::: {style="text-align: center;"}
+&nbsp;  
+Research Software Engineers
+
+![](assets/topos_logo.jpg){fig-align="center" width="180"}
+:::
+:::
+
+::::
+
+
+:::: {.columns}
+
+::: {.column width="20%"}
+::: {style="text-align: center; font-size: 80%"}
+![](assets/angeline.jpeg){fig-align="center" width="180"}
+*Angeline Aguinaldo*
+
+Ph.D. Candidate
+
+**University of Maryland, College Park**
+:::
+:::
+
+::: {.column width="20%"}
+::: {style="text-align: center; font-size: 80%"}
+![](assets/james.jpeg){fig-align="center"}
+*James Fairbanks*
+
+Assistant Professor
+
+**University of Florida**
+:::
+:::
+
+::: {.column width="20%"}
+::: {style="text-align: center; font-size: 80%"}
+![](assets/ruiz.jpeg){fig-align="center" width="180"}
+*Jaime Ruiz*
+
+Associate Professor
+
+**University of Florida**
+:::
+:::
+
+::: {.column width="20%"}
+::: {style="text-align: center; font-size: 80%"}
+![](assets/regli.jpeg){fig-align="center"}
+*William Regli*
+
+Professor
+
+**University of Maryland, College Park**
+:::
+:::
+
+::::
+
+# Thank you!
+&nbsp;  
+&nbsp;  
+
+::::{.columns}
+:::{.column width=30%}
+![](assets/angeline.jpeg){fig-align="center" height="280px"}
+:::
+:::{.column width=50%}
+
+**Angeline Aguinaldo**
+
+*University of Maryland, College Park*
+
+*Johns Hopkins University Applied Physics Laboratory*
+
+&nbsp;  
+**email:** aaguinal@cs.umd.edu
+
+**website:** angelineaguinaldo.com
+:::
+::::
+
+# Appendix
+
+## What is a category?
+&nbsp;  
+&nbsp; 
+&nbsp;  
+&nbsp;  
+**Definition**: A [category]{.define}, $\cat{C}$, consists of:
+
+- a collection of [objects]{.define}, $\text{Ob}(\cat{C})$
+- a collection of [morphisms]{.define} for every pairs of objects, $\text{Hom}_\cat{C}(X,Y)$ for $X, Y \in \text{Ob}(\cat{C})$
+- a composition operation, if $f: X \rightarrow Y$, $g: Y \rightarrow Z$ then $g \circ f: X \rightarrow Z$
+- an identity morphism for every object, $1_X: X \rightarrow X$
+
+satisfying the *associativity* law $h \circ (g \circ f) = (h \circ g) \circ f$ and *unitality* laws $f \circ 1_x = f$ and $1_y \circ f = f$ whenever these equations make sense.
+
+## Future Work
+
+### Migrating plans from one domain (ontology) to another ([preprint](https://arxiv.org/abs/2406.15961))
+Use functorial data migration [@Spivak2012] to translate actions to new domain ontologies
+
+![](assets/schema_migration.png){fig-align="center" height="200"}
+
+### Parameterize action models to have generic and specific actions
+Leverage composition to factor out preconditions to support hierarchical planning.
+
+![](assets/PAC.png){fig-align="center" height="200"}
+
+## References 
