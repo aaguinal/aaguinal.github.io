@@ -1,0 +1,119 @@
+/*-- scss:defaults --*/
+
+$presentation-font-size-root: 24px;
+$footer-bg: #ff0000;
+
+/*-- scss:rules --*/
+
+/* Set background color for all slides */
+.reveal {
+  // background-color: rgba(245, 242, 245, 0.657);
+  background-color: #FFFFFF;
+}
+
+figure figcaption {
+  text-align: center;
+}
+
+.quarto-figure {
+  margin-bottom: 0;
+}
+
+table tbody tr {
+  border-top: medium solid darkgray;
+}
+
+.define {
+  color: #007481;
+  font-weight: bold;
+}
+
+.footer {
+  font-size: 15px;
+}
+
+.planning-fc {
+  color: #741b47;
+  // color: #000000;
+}
+
+.planning-bg {
+  background: #d5a6bdb2;
+}
+
+.robotics-fc {
+  color: #e69138;
+  // color: #000000;
+}
+
+.robotics-bg {
+  background: #f9cb9cb2;
+}
+
+.ct-fc {
+  color: #45818e;
+}
+
+.ct-bg {
+  background: #a2c4c9b2;
+}
+
+.callout-color {
+  background: #f5f5f5;
+  border: 2px solid #000000;
+  border-radius:10px;
+  padding:10px;
+}
+
+.callout-color2{
+  background: #fff2ccff;
+  border: 2px solid #000000;
+  border-radius:10px;
+  padding:10px;
+}
+
+.dark-font-color{
+  color: #6A0572;
+}
+
+.light-font-color{
+  color: #959595;
+  font-size:90%;
+}
+
+.code-block-narrow {
+  width: 425px;
+}
+
+.tablenoborders {
+  table, th, td, tr {
+    border: none !important;
+    border-collapse: collapse;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+
+.tablenoborders tr:nth-of-type(3) td {
+  border-bottom: 2px dotted gray !important;
+}
+
+.tablenoborders tr:nth-of-type(5) td {
+  border-bottom: 2px dotted gray !important;
+}
+
+.tablenoborders tr:nth-of-type(7) td {
+  border-bottom: 2px dotted gray !important;
+}
+
+.tablenoborders tr:nth-of-type(11) td {
+  border-bottom: 2px dotted gray !important;
+}
+
+.tablenoborders tr:nth-of-type(12) td {
+  border-bottom: 2px dotted gray !important;
+}
+
+.tablenoborders tr:nth-of-type(13) td {
+  border-bottom: 2px dotted gray !important;
+}

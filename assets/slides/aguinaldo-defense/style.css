@@ -1,0 +1,34 @@
+.title {
+  font-size: 54px !important;
+}
+
+.quarto-title-author-name {
+  font-size: 28px;
+}
+
+.date {
+  font-size: 24px;
+}
+
+.footer {
+  font-size: 25px;
+}
+
+.reveal pre code {
+  max-height: 500px;
+}
+
+.reveal .slide-logo {
+  height: 3vw !important;
+  /* width: 200px !important; */
+  max-width: unset !important;
+  max-height: unset !important;
+}
+
+.center-text {
+  text-align: center;
+}
+
+/* .slides {
+  background-color: #fdf8ed; 
+} */
