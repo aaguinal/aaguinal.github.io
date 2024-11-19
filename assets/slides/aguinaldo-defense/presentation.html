@@ -827,25 +827,21 @@ _the task_
 <aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="Fong2018">(<a href="#/references" role="doc-biblioref" onclick="">Fong and Spivak 2018</a>)</span>, <span class="citation" data-cites="Brown2022">(<a href="#/references" role="doc-biblioref" onclick="">K. Brown, Hanks, and Fairbanks 2022</a>)</span>, <span class="citation" data-cites="Patterson2022">(<a href="#/references" role="doc-biblioref" onclick="">Patterson et al. 2022</a>)</span>, <span class="citation" data-cites="Baez2023">(<a href="#/references" role="doc-biblioref" onclick="">Baez et al. 2023</a>)</span> <span class="citation" data-cites="Robinson2017">(<a href="#/references" role="doc-biblioref" onclick="">Robinson 2017</a>)</span>, …</p></li></ol></aside></section>
 <section id="functors-and-natural-transformations" class="slide level2">
 <h2>Functors and natural transformations</h2>
-<div style="text-align:center;margin-top:-40px">
+<div style="text-align:center;margin-top:-30px">
 <p><img data-src="assets/functor-example.svg" height="400"></p>
 </div>
-<div style="margin-top:-65px;">
+<div style="margin-top:-50px;">
 <div class="columns">
-<div class="column" style="width:70%;">
-<div class="callout-color" style="font-size:70%;">
-<p><strong>Definition</strong>: <em>(Functor)</em> A <span class="define">functor</span>, <span class="math inline">\(F: \cat{C} \rightarrow \cat{D}\)</span>, from a category <span class="math inline">\(\cat{C}\)</span> to a category <span class="math inline">\(\cat{D}\)</span>, has two components, <span class="math inline">\(F_0\)</span> and <span class="math inline">\(F_1\)</span>, where:</p>
+<div class="column" style="width:45%;">
+<div class="callout-color">
+<p><span class="define"><strong>Functors</strong></span> map, e.g.&nbsp;<span class="math inline">\(\; F: \cat{P(\{1,2\})} \rightarrow \cat{\mathbb{N}_{\leq}}\)</span>:</p>
 <ul>
-<li><p><span class="math inline">\(F_0\)</span> is a map between objects, <span class="math inline">\(F_0: \text{Ob}(\cat{C}) \rightarrow \text{Ob}(\cat{D})\)</span></p></li>
-<li><p><span class="math inline">\(F_1\)</span> is a map between morphism sets, <span class="math inline">\(F_1: \text{Hom}_\cat{C}(X, Y) \rightarrow \text{Hom}_\cat{D}(F_0(X), F_0(Y))\)</span></p></li>
-</ul>
-<p>such that,</p>
-<ul>
-<li><span class="math inline">\(F_1(g \circ f) = F_1(g) \circ F_1(f)\)</span> for <span class="math inline">\(f: X \rightarrow Y\)</span> and <span class="math inline">\(g: Y \rightarrow Z\)</span> in <span class="math inline">\(\cat{C}\)</span></li>
-<li><span class="math inline">\(F_1(1_X) = 1_{F_0(X)}\)</span> for every <span class="math inline">\(X \in \cat{C}\)</span></li>
+<li>Objects to objects</li>
+<li>Morphisms to morphisms</li>
+<li>Preserves composition in the source category</li>
 </ul>
 </div>
-</div><div class="column" style="width:30%;">
+</div><div class="column" style="width:55%;">
 
 </div>
 </div>
@@ -853,31 +849,27 @@ _the task_
 </section>
 <section id="functors-and-natural-transformations-1" class="slide level2">
 <h2>Functors and natural transformations</h2>
-<div style="text-align:center;margin-top:-40px">
+<div style="text-align:center;margin-top:-30px">
 <p><img data-src="assets/naturaltransformation-example.svg" height="400"></p>
 </div>
-<div style="margin-top:-65px;">
+<div style="margin-top:-50px;">
 <div class="columns">
-<div class="column" style="width:70%;">
-<div class="callout-color" style="font-size:70%;">
-<p><strong>Definition</strong>: <em>(Functor)</em> A <span class="define">functor</span>, <span class="math inline">\(F: \cat{C} \rightarrow \cat{D}\)</span>, from a category <span class="math inline">\(\cat{C}\)</span> to a category <span class="math inline">\(\cat{D}\)</span>, has two components, <span class="math inline">\(F_0\)</span> and <span class="math inline">\(F_1\)</span>, where:</p>
+<div class="column" style="width:45%;">
+<div class="callout-color">
+<p><span class="define"><strong>Functors</strong></span> map, e.g.&nbsp;<span class="math inline">\(\; F: \cat{P(\{1,2\})} \rightarrow \cat{\mathbb{N}_{\leq}}\)</span>:</p>
 <ul>
-<li><p><span class="math inline">\(F_0\)</span> is a map between objects, <span class="math inline">\(F_0: \text{Ob}(\cat{C}) \rightarrow \text{Ob}(\cat{D})\)</span></p></li>
-<li><p><span class="math inline">\(F_1\)</span> is a map between morphism sets, <span class="math inline">\(F_1: \text{Hom}_\cat{C}(X, Y) \rightarrow \text{Hom}_\cat{D}(F_0(X), F_0(Y))\)</span></p></li>
-</ul>
-<p>such that,</p>
-<ul>
-<li><span class="math inline">\(F_1(g \circ f) = F_1(g) \circ F_1(f)\)</span> for <span class="math inline">\(f: X \rightarrow Y\)</span> and <span class="math inline">\(g: Y \rightarrow Z\)</span> in <span class="math inline">\(\cat{C}\)</span></li>
-<li><span class="math inline">\(F_1(1_X) = 1_{F_0(X)}\)</span> for every <span class="math inline">\(X \in \cat{C}\)</span></li>
+<li>Objects to objects</li>
+<li>Morphisms to morphisms</li>
+<li>Preserves composition in the source category</li>
 </ul>
 </div>
-</div><div class="column" style="width:30%;">
-<div class="callout-color" style="font-size:70%;">
-<p><strong>Informal Definition</strong>:</p>
-<p><em>(Natural Transformation)</em></p>
-<p>For functors,</p>
-<p><span class="math inline">\(F: \cat{C} \rightarrow \cat{D}\)</span> and <span class="math inline">\(G: \cat{C} \rightarrow \cat{D}\)</span>,</p>
-<p>a <span class="define">natural transformation</span> <span class="math inline">\(\alpha: F \rightarrow G\)</span> associates every object in <span class="math inline">\(\cat{C}\)</span> and with a morphism in <span class="math inline">\(\cat{D}\)</span> such that composition in <span class="math inline">\(\cat{C}\)</span> is preserved under <span class="math inline">\(F\)</span> and <span class="math inline">\(G\)</span>.</p>
+</div><div class="column" style="width:55%;">
+<div class="callout-color">
+<p><span class="define"><strong>Natural transformations</strong></span> map functors, e.g.&nbsp;<span class="math inline">\(\alpha: F \rightarrow G\)</span>:</p>
+<ul>
+<li>Defines morphism in target category, <span class="math inline">\(\cat{\mathbb{N}_{\leq}}\)</span>, per object in source category, e.g.&nbsp;<span class="math inline">\(\cat{P(\{1,2\})}\)</span></li>
+<li>Preserves composition in the source category</li>
+</ul>
 </div>
 </div>
 </div>
@@ -1560,18 +1552,21 @@ Blocksworld specification^[https://github.com/gerryai/PDDL4J/blob/master/pddl/bl
 <section id="advantages-and-limitations-of-categorical-structure-for-planning" class="slide level2">
 <h2>Advantages and Limitations of Categorical Structure for Planning</h2>
 <div class="columns">
-<p>&nbsp; &nbsp; &nbsp;</p><div class="column" style="width:50%;">
-<div class="callout-color" style="padding:10px;border-radius:10px;height:400px">
+<p>&nbsp;</p><div class="column" style="width:50%;">
+<div class="callout-color" style="height:540px">
 <p><span class="dark-font-color" style="font-size:120%"><strong>Advantages</strong></span></p>
 <ul>
 <li>Preserves ontological structure when applying actions and transferring plans</li>
-<li>Generalized transfer for pair of domains</li>
-<li>Action (skill) generation</li>
 <li>Predictable runtime complexity w.r.t. PDDL and its extensions, e.g.&nbsp;typing and transitive closure constraints</li>
+<li>Generalized transfer for pair of domains</li>
+<li>Symbolic action (skill) generation</li>
 </ul>
+<div style="margin-top:-20px;">
+<p><img data-src="assets/skillgen.svg"></p>
+</div>
 </div>
 </div><div class="column" style="width:50%;">
-<div class="callout-color" style="padding:10px;border-radius:10px;height:400px;">
+<div class="callout-color" style="height:540px;">
 <p><span class="dark-font-color" style="font-size:110%"><strong>Limitations</strong></span></p>
 <ul>
 <li>Reliance on advanced mathematical theory</li>
@@ -1579,12 +1574,15 @@ Blocksworld specification^[https://github.com/gerryai/PDDL4J/blob/master/pddl/bl
 <li>Depends on proper (functorial) ontological alignment</li>
 <li>Difficulty handling structurally dissimilar domains</li>
 </ul>
+<div style="margin-top:-40px;">
+<p><img data-src="assets/blocksworldvstowers.svg"></p>
 </div>
 </div>
 </div>
-<div style="text-align:center;margin-top:20px">
-<p><span class="citation" data-cites="Aguinaldo2024dissertation">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo 2024</a>)</span></p>
 </div>
+<!-- ::: {style="text-align:center;margin-top:20px"}
+[@Aguinaldo2024dissertation]
+::: -->
 </section></section>
 <section>
 <section id="future-work-and-conclusion" class="title-slide slide level1 center">
