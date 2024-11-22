@@ -512,12 +512,25 @@ Angeline Aguinaldo
 <section>
 <section id="motivation-for-the-research" class="title-slide slide level1 center">
 <h1>Motivation for the Research</h1>
-
+<div style="font-size:100%;color:gray;">
+<p>An example of plan transfer, goals of the dissertation, and the bigger picture</p>
+</div>
 </section>
 <section id="lets-take-an-example" class="slide level2">
 <h2>Let’s take an example</h2>
-<div style="text-align:center;margin-top:10px;margin-top:50px;">
+<div style="text-align:center;margin-top:10px;margin-top:35px;">
 <p>Agility Robotics (<em>left</em>) and Brightpick Robot (<em>right</em>) showcased during ProMat 2023</p>
+</div>
+<div class="absolute" style="text-align:center;color:gray;top: 240px; left: 80px; ">
+<p>Humanoid robot</p>
+<p>Arms</p>
+<p>Bins</p>
+<p>Conveyer Belt</p>
+</div>
+<div class="absolute" style="text-align:center;color:gray;top: 240px; left: 800px; ">
+<p>Mobile robot</p>
+<p>Lift</p>
+<p>Box</p>
 </div>
 <div class="columns">
 <div class="column" style="text-align: right;margin-top:-20px;">
@@ -543,6 +556,9 @@ _the task_
 **Transfer old plans to solve new problems**
 :::
 ::: -->
+<div class="callout-color2" style="text-align:center;margin-top:-10px;">
+<p><strong>Problem:</strong> Designing planning domains <span style="font-size:80%"><span class="citation" data-cites="Alnazer2023">(<a href="#/references" role="doc-biblioref" onclick="">Alnazer and Georgievski 2023</a>)</span></span> and running planners <span style="font-size:80%"><span class="citation" data-cites="Mansouri2021">(<a href="#/references" role="doc-biblioref" onclick="">Mansouri, Pecora, and Schüller 2021</a>)</span></span> for each planning problem is time-consuming.</p>
+</div>
 </section>
 <section id="what-do-i-mean-by-transferring-plans" class="slide level2">
 <h2>What do I mean by transferring plans?</h2>
@@ -604,7 +620,7 @@ _the task_
 </div>
 <p>Interoperability in Mission Planning</p>
 <div style="font-size:80%">
-<p><em>May want to adapt mission plans that coordinate teams and resources to work in different disaster events</em></p>
+<p><em>Transferring the course of action (CoA) for a supply distribution plan from one disaster scenario to another.</em></p>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
@@ -617,7 +633,7 @@ _the task_
 </div>
 <p>Standards and Privacy in Manufacturing</p>
 <div style="font-size:80%">
-<p><em>May want to transfer abstract plans to manufacturer-specific contexts while preserving behavior</em></p>
+<p><em>Transferring an abstract, standardized plan and adapting it with manufacturer-specific details</em></p>
 </div>
 </div>
 </div>
@@ -627,7 +643,9 @@ _the task_
 <section>
 <section id="current-approaches-and-gaps" class="title-slide slide level1 center">
 <h1>Current Approaches and Gaps</h1>
-
+<div style="font-size:100%;color:gray;">
+<p>Plan transfer in robotics, the gaps, and foundations of category theory</p>
+</div>
 </section>
 <section id="what-is-planning-in-robotics" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in">
 <h2 data-id="quarto-animate-title">What is planning in robotics?</h2>
@@ -671,7 +689,7 @@ _the task_
 </div>
 <div style="text-align:center; margin-top:30px;">
 <p>1970s - 2000s</p>
-<p><span style="font-size:70%"><span class="citation" data-cites="Nilsson1984">Nilsson (<a href="#/references" role="doc-biblioref" onclick="">1984</a>)</span>, <span class="citation" data-cites="LozanoPerez1992">Lozano-Perez et al. (<a href="#/references" role="doc-biblioref" onclick="">1992</a>)</span>, <span class="citation" data-cites="Bresina2005">Bresina et al. (<a href="#/references" role="doc-biblioref" onclick="">2005</a>)</span></span></p>
+<p><span style="font-size:80%"><span class="citation" data-cites="Nilsson1984">(<a href="#/references" role="doc-biblioref" onclick="">Nilsson 1984</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="LozanoPerez1992">(<a href="#/references" role="doc-biblioref" onclick="">Lozano-Perez et al. 1992</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Bresina2005">(<a href="#/references" role="doc-biblioref" onclick="">Bresina et al. 2005</a>)</span></span></p>
 </div>
 <div style="text-align:center;margin-top:-10px">
 <p><span style="font-size:50%;color:gray;">Image creds: <a href="https://www.aiai.ed.ac.uk/~gwickler/prop-fwd-ssp.html">Gerhard Wickler</a> (task), <a href="https://robodk.com/blog/robot-motion-planning-made-easy/">RoboDK</a> (motion)</span></p>
@@ -697,7 +715,7 @@ _the task_
 <p>Abstract decision-making</p>
 <p>Symbolic states</p>
 <p>Discrete action space</p>
-<p>Algorthmic search</p>
+<p>Algorithmic search</p>
 </div>
 <div style="margin-top: 80px; display: flex; justify-content: center; align-items: flex-end; font-size: 28px; padding-bottom: 20px;">
 <p><em>AI Planning</em></p>
@@ -718,7 +736,7 @@ _the task_
 <div style="text-align:center; margin-top:30px;">
 <p>(after 2010) <strong>Task and Motion Planning (TAMP)</strong></p>
 <p>Coordinating high-level and low-level planning</p>
-<p><span style="font-size:70%"><span class="citation" data-cites="Kaelbling2011">Kaelbling and Lozano-PÉrez (<a href="#/references" role="doc-biblioref" onclick="">2011</a>)</span>, <span class="citation" data-cites="Garrett2021">Garrett et al. (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>, <span class="citation" data-cites="Mansouri2021">Mansouri, Pecora, and Schüller (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span></span></p>
+<p><span style="font-size:80%"><span class="citation" data-cites="Kaelbling2011">(<a href="#/references" role="doc-biblioref" onclick="">Kaelbling and Lozano-Pérez 2011</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Garrett2021">(<a href="#/references" role="doc-biblioref" onclick="">Garrett et al. 2021</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Mansouri2021">(<a href="#/references" role="doc-biblioref" onclick="">Mansouri, Pecora, and Schüller 2021</a>)</span></span></p>
 </div>
 <div style="text-align:center;margin-top:-10px">
 <p><span style="font-size:50%;color:gray;">Image creds: <a href="https://www.aiai.ed.ac.uk/~gwickler/prop-fwd-ssp.html">Gerhard Wickler</a> (task), <a href="https://robodk.com/blog/robot-motion-planning-made-easy/">RoboDK</a> (motion)</span></p>
@@ -736,11 +754,11 @@ _the task_
 </ul>
 </div>
 <div style="margin-top:10px">
-<p><strong>Predominant techniques in robotics include:</strong></p>
+<p><strong>Some techniques in robotics include:</strong></p>
 <div style="margin-left:20px;">
 <p>learning a shared feature space across different environments (<span class="define"><strong>universal domain adaptation</strong></span>),</p>
 <p>learning multiple tasks at once (<span class="define"><strong>RL meta-learning</strong></span>), and</p>
-<p>recalculating motion trajectory through kinematic mapping (<span class="define"><strong>motion retargeting</strong></span>).</p>
+<p>learning mapping between different kinematic structures (<span class="define"><strong>motion retargeting</strong></span>).</p>
 </div>
 </div>
 <div class="columns">
@@ -748,7 +766,7 @@ _the task_
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="assets/tasktransfer.png"></p>
-<figcaption>Task transfer can be accomplished using universal domain adaptation or RL meta-learning. Image from <span class="citation" data-cites="Jaquier2023">(<a href="#/references" role="doc-biblioref" onclick="">Jaquier et al. 2023</a>)</span>.</figcaption>
+<figcaption>Task transfer can be accomplished using RL meta-learning. Image from <span class="citation" data-cites="Jaquier2023">(<a href="#/references" role="doc-biblioref" onclick="">Jaquier et al. 2023</a>)</span>.</figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:40%;">
@@ -764,14 +782,23 @@ _the task_
 </section>
 <section id="whats-the-gap" class="slide level2">
 <h2>What’s the gap?</h2>
-<div class="callout-color" style="margin-top:120px; border-radius: 10px; font-size:100%; padding: 10px;">
+<div class="callout-color" style="margin-top:20px; border-radius: 10px; font-size:100%; padding: 10px;">
 <p><strong>1.</strong> Plan transfer in robotics typically <span class="define"><strong>focuses on motion planning</strong></span>, neglecting task-level transfer at the symbolic representation.</p>
+</div>
+<div style="margin-top:10px; text-align:left; font-size:100%; margin-left:20px; color:white;">
+<p><strong>CONTRIBUTION 1:</strong> Focus on task-level transfer.</p>
 </div>
 <div class="callout-color" style="margin-top:20px; border-radius: 10px; font-size:100%; padding: 10px;">
 <p><strong>2.</strong> Current approaches <span class="define"><strong>lack flexibility in broader transfer use cases</strong></span>, such as partial plan transfer or integrating plans into larger behaviors.</p>
 </div>
+<div style="margin-top:10px; text-align:left; font-size:100%; margin-left:20px; color:white;">
+<p><strong>CONTRIBUTION 2:</strong> Identify broader transfer uses cases. The way robot programming has evolved gives a hint to how humans aim to reuse existing robot behaviors.</p>
+</div>
 <div class="callout-color" style="margin-top:20px; border-radius: 10px; font-size:100%; padding: 10px;">
 <p><strong>3.</strong> There <span class="define"><strong>lacks standardized frameworks</strong></span> to formally evaluate the success of plan transfer.</p>
+</div>
+<div style="margin-top:20px; text-align:left; font-size:100%; margin-left:20px; color:white;">
+<p><strong>CONTRIBUTION 3:</strong> Establish a formal framework that can account for all types of transfer. <span style="color:white;"><strong>Category theory</strong></span>, with its emphasis on abstraction and compositionality, is a good candidate for this mathematical framework.</p>
 </div>
 </section>
 <section id="contributions-of-this-dissertation" class="slide level2">
@@ -795,8 +822,7 @@ _the task_
 <p><strong>CONTRIBUTION 3:</strong> Establish a formal framework that can account for all types of transfer. <span class="dark-font-color"><strong>Category theory</strong></span>, with its emphasis on abstraction and compositionality, is a good candidate for this mathematical framework.</p>
 </div>
 </section>
-
-<section id="what-is-category-theory-1" class="slide level2">
+<section id="what-is-category-theory" class="slide level2">
 <h2>What is category theory?</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -824,7 +850,7 @@ _the task_
 </ul>
 <p>satisfying the <em>associativity</em> law <span class="math inline">\(h \circ (g \circ f) = (h \circ g) \circ f\)</span> and <em>unitality</em> laws <span class="math inline">\(f \circ 1_x = f\)</span> and <span class="math inline">\(1_y \circ f = f\)</span> whenever these equations make sense.</p>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="Fong2018">(<a href="#/references" role="doc-biblioref" onclick="">Fong and Spivak 2018</a>)</span>, <span class="citation" data-cites="Brown2022">(<a href="#/references" role="doc-biblioref" onclick="">K. Brown, Hanks, and Fairbanks 2022</a>)</span>, <span class="citation" data-cites="Patterson2022">(<a href="#/references" role="doc-biblioref" onclick="">Patterson et al. 2022</a>)</span>, <span class="citation" data-cites="Baez2023">(<a href="#/references" role="doc-biblioref" onclick="">Baez et al. 2023</a>)</span> <span class="citation" data-cites="Robinson2017">(<a href="#/references" role="doc-biblioref" onclick="">Robinson 2017</a>)</span>, …</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p><span class="citation" data-cites="Fong2018">(<a href="#/references" role="doc-biblioref" onclick="">Fong and Spivak 2018</a>)</span>, <span class="citation" data-cites="Patterson2022">(<a href="#/references" role="doc-biblioref" onclick="">Patterson et al. 2022</a>)</span>, <span class="citation" data-cites="Spivak2011">(<a href="#/references" role="doc-biblioref" onclick="">David I. Spivak and Kent 2011</a>)</span>, <span class="citation" data-cites="Shinavier2019">(<a href="#/references" role="doc-biblioref" onclick="">Shinavier and Wisnesky 2019</a>)</span>, <span class="citation" data-cites="Coecke2018">(<a href="#/references" role="doc-biblioref" onclick="">Coecke and Kissinger 2017</a>)</span></p></li></ol></aside></section>
 <section id="functors-and-natural-transformations" class="slide level2">
 <h2>Functors and natural transformations</h2>
 <div style="text-align:center;margin-top:-30px">
@@ -874,11 +900,51 @@ _the task_
 </div>
 </div>
 </div>
+</section>
+<section id="monoidal-categories-and-string-diagrams" class="slide level2">
+<h2>Monoidal Categories and String Diagrams</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="callout-color" style="font-size:80%;margin-top:30px;">
+<p><strong>Informal Definition</strong>: <em>(Monoidal Category)</em></p>
+<p>A <span class="define">monoidal category</span>, <span class="math inline">\(\cat{M}\)</span>, consists of:</p>
+<div style="opacity:40%;">
+<ul>
+<li>a collection of <span class="define">objects</span>, <span class="math inline">\(\text{Ob}(\cat{M})\)</span></li>
+<li>a collection of <span class="define">morphisms</span> for every pairs of objects, <span class="math inline">\(\text{Hom}_\cat{M}(X,Y)\)</span> for <span class="math inline">\(X, Y \in \text{Ob}(\cat{M})\)</span></li>
+<li>a composition operation, if <span class="math inline">\(f: X \rightarrow Y\)</span>, <span class="math inline">\(g: Y \rightarrow Z\)</span> then <span class="math inline">\(g \circ f: X \rightarrow Z\)</span></li>
+<li>an identity morphism for every object, <span class="math inline">\(1_X: X \rightarrow X\)</span></li>
+</ul>
+</div>
+<div style="margin-top:-10px;">
+<ul>
+<li>a <span class="define">monoidal product</span>, <span class="math inline">\(\otimes: \cat{M} \times \cat{M}\)</span></li>
+<li>a <span class="define">unit object</span>, <span class="math inline">\(1 \in \cat{M}\)</span></li>
+</ul>
+</div>
+<div style="opacity:40%;">
+<p>satisfying the <em>associativity</em> law <span class="math inline">\(h \circ (g \circ f) = (h \circ g) \circ f\)</span> and <em>unitality</em> laws <span class="math inline">\(f \circ 1_x = f\)</span> and <span class="math inline">\(1_y \circ f = f\)</span> whenever these equations make sense.</p>
+</div>
+<p>other laws…</p>
+<p><span class="citation" data-cites="Joyal1991">(<a href="#/references" role="doc-biblioref" onclick="">Joyal and Street 1991</a>)</span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<div style="margin-left:20px;">
+<p><img data-src="assets/string_diagram_example_highlight.png" class="absolute" style="top: 80px; height: 450px; "></p>
+<div style="text-align:center;margin-top:500px">
+<p>An example <span class="define"><strong>string diagram</strong></span></p>
+<p><span style="font-size:80%;"><span class="citation" data-cites="Selinger2010">(<a href="#/references" role="doc-biblioref" onclick="">Selinger 2010</a>)</span></span></p>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="my-research" class="title-slide slide level1 center">
 <h1>My Research</h1>
-
+<div style="font-size:100%;color:gray;">
+<p>My conceptual framework, mathematical framework, and case studies</p>
+</div>
 </section>
 <section id="my-conceptual-framework-for-plan-transfer" class="slide level2">
 <h2>My conceptual framework for plan transfer</h2>
@@ -890,10 +956,10 @@ _the task_
 <p><img data-src="assets/sequential.svg" width="250"></p>
 </div>
 <div style="margin-top:123px; margin-left:30px;font-size:85%">
-<p>Like <strong>motion primitives and skills</strong> <span style="font-size:80%"><span class="citation" data-cites="Bogh">Bøgh et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, <span class="citation" data-cites="Ionescu2020">Ionescu (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span>, <span class="citation" data-cites="Proctor2016">Proctor et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span></span></p>
+<p>Like <strong>motion primitives and skills</strong> <span style="font-size:80%"><span class="citation" data-cites="Bogh">(<a href="#/references" role="doc-biblioref" onclick="">Bøgh et al. 2012</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Ionescu2020">(<a href="#/references" role="doc-biblioref" onclick="">Ionescu 2020</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Proctor2016">(<a href="#/references" role="doc-biblioref" onclick="">Proctor et al. 2016</a>)</span></span></p>
 <div style="margin-top:65px;">
 <ul>
-<li>Preserves composition</li>
+<li>Valid composition</li>
 <li>Same planning domain</li>
 </ul>
 </div>
@@ -906,7 +972,7 @@ _the task_
 <p><img data-src="assets/hierarchical.svg" width="250"></p>
 </div>
 <div style="font-size:85%;margin-top:-20px;">
-<p>Like <strong>modular architectures</strong> <span style="font-size:80%"><span class="citation" data-cites="Cowley2006">Cowley, Chaimowicz, and Taylor (<a href="#/references" role="doc-biblioref" onclick="">2006</a>)</span></span> and <strong>middlewares</strong> <span style="font-size:80%"><span class="citation" data-cites="Aragao2016">Aragão, Moreno, and Bernardino (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>, <span class="citation" data-cites="Liang2008">Yang Liang (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span>, <span class="citation" data-cites="Matai2008">Matai et al. (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span></span></p>
+<p>Like <strong>modular architectures</strong> <span style="font-size:80%"><span class="citation" data-cites="Cowley2006">(<a href="#/references" role="doc-biblioref" onclick="">Cowley, Chaimowicz, and Taylor 2006</a>)</span></span> and <strong>middlewares</strong> <span style="font-size:80%"><span class="citation" data-cites="Aragao2016">(<a href="#/references" role="doc-biblioref" onclick="">Aragão, Moreno, and Bernardino 2016</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Liang2008">(<a href="#/references" role="doc-biblioref" onclick="">Yang Liang 2008</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Matai2008">(<a href="#/references" role="doc-biblioref" onclick="">Matai et al. 2008</a>)</span></span></p>
 <ul>
 <li>Preserves composition and abstract behavior</li>
 <li>Same planning domain</li>
@@ -920,7 +986,7 @@ _the task_
 <p><img data-src="assets/analogical.svg" width="250"></p>
 </div>
 <div style="margin-top:150px;font-size:85%">
-<p>Like <strong>robot program translation</strong> <span style="font-size:80%"><span class="citation" data-cites="Freund2001">Freund et al. (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>, <span class="citation" data-cites="Freund2002">Freund and Luedemann-Ravit (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span>, <span class="citation" data-cites="Adam2017a">Adam et al. (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, <span class="citation" data-cites="Ringert2014">Ringert et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span>, <span class="citation" data-cites="Souza2019">Souza et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, <span class="citation" data-cites="Souza2020">Carvalho de Souza et al. (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span></span></p>
+<p>Like <strong>robot program translation</strong> <span style="font-size:80%"><span class="citation" data-cites="Freund2001">(<a href="#/references" role="doc-biblioref" onclick="">Freund et al. 2001</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Freund2002">(<a href="#/references" role="doc-biblioref" onclick="">Freund and Luedemann-Ravit 2002</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Adam2017a">(<a href="#/references" role="doc-biblioref" onclick="">Adam et al. 2017</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Ringert2014">(<a href="#/references" role="doc-biblioref" onclick="">Ringert et al. 2014</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Souza2019">(<a href="#/references" role="doc-biblioref" onclick="">Souza et al. 2019</a>)</span></span>, <span style="font-size:80%"><span class="citation" data-cites="Souza2020">(<a href="#/references" role="doc-biblioref" onclick="">Carvalho de Souza et al. 2020</a>)</span></span></p>
 <ul>
 <li>Achieves analogous goal state</li>
 <li>Different planning domain</li>
@@ -977,11 +1043,93 @@ _the task_
 </div>
 </div>
 </div>
+</section>
+<section id="sequential-transfer-an-overview" class="slide level2">
+<h2>Sequential Transfer: An Overview</h2>
+<div class="callout-color2" style="font-size:85%;margin-top:10px;text-align:center;">
+<p>Strings diagrams can <span class="define"><strong>propagate preconditions and effects</strong></span> of actions in a plan to <span class="define"><strong>check plan composition</strong></span>. <span class="citation" data-cites="Aguinaldo2021a">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo and Regli 2021</a>)</span></p>
+</div>
+<div style="text-align:center; margin-top:-20px;">
+<p><img data-src="assets/sequential_blocksworld.svg" class="absolute" style="top: 155px; left: 0px; width: 250px; "></p>
+<p><img data-src="assets/blocks_string_diagram_annotated.png"></p>
+</div>
+<div class="callout-color" style="font-size:60%; margin-top:-25px">
+<table class="caption-top" style="width:99%;">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 83%">
+<col style="width: 8%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><strong>State</strong></th>
+<th style="text-align: center;"><strong>World State</strong></th>
+<th style="text-align: center;"><strong>Action</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Initial</strong></td>
+<td style="text-align: center;"><strong>clear c</strong>, <strong>ontable c</strong>, <strong>clear b</strong>, <strong>ontable b</strong>, <strong>handempty</strong>, <strong>clear a</strong>, <strong>ontable a</strong></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Step 1</strong></td>
+<td style="text-align: center;">clear c, ontable c, <strong>clear b</strong>, <strong>ontable b</strong>, <strong>handempty</strong>, clear a, ontable</td>
+<td style="text-align: center;">pick-up</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Step 2</strong></td>
+<td style="text-align: center;">clear c, ontable c, <strong>holding b</strong>, <strong>clear a</strong>, ¬ontable b, ¬clear b, ¬handempty, ontable a</td>
+<td style="text-align: center;">stack</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Step 3</strong></td>
+<td style="text-align: center;">clear b, <strong>clear c</strong>, <strong>ontable c</strong>, <strong>handempty</strong>, on b a, ¬holding b, ¬clear a, ¬ontable b, ¬clear b, ¬handempty, ontable a</td>
+<td style="text-align: center;">pick-up</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Step 4</strong></td>
+<td style="text-align: center;"><strong>holding c</strong>, <strong>clear b</strong>, ¬ontable c, ¬clear c, ¬handempty, on b a, ¬holding b, ¬clear a, ¬ontable b, ¬clear b, ¬handempty, ontable a</td>
+<td style="text-align: center;">stack</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Goal</strong></td>
+<td style="text-align: center;">clear c, handempty, <strong>on c b</strong>, ¬holding c, ¬clear b, ¬ontable c, ¬clear c, ¬handempty, <strong>on b a</strong>, ¬holding b, ¬clear a, ¬ontable b, ¬clear b, ¬handempty, ontable a</td>
+<td style="text-align: center;"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="text-align:center;font-size:80%;margin-top:-10px;">
+<p>World states containing explicit (<strong>bold</strong>) and implicit literals.</p>
+</div>
+</section>
+<section id="hierarchical-transfer-an-overview" class="slide level2">
+<h2>Hierarchical Transfer: An Overview</h2>
+<div class="callout-color2" style="font-size:85%;margin-top:10px;text-align:center;">
+<p>The categories <span class="define"><span class="math inline">\(\cat{Task}\)</span></span>, <span class="define"><span class="math inline">\(\cat{Virtual}\)</span></span>, <span class="define"><span class="math inline">\(\cat{Motion}\)</span></span> are defined. Functors,</p>
+<p><span class="define"><span class="math inline">\(F: \cat{Task} \rightarrow \cat{Virtual} \quad \quad G: \cat{Virtual} \rightarrow \cat{Motion}\)</span></span></p>
+<p>can be used to guarantee the task behavior is preserved. <span class="citation" data-cites="Aguinaldo2021">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo et al. 2021</a>)</span></p>
+</div>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div style="margin-top:20px;text-align:center;">
+<p><img data-src="assets/framework.png"></p>
+</div>
+</div><div class="column" style="width:60%;">
+<div style="margin-top:10px;text-align:center;border: 1px solid #000000;">
+<p><img data-src="assets/sd6.png"></p>
+</div>
+</div>
+</div>
 </section></section>
 <section>
-<section id="deep-dive-analogical-plan-transfer" class="title-slide slide level1 center">
-<h1>Deep Dive: Analogical Plan Transfer</h1>
-
+<section id="analogical-plan-transfer-a-deep-dive" class="title-slide slide level1 center">
+<h1>Analogical Plan Transfer: A Deep Dive</h1>
+<div style="font-size:100%;color:gray;">
+<p>How it works and a new planning representation language</p>
+</div>
 </section>
 <section id="what-can-we-do-with-analogical-plan-transfer" class="slide level2">
 <h2>What can we do with analogical plan transfer?</h2>
@@ -995,7 +1143,7 @@ _the task_
 <section id="why-does-this-work" class="slide level2">
 <h2>Why does this work?</h2>
 <div class="absolute" style="font-size:70%;text-align:center;top: 480px; left: 750px; width: 250px; ">
-<p><em>Kitchenworld ontology derived from AI2-Thor Object Type Documentation <span class="citation" data-cites="AiTHOR_object_types">(<a href="#/references" role="doc-biblioref" onclick="">Allen Institute for Artificial Intelligence 2024</a>)</span></em></p>
+<p><em>Kitchenworld ontology derived from AI2-Thor Object Type Documentation <br> <span class="citation" data-cites="AiTHOR_object_types">(<a href="#/references" role="doc-biblioref" onclick="">Allen Institute for Artificial Intelligence 2024</a>)</span></em></p>
 </div>
 
 <img data-src="assets/StructuralAnalogyTranslationFunctor.png" class="r-stretch"><div style="text-align:center;margin-top:-25px;">
@@ -1009,7 +1157,7 @@ _the task_
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="assets/analogy.png" height="500"></p>
-<figcaption>Analogies are formed by structure mappings <span style="font-size:80%"><span class="citation" data-cites="Gentner2012">(<a href="#/references" role="doc-biblioref" onclick="">Gentner and Smith 2012</a>)</span></span></figcaption>
+<figcaption>Analogies, according to cognitive psychology, are formed by <span class="define"><strong>structure mappings</strong></span> <br> <span style="font-size:80%"><span class="citation" data-cites="Gentner2012">(<a href="#/references" role="doc-biblioref" onclick="">Gentner and Smith 2012</a>)</span></span></figcaption>
 </figure>
 </div>
 </div><div class="column" style="width:60%;">
@@ -1033,8 +1181,8 @@ Analogical plan transfer is achieved using [**functorial data migrations**]{.def
 </div>
 </div>
 </section>
-<section id="task-planning" class="slide level2">
-<h2>Task Planning</h2>
+<section id="analogies-with-task-planning" class="slide level2">
+<h2>Analogies with Task Planning</h2>
 <div style="font-size:90%;margin-top:20px;">
 <div class="callout-color2" style="padding:10px">
 <p>PDDL<sup>1</sup> does not have built-in support for domain comparison or domain ontology alignment. Therefore, a new planning language that supports these capabilities is a prerequisite for analogical plan transfer. <span style="font-size:80%"><span class="citation" data-cites="Aguinaldo2024dissertation">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo 2024</a>)</span></span></p>
@@ -1042,8 +1190,8 @@ Analogical plan transfer is achieved using [**functorial data migrations**]{.def
 </div>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="callout-color" style="margin-top:30px;font-size:80%">
-<p><strong>State Transition System Model for Planning</strong> <span style="font-size:80%"><span class="citation" data-cites="Ghallab2004">(<a href="#/references" role="doc-biblioref" onclick="">Ghallab, Nau, and Traverso 2004</a>)</span></span></p>
+<div class="callout-color" style="margin-top:20px;font-size:80%">
+<p><strong>State Transition System Model for Planning</strong></p>
 <ul>
 <li><span class="define">States</span>, <span class="math inline">\(S = \{s_0, s_1, s_2, \dots\}\)</span> set of all possible states</li>
 <li><span class="define">Actions</span>, <span class="math inline">\(A = \{a_0, a_1, a_2, \dots\}\)</span> set of all possible actions
@@ -1056,6 +1204,7 @@ Analogical plan transfer is achieved using [**functorial data migrations**]{.def
 <li><span class="define">Checking applicability</span> an action <span class="math inline">\(a \in A\)</span> is at state <span class="math inline">\(s \in S\)</span> if <span class="math inline">\(\gamma(a, s)\)</span> is defined</li>
 </ul></li>
 </ul>
+<p><span style="font-size:80%"><span class="citation" data-cites="Ghallab2004">(<a href="#/references" role="doc-biblioref" onclick="">Ghallab, Nau, and Traverso 2004</a>)</span></span></p>
 </div>
 </div><div class="column" style="width:50%;">
 <div style="margin-top:90px">
@@ -1111,7 +1260,7 @@ Blocksworld specification^[https://github.com/gerryai/PDDL4J/blob/master/pddl/bl
 <section id="planning-states-as-catc-sets" class="slide level2">
 <h2>Planning States as <span class="math inline">\(\cat{C}\)</span>-sets</h2>
 <div style="font-size:90%">
-<p><strong>Definition</strong>: (<em><span class="math inline">\(\cat{C}\)</span>-set</em>, <em>schema category</em>) A <span class="define"><span class="math inline">\(\cat{C}\)</span>-set</span> is a functor from <span class="math inline">\(\cat{C} \rightarrow \cat{Set}\)</span>. <span class="math inline">\(\cat{C}\)</span> is referred to as the <span class="define">schema category</span>. <span class="math inline">\(\cat{Set}\)</span> is a category whose objects are sets and whose morphisms are set function maps.</p>
+<p><strong>Definition</strong>: (<em><span class="math inline">\(\cat{C}\)</span>-set</em>, <em>schema category</em>) A <span class="define"><span class="math inline">\(\cat{C}\)</span>-set</span> is a functor from <span class="math inline">\(\cat{C} \rightarrow \cat{Set}\)</span>. <span class="math inline">\(\cat{C}\)</span> is referred to as the <span class="define">schema category</span> (i.e.&nbsp;ontology). <span class="math inline">\(\cat{Set}\)</span> is a category whose objects are sets and whose morphisms are set function maps.</p>
 </div>
 <div class="callout-color">
 <p><strong>Example:</strong></p>
@@ -1354,17 +1503,24 @@ Blocksworld specification^[https://github.com/gerryai/PDDL4J/blob/master/pddl/bl
 </section>
 <section id="planning-actions-using-spans-and-dpo-rewriting" class="slide level2">
 <h2>Planning Actions using Spans and DPO Rewriting</h2>
-<p><strong>Definition</strong>: The category <span class="define"><span class="math inline">\(\catSet{C}\)</span></span> is a category whose objects are <span class="math inline">\(\cat{C}\)</span>-set functors and whose morphisms are natural transformations.</p>
+<p><strong>Definition</strong>: (<em><span class="math inline">\(\catSet{C}\)</span></em>) The category <span class="define"><span class="math inline">\(\catSet{C}\)</span></span> is a category whose objects are <span class="math inline">\(\cat{C}\)</span>-set functors and whose morphisms are natural transformations.</p>
 <p>A <span class="define"><strong>span</strong></span> in <span class="math inline">\(\catSet{C}\)</span> is a diagram of shape (<span class="math inline">\(\bullet \leftarrow \bullet \rightarrow \bullet\)</span>) in <span class="math inline">\(\catSet{C}\)</span>.</p>
-<div class="callout-color2" style="margin-top:20px;text-align:center;">
+<div class="callout-color2" style="margin-top:20px;text-align:center;height:440px;">
+<div style="margin-top:-5px;">
 <p><span class="define">Actions</span> are spans (<span class="math inline">\(\mathrm{Pre} \hookleftarrow \mathrm{Keep} \rightarrow \mathrm{Eff}\)</span>) in <span class="math inline">\(\catSet{C}\)</span></p>
-<!-- https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhybXtQcmV9Il0sWzEsMCwiXFxtYXRocm17S2VlcH0iXSxbMiwwLCJcXG1hdGhybXtFZmZ9Il0sWzAsMSwiWCJdLFsyLDEsIlkiXSxbMSwxLCJaIl0sWzEsMCwibCIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzEsMiwiciJdLFsxLDUsImYiLDJdLFswLDMsIm0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFs1LDNdLFs1LDRdLFsyLDRdLFs0LDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFszLDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ== -->
-<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhybXtQcmV9Il0sWzEsMCwiXFxtYXRocm17S2VlcH0iXSxbMiwwLCJcXG1hdGhybXtFZmZ9Il0sWzAsMSwiWCJdLFsyLDEsIlkiXSxbMSwxLCJaIl0sWzEsMCwibCIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzEsMiwiciJdLFsxLDUsImYiLDJdLFswLDMsIm0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFs1LDNdLFs1LDRdLFsyLDRdLFs0LDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFszLDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==&amp;embed" width="438" height="304" style="border-radius: 8px; border: none;">
+</div>
+<!-- https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhybXtQcmV9Il0sWzEsMCwiXFxtYXRocm17S2VlcH0iXSxbMiwwLCJcXG1hdGhybXtFZmZ9Il0sWzAsMSwiWCJdLFsyLDEsIlkiXSxbMSwxLCJaIl0sWzEsMCwibCIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzEsMiwiciJdLFsxLDVdLFswLDMsIm0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFs1LDNdLFs1LDRdLFsyLDRdLFs0LDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFszLDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ== -->
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhybXtQcmV9Il0sWzEsMCwiXFxtYXRocm17S2VlcH0iXSxbMiwwLCJcXG1hdGhybXtFZmZ9Il0sWzAsMSwiWCJdLFsyLDEsIlkiXSxbMSwxLCJaIl0sWzEsMCwibCIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzEsMiwiciJdLFsxLDVdLFswLDMsIm0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFs1LDNdLFs1LDRdLFsyLDRdLFs0LDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFszLDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==&amp;embed" width="438" height="304" style="border-radius: 8px; border: none;">
 </iframe>
 <div style="margin-top:-30px">
 <p>Actions are applied to state <span class="math inline">\(X\)</span> to produce state <span class="math inline">\(Y\)</span> using <span class="define">Double-Pushout (DPO) Rewriting</span></p>
-<p><span style="font-size:80%"><span class="citation" data-cites="Aguinaldo2023">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo et al. 2023</a>)</span></span></p>
 </div>
+<div style="margin-top:-10px;">
+<p><span style="font-size:80%;"><span class="citation" data-cites="Aguinaldo2023">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo et al. 2023</a>)</span></span></p>
+</div>
+</div>
+<div style="font-size:85%;margin-top:-5px;">
+<p><span class="math inline">\(\hookleftarrow\)</span> is a <span class="define"><strong>monomorphism</strong></span> (e.g.&nbsp;injective function in <span class="math inline">\(\cat{Set}\)</span>). <span class="math inline">\(\urcorner\)</span> and <span class="math inline">\(\ulcorner\)</span> is a <span class="define"><strong>pushout</strong></span> (e.g.&nbsp;quotiented disjoint union in <span class="math inline">\(\cat{Set}\)</span>).</p>
 </div>
 </section>
 <section id="actions-in-catsetcolorblocksworld-in-code" class="slide level2">
@@ -1548,7 +1704,15 @@ Blocksworld specification^[https://github.com/gerryai/PDDL4J/blob/master/pddl/bl
 </div>
 </div>
 </section>
-
+<section id="a-review" class="slide level2">
+<h2>A review</h2>
+<div style="text-align:center;margin-top:15px;">
+<p><img data-src="assets/demo/demo-annotated.gif" width="900"></p>
+</div>
+<!-- ::: {style="font-size:70%;margin-top:-20px;text-align:center;"}
+The frame rate is _not_ proportional to the speed of computation.
+::: -->
+</section>
 <section id="advantages-and-limitations-of-categorical-structure-for-planning" class="slide level2">
 <h2>Advantages and Limitations of Categorical Structure for Planning</h2>
 <div class="columns">
@@ -1585,35 +1749,40 @@ Blocksworld specification^[https://github.com/gerryai/PDDL4J/blob/master/pddl/bl
 ::: -->
 </section></section>
 <section>
-<section id="future-work-and-conclusion" class="title-slide slide level1 center">
-<h1>Future Work and Conclusion</h1>
 
-</section>
 <section id="areas-of-future-work" class="slide level2">
 <h2>Areas of Future Work</h2>
-<div class="callout-color dark-font-color" style="margin-top:20px;">
+<p><img data-src="assets/knowrob_ontology.png" class="absolute" style="top: -30px; left: 710px; width: 420px; "> <img data-src="assets/fof_ontology.png" class="absolute" style="top: 315px; left: 710px; width: 400px; "></p>
+<div class="columns">
+<div class="column" style="width:65%;">
+<div class="callout-color dark-font-color" style="margin-top:20px;font-size:90%">
 <p><strong>Scaling Studies: Empirical and Theoretical</strong></p>
 </div>
-<div style="margin-left:30px;">
+<div style="margin-left:30px;font-size:90%">
 <ul>
-<li>Apply to more planning and plan transfer problems</li>
+<li>More planning and plan transfer problems</li>
 <li>Scale by the size of the world state and ontology</li>
 <li>Scale by length of plan</li>
 <li>Design benchmarks, e.g.&nbsp;transfer accuracy</li>
 <li>Study functoriality of migration for certain ontology maps</li>
 </ul>
 </div>
-<div class="callout-color dark-font-color" style="position: relative; margin-top:10px;">
-<p><strong>A Software Tool for Category Theory-Based Planning and Plan Transfer</strong></p>
+<div class="callout-color dark-font-color" style="position: relative; margin-top:10px;font-size:90%">
+<p><strong>A Software Tool for Category Theory-Based Planning and Transfer</strong></p>
 </div>
-<div style="margin-left:30px;">
+<div style="margin-left:30px;font-size:90%">
 <ul>
 <li>Run planners</li>
 <li>Automate discovery of functorial ontology alignments</li>
 <li>Perform analogical plan transfer</li>
 <li>Compose plans with other plans using sequential transfer</li>
-<li>Check that plans satisfy abstract behaviors using hierarchical transfer</li>
+<li>Check plans satisfy abstract behavior using hierarchical transfer</li>
 </ul>
+</div>
+</div><div style="font-size:60%;margin-top:30px;">
+<p>Knowrob <span class="citation" data-cites="Tenorth2017">(<a href="#/references" role="doc-biblioref" onclick="">Tenorth and Beetz 2017</a>)</span> and Factory of the Future <span class="citation" data-cites="Schafer2021">(<a href="#/references" role="doc-biblioref" onclick="">Schäfer et al. 2021</a>)</span> ontologies</p>
+</div><!-- ::: {.column width=30%}
+::: -->
 </div>
 <!-- ## Some Potential Applications
 
@@ -1666,7 +1835,7 @@ Interoperability during Mission Planning
 <p><span class="dark-font-color"><strong>Purpose</strong></span></p>
 <p>Enable robots to <span class="define"><strong>reuse old task plans</strong></span> to solve new problems</p>
 <p><span class="dark-font-color"><strong>Gap</strong></span></p>
-<p>In robot transfer learning, there is little attention given to <span class="define"><strong>task-level plan transfer</strong></span>.</p>
+<p>In robot plan transfer, there is little attention given to <span class="define"><strong>task-level plan transfer</strong></span>.</p>
 <p><span class="dark-font-color"><strong>Research Contributions</strong></span></p>
 <ul>
 <li>Propose a conceptual framework for discussing types of task-level plan transfer, namely <span class="define"><strong>sequential, hierarchical, and analogical transfer</strong></span></li>
@@ -1811,7 +1980,7 @@ Interoperability during Mission Planning
 </div>
 </div>
 </section>
-<section id="section" class="slide level2" data-background-image="assets/thankyou.svg" data-background-size="contain">
+<section id="section" class="slide level2" data-background-image="assets/thankyou.png" data-background-size="contain">
 <h2></h2>
 </section>
 <section id="summary-of-research-contributions-1" class="slide level2">
@@ -1822,7 +1991,7 @@ Interoperability during Mission Planning
 <p><span class="dark-font-color"><strong>Purpose</strong></span></p>
 <p>Enable robots to <span class="define"><strong>reuse old task plans</strong></span> to solve new problems</p>
 <p><span class="dark-font-color"><strong>Gap</strong></span></p>
-<p>In robot transfer learning, there is little attention given to <span class="define"><strong>task-level plan transfer</strong></span>.</p>
+<p>In robot plan transfer, there is little attention given to <span class="define"><strong>task-level plan transfer</strong></span>.</p>
 <p><span class="dark-font-color"><strong>Research Contributions</strong></span></p>
 <ul>
 <li>Propose a conceptual framework for discussing types of task-level plan transfer, namely <span class="define"><strong>sequential, hierarchical, and analogical transfer</strong></span></li>
@@ -1847,86 +2016,6 @@ Interoperability during Mission Planning
 
 </section>
 
-<section id="sequential-transfer-an-overview" class="slide level2">
-<h2>Sequential Transfer: An Overview</h2>
-<div class="callout-color2" style="font-size:85%;margin-top:10px;text-align:center;">
-<p>Strings diagrams can <span class="define"><strong>propagate preconditions and effects</strong></span> of actions in a plan to <span class="define"><strong>check plan composition</strong></span>. <span class="citation" data-cites="Aguinaldo2021a">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo and Regli 2021</a>)</span></p>
-</div>
-<div style="text-align:center; margin-top:-20px;">
-<p><img data-src="assets/sequential_blocksworld.svg" class="absolute" style="top: 155px; left: 0px; width: 250px; "></p>
-<p><img data-src="assets/blocks_string_diagram_annotated.png"></p>
-</div>
-<div class="callout-color" style="font-size:60%; margin-top:-25px">
-<table class="caption-top" style="width:99%;">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 83%">
-<col style="width: 8%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><strong>State</strong></th>
-<th style="text-align: center;"><strong>World State</strong></th>
-<th style="text-align: center;"><strong>Action</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>Initial</strong></td>
-<td style="text-align: center;"><strong>clear c</strong>, <strong>ontable c</strong>, <strong>clear b</strong>, <strong>ontable b</strong>, <strong>handempty</strong>, <strong>clear a</strong>, <strong>ontable a</strong></td>
-<td style="text-align: center;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>Step 1</strong></td>
-<td style="text-align: center;">clear c, ontable c, <strong>clear b</strong>, <strong>ontable b</strong>, <strong>handempty</strong>, clear a, ontable</td>
-<td style="text-align: center;">pick-up</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>Step 2</strong></td>
-<td style="text-align: center;">clear c, ontable c, <strong>holding b</strong>, <strong>clear a</strong>, ¬ontable b, ¬clear b, ¬handempty, ontable a</td>
-<td style="text-align: center;">stack</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>Step 3</strong></td>
-<td style="text-align: center;">clear b, <strong>clear c</strong>, <strong>ontable c</strong>, <strong>handempty</strong>, on b a, ¬holding b, ¬clear a, ¬ontable b, ¬clear b, ¬handempty, ontable a</td>
-<td style="text-align: center;">pick-up</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>Step 4</strong></td>
-<td style="text-align: center;"><strong>holding c</strong>, <strong>clear b</strong>, ¬ontable c, ¬clear c, ¬handempty, on b a, ¬holding b, ¬clear a, ¬ontable b, ¬clear b, ¬handempty, ontable a</td>
-<td style="text-align: center;">stack</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>Goal</strong></td>
-<td style="text-align: center;">clear c, handempty, <strong>on c b</strong>, ¬holding c, ¬clear b, ¬ontable c, ¬clear c, ¬handempty, <strong>on b a</strong>, ¬holding b, ¬clear a, ¬ontable b, ¬clear b, ¬handempty, ontable a</td>
-<td style="text-align: center;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div style="text-align:center;font-size:80%;margin-top:-10px;">
-<p>World states containing explicit (<strong>bold</strong>) and implicit literals.</p>
-</div>
-</section>
-<section id="hierarchical-transfer-an-overview" class="slide level2">
-<h2>Hierarchical Transfer: An Overview</h2>
-<div class="callout-color2" style="font-size:85%;margin-top:10px;text-align:center;">
-<p>The categories <span class="define"><span class="math inline">\(\cat{Task}\)</span></span>, <span class="define"><span class="math inline">\(\cat{Virtual}\)</span></span>, <span class="define"><span class="math inline">\(\cat{Motion}\)</span></span> are defined. Functors,</p>
-<p><span class="define"><span class="math inline">\(F: \cat{Task} \rightarrow \cat{Virtual} \quad \quad G: \cat{Virtual} \rightarrow \cat{Motion}\)</span></span></p>
-<p>can be used to guarantee the task behavior is preserved. <span class="citation" data-cites="Aguinaldo2021">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo et al. 2021</a>)</span></p>
-</div>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div style="margin-top:20px;text-align:center;">
-<p><img data-src="assets/framework.png"></p>
-</div>
-</div><div class="column" style="width:60%;">
-<div style="margin-top:10px;text-align:center;border: 1px solid #000000;">
-<p><img data-src="assets/sd6.png"></p>
-</div>
-</div>
-</div>
-</section>
 <section id="types-of-analogies-in-analogical-plan-transfer" class="slide level2">
 <h2>Types of Analogies (in analogical plan transfer)</h2>
 <div style="text-align:center;margin-top:0px;">
@@ -1980,7 +2069,7 @@ Interoperability during Mission Planning
 </div>
 </div>
 </div>
-<p><span style="font-size:80%"><span class="citation" data-cites="Spivak2012">David I. Spivak and Kent (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span>, <span class="citation" data-cites="Patterson2021Colloquium">Evan Patterson (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span>, <span class="citation" data-cites="Spivak2021">David I. Spivak (<a href="#/references" role="doc-biblioref" onclick="">2021</a>)</span></span></p>
+<p><span style="font-size:80%"><span class="citation" data-cites="Spivak2012">(<a href="#/references" role="doc-biblioref" onclick="">David I. Spivak and Kent 2012</a>)</span>, <span class="citation" data-cites="Patterson2021Colloquium">(<a href="#/references" role="doc-biblioref" onclick="">Evan Patterson 2021</a>)</span>, <span class="citation" data-cites="Spivak2021">(<a href="#/references" role="doc-biblioref" onclick="">David I. Spivak 2021</a>)</span></span></p>
 </section>
 <section id="why-now" class="slide level2">
 <h2>Why now?</h2>
@@ -2117,7 +2206,7 @@ Reusing robot plans and programs using transfer learning because robots are bein
 <div class="fragment">
 <p><img data-src="assets/robotprogramming/1_unimate.jpg" class="absolute" style="border: 2px solid #000000;top: 105px; left: 0px; width: 500px; "></p>
 <div style="margin-left:15px">
-<p><strong>Manual programming</strong> <span style="font-size:80%"><span class="citation" data-cites="brown1967unimate">F. Q. Brown (<a href="#/references" role="doc-biblioref" onclick="">1967</a>)</span></span></p>
+<p><strong>Manual programming</strong> <span style="font-size:80%"><span class="citation" data-cites="brown1967unimate">(<a href="#/references" role="doc-biblioref" onclick="">F. Q. Brown 1967</a>)</span></span></p>
 </div>
 </div>
 <div class="fragment">
@@ -2126,13 +2215,13 @@ Reusing robot plans and programs using transfer learning because robots are bein
 <p><strong>Motion primitives and skills</strong></p>
 </div>
 <div style="margin-left:55px;">
-<p><strong>“Does your robot have skills?”</strong> <span style="font-size:80%"><span class="citation" data-cites="Bogh">Bøgh et al. (<a href="#/references" role="doc-biblioref" onclick="">2012</a>)</span></span>, <strong>Assembly</strong> <span style="font-size:80%"><span class="citation" data-cites="Ionescu2020">Ionescu (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span></span>, <strong>CRCL</strong> <span style="font-size:80%"><span class="citation" data-cites="Proctor2016">Proctor et al. (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span></span></p>
+<p><strong>“Does your robot have skills?”</strong> <span style="font-size:80%"><span class="citation" data-cites="Bogh">(<a href="#/references" role="doc-biblioref" onclick="">Bøgh et al. 2012</a>)</span></span>, <strong>Assembly</strong> <span style="font-size:80%"><span class="citation" data-cites="Ionescu2020">(<a href="#/references" role="doc-biblioref" onclick="">Ionescu 2020</a>)</span></span>, <strong>CRCL</strong> <span style="font-size:80%"><span class="citation" data-cites="Proctor2016">(<a href="#/references" role="doc-biblioref" onclick="">Proctor et al. 2016</a>)</span></span></p>
 </div>
 </div>
 <div class="fragment">
 <p><img data-src="assets/robotprogramming/3_ROCI_modules.png" class="absolute" style="border: 2px solid #000000;top: 65px; left: -10px; width: 600px; "> <img data-src="assets/robotprogramming/3_ROCI_example.png" class="absolute" style="border: 2px solid #000000;top: 385px; left: -10px; width: 600px; "></p>
 <div style="margin-left:15px">
-<p><strong>Modular architectures</strong> <span style="font-size:80%"><span class="citation" data-cites="Cowley2006">Cowley, Chaimowicz, and Taylor (<a href="#/references" role="doc-biblioref" onclick="">2006</a>)</span></span></p>
+<p><strong>Modular architectures</strong> <span style="font-size:80%"><span class="citation" data-cites="Cowley2006">(<a href="#/references" role="doc-biblioref" onclick="">Cowley, Chaimowicz, and Taylor 2006</a>)</span></span></p>
 </div>
 </div>
 <!-- ::: {.fragment}
@@ -2142,19 +2231,19 @@ Task trees [@Erol1994]{style="font-size:80%"}[(Image from: [@Kortenkamp2008])]{s
 <div class="fragment">
 <p><img data-src="assets/robotprogramming/5_middlewareMatai.png" class="absolute" style="border: 2px solid #000000;top: 55px; left: -30px; width: 650px; "> <img data-src="assets/robotprogramming/5_middlewareLiang.png" class="absolute" style="border: 2px solid #000000;top: 270px; left: -30px; width: 650px; "> <img data-src="assets/robotprogramming/5_middlewareAragao.png" class="absolute" style="border: 2px solid #000000;top: 437px; left: -30px; width: 650px; "></p>
 <div style="margin-left:15px">
-<p><strong>Middlewares</strong> <span style="font-size:80%"><span class="citation" data-cites="Aragao2016">Aragão, Moreno, and Bernardino (<a href="#/references" role="doc-biblioref" onclick="">2016</a>)</span>, <span class="citation" data-cites="Liang2008">Yang Liang (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span>, <span class="citation" data-cites="Matai2008">Matai et al. (<a href="#/references" role="doc-biblioref" onclick="">2008</a>)</span></span></p>
+<p><strong>Middlewares</strong> <span style="font-size:80%"><span class="citation" data-cites="Aragao2016">(<a href="#/references" role="doc-biblioref" onclick="">Aragão, Moreno, and Bernardino 2016</a>)</span>, <span class="citation" data-cites="Liang2008">(<a href="#/references" role="doc-biblioref" onclick="">Yang Liang 2008</a>)</span>, <span class="citation" data-cites="Matai2008">(<a href="#/references" role="doc-biblioref" onclick="">Matai et al. 2008</a>)</span></span></p>
 </div>
 </div>
 <div class="fragment">
 <p><img data-src="assets/robotprogramming/6_programtranslationFreund.png" class="absolute" style="border: 2px solid #000000;top: 45px; left: 100px; width: 400px; "></p>
 <div style="margin-left:15px">
-<p><strong>Program translation</strong> <span style="font-size:80%"><span class="citation" data-cites="Freund2001">Freund et al. (<a href="#/references" role="doc-biblioref" onclick="">2001</a>)</span>, <span class="citation" data-cites="Freund2002">Freund and Luedemann-Ravit (<a href="#/references" role="doc-biblioref" onclick="">2002</a>)</span></span></p>
+<p><strong>Program translation</strong> <span style="font-size:80%"><span class="citation" data-cites="Freund2001">(<a href="#/references" role="doc-biblioref" onclick="">Freund et al. 2001</a>)</span>, <span class="citation" data-cites="Freund2002">(<a href="#/references" role="doc-biblioref" onclick="">Freund and Luedemann-Ravit 2002</a>)</span></span></p>
 </div>
 </div>
 <div class="fragment">
 <p><img data-src="assets/robotprogramming/7_MontiArcAdam2017.png" class="absolute" style="border: 2px solid #000000;top: 62px; left: -75px; width: 400px; "> <img data-src="assets/robotprogramming/7_adaptpackSouza2020.png" class="absolute" style="border: 2px solid #000000;top: 185px; left: 330px; width: 300px; "> <img data-src="assets/robotprogramming/7_adaptpackSouza2019.png" class="absolute" style="border: 2px solid #000000;top: 345px; left: 0px; width: 600px; "></p>
 <div style="margin-left:55px;">
-<p><strong>MontiArcAutomaton</strong> <span style="font-size:80%"><span class="citation" data-cites="Adam2017a">Adam et al. (<a href="#/references" role="doc-biblioref" onclick="">2017</a>)</span>, <span class="citation" data-cites="Ringert2014">Ringert et al. (<a href="#/references" role="doc-biblioref" onclick="">2014</a>)</span></span>, <strong>AdaptPack Studio</strong> <span style="font-size:80%"><span class="citation" data-cites="Souza2019">Souza et al. (<a href="#/references" role="doc-biblioref" onclick="">2019</a>)</span>, <span class="citation" data-cites="Souza2020">Carvalho de Souza et al. (<a href="#/references" role="doc-biblioref" onclick="">2020</a>)</span></span></p>
+<p><strong>MontiArcAutomaton</strong> <span style="font-size:80%"><span class="citation" data-cites="Adam2017a">(<a href="#/references" role="doc-biblioref" onclick="">Adam et al. 2017</a>)</span>, <span class="citation" data-cites="Ringert2014">(<a href="#/references" role="doc-biblioref" onclick="">Ringert et al. 2014</a>)</span></span>, <strong>AdaptPack Studio</strong> <span style="font-size:80%"><span class="citation" data-cites="Souza2019">(<a href="#/references" role="doc-biblioref" onclick="">Souza et al. 2019</a>)</span>, <span class="citation" data-cites="Souza2020">(<a href="#/references" role="doc-biblioref" onclick="">Carvalho de Souza et al. 2020</a>)</span></span></p>
 </div>
 </div>
 </div>
@@ -2190,11 +2279,11 @@ Aguinaldo, Angeline, and William Regli. 2021. <span>“<span class="nocase">A Gr
 <div id="ref-AiTHOR_object_types" class="csl-entry" role="listitem">
 Allen Institute for Artificial Intelligence. 2024. <span>“<span>AiTHOR Object Types Documentation</span>.”</span> <a href="https://ai2thor.allenai.org/ithor/documentation/objects/object-types" class="uri">https://ai2thor.allenai.org/ithor/documentation/objects/object-types</a>.
 </div>
+<div id="ref-Alnazer2023" class="csl-entry" role="listitem">
+Alnazer, Ebaa, and Ilche Georgievski. 2023. <span>“Understanding Real-World AI Planning Domains: A Conceptual Framework.”</span> In <em>Service-Oriented Computing</em>, edited by Marco Aiello, Johanna Barzen, Schahram Dustdar, and Frank Leymann, 3–23. Cham: Springer Nature Switzerland.
+</div>
 <div id="ref-Aragao2016" class="csl-entry" role="listitem">
 Aragão, Miguel, Plinio Moreno, and Alexandre Bernardino. 2016. <span>“<span class="nocase">Middleware interoperability for robotics: A ROS-YARP framework</span>.”</span> <em>Frontiers Robotics AI</em> 3 (OCT): 1–10. <a href="https://doi.org/10.3389/frobt.2016.00064">https://doi.org/10.3389/frobt.2016.00064</a>.
-</div>
-<div id="ref-Baez2023" class="csl-entry" role="listitem">
-Baez, John, Xiaoyan Li, Sophie Libkind, Nathaniel D. Osgood, and Evan Patterson. 2023. <span>“Compositional Modeling with Stock and Flow Diagrams.”</span> <em>Electronic Proceedings in Theoretical Computer Science</em> 380 (August): 77–96. <a href="https://doi.org/10.4204/eptcs.380.5">https://doi.org/10.4204/eptcs.380.5</a>.
 </div>
 <div id="ref-Bogh" class="csl-entry" role="listitem">
 Bøgh, Simon, Oluf Skov Nielsen, Mikkel Rath Pedersen, Volker Krüger, and Ole Madsen. 2012. <span>“Does Your Robot Have Skills.”</span> In <em>Proceedings of the 43rd International Symposium on Robotics</em>.
@@ -2205,9 +2294,6 @@ Bresina, John L., Ari K. Jónsson, Paul H. Morris, and Kanna Rajan. 2005. <span>
 <div id="ref-brown1967unimate" class="csl-entry" role="listitem">
 Brown, Frank Q. 1967. <span>“3,500 Pound Industrial Robot, Unimate, Pouring Coffee for a Woman at Biltmore Hotel in Los Angeles, Calif.”</span> Photograph, Los Angeles Times Photographic Collection, University of California, Los Angeles, Library, Department of Special Collections. <a href="https://ark:/21198/zz0002vfhd">https://ark:/21198/zz0002vfhd</a>.
 </div>
-<div id="ref-Brown2022" class="csl-entry" role="listitem">
-Brown, Kristopher, Tyler Hanks, and James Fairbanks. 2022. <span>“Compositional Exploration of Combinatorial Scientific Models.”</span> <a href="https://arxiv.org/abs/2206.08755">https://arxiv.org/abs/2206.08755</a>.
-</div>
 <div id="ref-Brown2021" class="csl-entry" role="listitem">
 Brown, Kristopher, Evan Patterson, Tyler Hanks, and James Fairbanks. 2023. <span>“Computational Category-Theoretic Rewriting.”</span> <em>Journal of Logical and Algebraic Methods in Programming</em> 134: 100888. https://doi.org/<a href="https://doi.org/10.1016/j.jlamp.2023.100888">https://doi.org/10.1016/j.jlamp.2023.100888</a>.
 </div>
@@ -2216,6 +2302,9 @@ Caruana, Rich. 1997. <span>“<span>Multitask Learning</span>.”</span> <em>Mac
 </div>
 <div id="ref-Souza2020" class="csl-entry" role="listitem">
 Carvalho de Souza, João Pedro, André Luiz Castro, Luís F. Rocha, and Manuel F. Silva. 2020. <span>“<span class="nocase">AdaptPack studio translator: translating offline programming to real palletizing robots</span>.”</span> <em>Industrial Robot</em> 47 (5): 713–21. <a href="https://doi.org/10.1108/IR-12-2019-0253">https://doi.org/10.1108/IR-12-2019-0253</a>.
+</div>
+<div id="ref-Coecke2018" class="csl-entry" role="listitem">
+Coecke, Bob, and Aleks Kissinger. 2017. <span>“286Categorical Quantum Mechanics i: Causal Quantum Processes.”</span> In <em>Categories for the Working Philosopher</em>. Oxford University Press. <a href="https://doi.org/10.1093/oso/9780198748991.003.0012">https://doi.org/10.1093/oso/9780198748991.003.0012</a>.
 </div>
 <div id="ref-Cowley2006" class="csl-entry" role="listitem">
 Cowley, Anthony, Luiz Chaimowicz, and Camillo J. Taylor. 2006. <span>“<span class="nocase">Design minimalism in robotics programming</span>.”</span> <em>International Journal of Advanced Robotic Systems</em> 3 (1): 031–36. <a href="https://doi.org/10.5772/5762">https://doi.org/10.5772/5762</a>.
@@ -2278,7 +2367,7 @@ Jaquier, Noemie, Michael C. Welle, Andrej Gams, Kunpeng Yao, Bernardo Fichera, A
 Joyal, André, and Ross Street. 1991. <span>“The Geometry of Tensor Calculus, i.”</span> <em>Advances in Mathematics</em> 88 (1): 55–112. https://doi.org/<a href="https://doi.org/10.1016/0001-8708(91)90003-P">https://doi.org/10.1016/0001-8708(91)90003-P</a>.
 </div>
 <div id="ref-Kaelbling2011" class="csl-entry" role="listitem">
-Kaelbling, Leslie Pack, and Tomás Lozano-PÉrez. 2011. <span>“<span class="nocase">Hierarchical Task and Motion Planning in the Now</span>.”</span> <em>2011 IEEE International Conference on Robotics and Automation</em>.
+Kaelbling, Leslie Pack, and Tomás Lozano-Pérez. 2011. <span>“<span class="nocase">Hierarchical Task and Motion Planning in the Now</span>.”</span> <em>2011 IEEE International Conference on Robotics and Automation</em>.
 </div>
 <div id="ref-Leinster2016" class="csl-entry" role="listitem">
 Leinster, Tom. 2016. <em><span>Basic Category Theory</span></em>. Cambridge University Press. <a href="https://arxiv.org/pdf/1612.09375.pdf">https://arxiv.org/pdf/1612.09375.pdf</a>.
@@ -2328,8 +2417,14 @@ Riehl, Emily. 2016. <em><span class="nocase">Category theory in context</span></
 <div id="ref-Ringert2014" class="csl-entry" role="listitem">
 Ringert, Jan Oliver, Alexander Roth, Bernhard Rumpe, and Andreas Wortmann. 2014. <span>“<span class="nocase">Code generator composition for model-driven engineering of robotics component &amp; connector systems</span>.”</span> <em>CEUR Workshop Proceedings</em> 1319: 66–77. <a href="https://arxiv.org/abs/1505.00904">https://arxiv.org/abs/1505.00904</a>.
 </div>
-<div id="ref-Robinson2017" class="csl-entry" role="listitem">
-Robinson, Michael. 2017. <span>“<span class="nocase">Sheaves are the canonical data structure for sensor integration</span>.”</span> <em>Information Fusion</em> 36: 208–24. <a href="https://doi.org/10.1016/j.inffus.2016.12.002">https://doi.org/10.1016/j.inffus.2016.12.002</a>.
+<div id="ref-Schafer2021" class="csl-entry" role="listitem">
+Schäfer, Philipp Matthias, Franz Steinmetz, Stefan Schneyer, Timo Bachmann, Thomas Eiband, Florian Samuel Lay, Abhishek Padalkar, Christoph Sürig, Freek Stulp, and Korbinian Nottensteiner. 2021. <span>“<span class="nocase">Flexible Robotic Assembly Based on Ontological Representation of Tasks, Skills, and Resources</span>.”</span> <em>Proceedings of the 18th International Conference on Principles of Knowledge Representation and Reasoning, KR 2021</em>, 702–6. <a href="https://doi.org/10.24963/kr.2021/73">https://doi.org/10.24963/kr.2021/73</a>.
+</div>
+<div id="ref-Selinger2010" class="csl-entry" role="listitem">
+Selinger, Peter. 2010. <span>“A Survey of Graphical Languages for Monoidal Categories.”</span> <em>ArXiv</em>, 289–355.
+</div>
+<div id="ref-Shinavier2019" class="csl-entry" role="listitem">
+Shinavier, Joshua, and Ryan Wisnesky. 2019. <span>“Algebraic Property Graphs.”</span> <em>ArXiv</em> abs/1909.04881.
 </div>
 <div id="ref-Souza2019" class="csl-entry" role="listitem">
 Souza, João Pedro, André Castro, Luís Rocha, Pedro Relvas, and Manuel F. Silva. 2019. <span>“<span class="nocase">Converting Robot Offline Programs to Native Code Using the AdaptPack Studio Translators</span>.”</span> <em>19th IEEE International Conference on Autonomous Robot Systems and Competitions, ICARSC 2019</em>, 1–7. <a href="https://doi.org/10.1109/ICARSC.2019.8733631">https://doi.org/10.1109/ICARSC.2019.8733631</a>.
@@ -2345,6 +2440,9 @@ Spivak, David I, and Robert E Kent. 2011. <span>“<span class="nocase">Ologs: a
 </div>
 <div id="ref-Taylor2009" class="csl-entry" role="listitem">
 Taylor, Matthew E., and Peter Stone. 2009. <span>“<span class="nocase">Transfer learning for reinforcement learning domains: A survey</span>.”</span> <em>Journal of Machine Learning Research</em> 10: 1633–85.
+</div>
+<div id="ref-Tenorth2017" class="csl-entry" role="listitem">
+Tenorth, Moritz, and Michael Beetz. 2017. <span>“<span class="nocase">Representations for robot knowledge in the KNOWROB framework</span>.”</span> <em>Artificial Intelligence</em> 247: 151–69. <a href="https://doi.org/10.1016/j.artint.2015.05.010">https://doi.org/10.1016/j.artint.2015.05.010</a>.
 </div>
 <div id="ref-Wilkins2001" class="csl-entry" role="listitem">
 Wilkins, D. E., and M. DesJardins. 2001. <span>“<span class="nocase">A call for knowledge-based planning</span>.”</span> <em>AI Magazine</em> 22 (1): 99–115.
@@ -2362,6 +2460,8 @@ Wilkins, D. E., and M. DesJardins. 2001. <span>“<span class="nocase">A call fo
   <script src="presentation_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="presentation_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="presentation_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/multiplex/socket.io.js"></script>
+  <script src="presentation_files/libs/revealjs/plugin/multiplex/multiplex.js"></script>
   <script src="presentation_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
@@ -2383,6 +2483,7 @@ Wilkins, D. E., and M. DesJardins. 2001. <span>“<span class="nocase">A call fo
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'multiplex': {"secret":null,"id":"cee488e90f5a8dea","url":"https://reveal-multiplex.glitch.me/"},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -2556,7 +2657,7 @@ Wilkins, D. E., and M. DesJardins. 2001. <span>“<span class="nocase">A call fo
         plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
 
           RevealMath,
-          RevealNotes,
+          
           RevealSearch,
           RevealZoom
         ]
