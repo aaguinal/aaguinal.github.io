@@ -600,7 +600,7 @@ _the task_
 <p><span style="font-size:80%; color:gray;"><em>vocabulary used to describe types of transfers</em></span></p></li>
 <li><p><span class="dark-font-color"><strong>Mathematical framework</strong></span></p>
 <p><span style="font-size:80%; color:gray;"><em>system to validate whether each type of transfer is successful</em></span></p></li>
-<li><p><span class="dark-font-color"><strong>Case Studies</strong></span></p>
+<li><p><span class="dark-font-color"><strong>Case studies</strong></span></p>
 <p><span style="font-size:80%; color:gray;"><em>examples demonstrating the effectiveness of the mathematical framework</em></span></p></li>
 </ol>
 <p>for task plan transfer, or <span class="dark-font-color"><strong>plan transfer</strong></span>, in robotics.</p>
@@ -1557,6 +1557,7 @@ Blocksworld specification^[https://github.com/gerryai/PDDL4J/blob/master/pddl/bl
 <!-- https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhybXtQcmV9Il0sWzEsMCwiXFxtYXRocm17S2VlcH0iXSxbMiwwLCJcXG1hdGhybXtFZmZ9Il0sWzAsMSwiWCJdLFsyLDEsIlkiXSxbMSwxLCJaIl0sWzEsMCwibCIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzEsMiwiciJdLFsxLDVdLFswLDMsIm0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFs1LDNdLFs1LDRdLFsyLDRdLFs0LDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFszLDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ== -->
 <iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhybXtQcmV9Il0sWzEsMCwiXFxtYXRocm17S2VlcH0iXSxbMiwwLCJcXG1hdGhybXtFZmZ9Il0sWzAsMSwiWCJdLFsyLDEsIlkiXSxbMSwxLCJaIl0sWzEsMCwibCIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzEsMiwiciJdLFsxLDVdLFswLDMsIm0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFs1LDNdLFs1LDRdLFsyLDRdLFs0LDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFszLDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==&amp;embed" width="438" height="304" style="border-radius: 8px; border: none;">
 </iframe>
+<!-- ![](assets/dpo.png){width=480px} -->
 <div style="margin-top:-30px">
 <p>Actions are applied to state <span class="math inline">\(X\)</span> to produce state <span class="math inline">\(Y\)</span> using <span class="define">Double-Pushout (DPO) Rewriting</span></p>
 </div>
@@ -1641,7 +1642,7 @@ Blocksworld specification^[https://github.com/gerryai/PDDL4J/blob/master/pddl/bl
 <div class="callout-color2">
 <p>Existing state-space planning algorithms can be adapted to work with this planning representation <span style="font-size:80%">(<strong>Section 6.4.4</strong> in <span class="citation" data-cites="Aguinaldo2024dissertation">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo 2024</a>)</span>)</span>.</p>
 </div>
-<p><strong>Example</strong>: <code>ForwardPlan()</code> executes depth-first search (DFS) to find a sequence of DPO rewrite rules, i.e.&nbsp;actions.</p>
+<p><strong>Example</strong>: <code>ForwardPlan()</code> executes depth-first search (DFS) to find a sequence of actions.</p>
 </div>
 <div class="sourceCode" id="cb5" style="height:400px;font-size:90%"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href=""></a><span class="kw">function</span> <span class="fu">ForwardPlan</span>(world<span class="op">::</span><span class="dt">ACSet</span>, goal<span class="op">::</span><span class="dt">ACSet</span>, actions<span class="op">::</span><span class="dt">Dict</span>, </span>
 <span id="cb5-2"><a href=""></a>                      action_limits<span class="op">::</span><span class="dt">Dict</span>, action_usage<span class="op">::</span><span class="dt">Dict</span>, </span>
