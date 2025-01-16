@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="amsjmm2025_files/libs/clipboard/clipboard.min.js"></script>
+<script src="amsjmm2025_files/libs/quarto-html/tabby.min.js"></script>
+<script src="amsjmm2025_files/libs/quarto-html/popper.min.js"></script>
+<script src="amsjmm2025_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="amsjmm2025_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="amsjmm2025_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="amsjmm2025_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="amsjmm2025_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="amsjmm2025_files/libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.js"></script>
+<link href="amsjmm2025_files/libs/quarto-contrib/pseudocode-2.4.1/pseudocode.min.css" rel="stylesheet">
+<script src="amsjmm2025_files/libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="amsjmm2025_files/libs/quarto-contrib/videojs/video-js.css" rel="stylesheet"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.4.555">
+
+  <meta name="author" content="Angeline Aguinaldo">
+  <meta name="dcterms.date" content="2025-01-08">
+  <title>Analogical Plan Transfer in Robotics using Functorial Data Migrations</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="amsjmm2025_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="amsjmm2025_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
+  <link rel="stylesheet" href="amsjmm2025_files/libs/revealjs/dist/theme/quarto.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="amsjmm2025_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="amsjmm2025_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="amsjmm2025_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="amsjmm2025_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+    .bootstrap-scope {
+      /* Import Bootstrap styles within this scope only */
+      @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Analogical Plan Transfer in Robotics using Functorial Data Migrations</h1>
+  <p class="subtitle"><br> <i> Applied Category Theory Special Session </i> <br> AMS Joint Mathematics Meeting 2025</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Angeline Aguinaldo 
+</div>
+        <p class="quarto-title-affiliation">
+            Ph.D.&nbsp;in Computer Science <br> University of Maryland, College Park
+          </p>
+    </div>
+</div>
+
+  <p class="date">January 8, 2025</p>
+</section>
+
+<section id="talk-outline" class="slide level2">
+<h2>Talk Outline</h2>
+<div style="margin-top:100px;margin-left:50px;font-size:130%">
+<ol type="1">
+<li>Plan Transfer in Robotics</li>
+<li>Analogies using Functors and Data Migrations</li>
+<li>Using Analogies in Planning</li>
+<li>Advantages + Limitations</li>
+<li>Future Work</li>
+</ol>
+</div>
+</section>
+<section id="plan-transfer-in-robotics" class="slide level2">
+<h2>Plan Transfer in Robotics</h2>
+<div style="text-align:center;margin-top:10px;margin-top:35px;">
+<p>Transfer plan from the <span class="define"><strong>source</strong></span> (<em>left</em>) to the <span class="define"><strong>target</strong></span> (<em>right</em>) <span class="define"><strong>planning domain</strong></span></p>
+</div>
+<div class="absolute" style="text-align:center;color:gray;top: 240px; left: 80px; ">
+<p>Humanoid robot</p>
+<p>Arms</p>
+<p>Bins</p>
+<!-- Conveyer Belt -->
+</div>
+<div class="absolute" style="text-align:center;color:gray;top: 240px; left: 800px; ">
+<p>Mobile robot</p>
+<p>Lift</p>
+<p>Box</p>
+</div>
+<div class="columns">
+<div class="column" style="text-align: right;margin-top:-20px;">
+<div data-id="video1">
+<p><a href="https://www.youtube.com/shorts/2zCh_6GO49c"><img data-src="assets/AgilityRobotics.gif" height="400"></a> <!--  --></p>
+</div>
+</div><div class="column" style="text-align: left;margin-top:-20px;">
+<div data-id="video2">
+<p><a href="https://www.youtube.com/shorts/EEnpmhcIc0I"><img data-src="assets/Brightpick.gif" height="400"></a> <!--  --></p>
+</div>
+</div>
+</div>
+<!-- ::: {.fragment}
+::: {style="text-align: center; font-size:150%; margin-top:-40px;"}
+_the task_
+:::
+::: {style="text-align:center; font-size:75%;margin-top:-10px;"}
+(your embodiments may vary)
+:::
+::: -->
+<!-- :::{.fragment} 
+:::{.callout-color2 style="text-align:center;margin-top:10px;"}
+**Transfer old plans to solve new problems**
+:::
+::: -->
+<div class="callout-color2" style="text-align:center;margin-top:-10px;">
+<p><strong>Problem:</strong> Designing planning problems and running planners is time-consuming. <br> <span style="font-size:80%"><span class="citation" data-cites="Alnazer2023">(<a href="#/references" role="doc-biblioref" onclick="">Alnazer and Georgievski 2023</a>)</span></span> <span style="font-size:80%"><span class="citation" data-cites="Ingrand2017">(<a href="#/references" role="doc-biblioref" onclick="">Ingrand and Ghallab 2017</a>)</span></span></p>
+</div>
+<div class="hidden">
+<p><span class="math display">\[
+  \newcommand{\N}{\mathbb{N}}
+  \newcommand{\R}{\mathbb{R}}
+  \newcommand{\cat}[1]{\mathsf{#1}}
+  \newcommand{\CAT}[1]{\mathsf{#1}}
+  \newcommand{\Set}{\CAT{Set}}
+  \DeclareMathOperator{\Path}{Path}
+  \newcommand{\catSet}[1]{\cat{#1}\text{-}\Set}
+  \DeclareMathOperator{\Ob}{Ob}
+  \DeclareMathOperator{\Hom}{Hom}
+\]</span></p>
+</div>
+</section>
+
+<section id="analogies-from-cognitive-psychology" class="slide level2">
+<h2>Analogies from Cognitive Psychology</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/analogy.png" height="500"></p>
+<figcaption>Analogies, according to cognitive psychology, are formed by <span class="define"><strong>structure mappings</strong></span> <br> <span style="font-size:80%"><span class="citation" data-cites="Gentner2012">(<a href="#/references" role="doc-biblioref" onclick="">Gentner and Smith 2012</a>)</span></span></figcaption>
+</figure>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="callout-color2" style="padding:10px;font-size:90%">
+<p><strong>Informal Definition:</strong> <em>(Analogical Plan Transfer)</em> Analogical plan transfer identifies structural similarities, or analogies, between planning domains and leverages these analogies to adapt plans from one domain to another. <span style="font-size:80%"><span class="citation" data-cites="Aguinaldo2024dissertation">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo 2024</a>)</span></span></p>
+</div>
+<div style="font-size:90%">
+<p><strong>Why analogies?</strong></p>
+<p><span class="citation" data-cites="Wilkins2001">(<a href="#/references" role="doc-biblioref" onclick="">Wilkins and DesJardins 2001</a>)</span> argued that an ideal planning system should mimic human behavior by using <span class="dark-font-color"><strong>analogies</strong></span> to transfer solutions from one problem to another.</p>
+<p><strong>What are analogies?</strong></p>
+<p>According to <span class="citation" data-cites="Gentner1983">(<a href="#/references" role="doc-biblioref" onclick="">Gentner 1983</a>)</span>, analogies:</p>
+<ul>
+<li>have a <span class="dark-font-color"><strong>one-to-one correspondence</strong></span>, each concept in the source domain maps to at most one concept in the target domain</li>
+<li>adhere to the <span class="dark-font-color"><strong>systematicity principle</strong></span>, where analogical maps connect large, densely connected systems of concepts, instead of just a handful of isolated concepts</li>
+</ul>
+<!-- An analogy is judged by [**how much new knowledge**]{.define} can be inferred based on it. -->
+</div>
+<!-- ::: {.callout-color2 style="padding:10px;font-size:80%;"}
+Analogical plan transfer is achieved using [**functorial data migrations**]{.define} from category theory. [[@Aguinaldo2024]]{style="font-size:80%"}
+::: -->
+</div>
+</div>
+</section>
+<section id="analogies-as-functors" class="slide level2">
+<h2>Analogies as Functors</h2>
+<div style="text-align:center;">
+<p>Analogies can be mathematically formalized as <span class="dark-font-color"><strong>functors</strong></span> <br> and analogical transfer as <span class="dark-font-color"><strong>functorial data migrations</strong></span>.</p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="callout-color">
+<p><strong>Delta Data Migration</strong></p>
+<div style="font-size:80%">
+<p>A <span class="define"><strong>delta data migration</strong></span>, <span class="math inline">\(\Delta_F: \catSet{C} \rightarrow \catSet{C^{\prime}}\)</span>, is defined by a functor <span class="math inline">\(F: \cat{C}^{\prime} \rightarrow \cat{C}\)</span>. Explicitly:</p>
+<p>For a given object <span class="math inline">\(X\)</span> in <span class="math inline">\(\catSet{C}\)</span>,</p>
+<div style="text-align:center;">
+<p><span class="math inline">\(\Delta_F(X) = X \circ F\)</span></p>
+</div>
+<p>For a given morphism <span class="math inline">\(\alpha: X \rightarrow Y\)</span> in <span class="math inline">\(\catSet{C}\)</span>, <span class="math inline">\(\Delta_F\)</span> acts on <span class="math inline">\(\alpha\)</span> to produce the following morphism in <span class="math inline">\(\catSet{C^{\prime}}\)</span>—</p>
+<div style="text-align:center;">
+<p><span class="math inline">\(\Delta_F(\alpha)_{c^{\prime}}: X(F(c^{\prime})) \rightarrow Y(F(c^{\prime}))\)</span> for <span class="math inline">\(c^{\prime} \in \cat{C^{\prime}}\)</span></p>
+</div>
+<p><span style="font-size:80%"><span class="citation" data-cites="Spivak2012">(<a href="#/references" role="doc-biblioref" onclick="">David I. Spivak and Kent 2012</a>)</span></span></p>
+</div>
+</div>
+<div class="callout-color2" style="text-align:center;font-size=50%;margin-top:10px;">
+<p><strong>Quick view of Delta Data Migration</strong></p>
+<p><span class="math inline">\(\Delta_F : \cat{C}^{\prime} \xrightarrow{F} \cat{C} \xrightarrow{X} \cat{Set}\)</span></p>
+</div>
+<!-- $\cat{C}$ = source domain
+
+$\cat{C}^{\prime}$ = target domain -->
+</div><div class="column" style="width:50%;">
+<div class="callout-color">
+<p><strong>Conjunctive Data Migration</strong></p>
+<div style="font-size:80%">
+<p>A <span class="define"><strong>conjunctive data migration</strong></span>, <span class="math inline">\(\Delta_F: \catSet{C} \rightarrow \catSet{C^{\prime}}\)</span>, is defined by a functor <span class="math inline">\(F: \cat{C}^{\prime} \rightarrow \cat{Diag^{op}(C)}\)</span>. Explicitly:</p>
+<p>For a given object <span class="math inline">\(X\)</span> in <span class="math inline">\(\catSet{C}\)</span>,</p>
+<div style="text-align:center;">
+<p><span class="math inline">\(\Delta_F(X) = F^\ast(X) \circ F\)</span> where,</p>
+<p><span class="math inline">\(F^\ast(X): \cat{Diag^{op}(C)} \xrightarrow{\cat{Diag^{op}(X)}} \cat{\cat{Diag^{op}(Set)}} \xrightarrow{\mathrm{lim}} \cat{Set}\)</span></p>
+</div>
+<p>For a given morphism <span class="math inline">\(\alpha: X \rightarrow Y\)</span> in <span class="math inline">\(\catSet{C}\)</span>, <span class="math inline">\(\Delta_F\)</span> acts on <span class="math inline">\(\alpha\)</span> to produce the following morphism in <span class="math inline">\(\catSet{C^{\prime}}\)</span>—</p>
+<div style="text-align:center;">
+<p><span class="math inline">\(\Delta_F(\alpha)_{c^{\prime}}: F^\ast(X)(c^{\prime}) \rightarrow F^\ast(Y)(c^{\prime})\)</span> for <span class="math inline">\(c^{\prime} \in \cat{C}^{\prime}\)</span></p>
+</div>
+<p><span style="font-size:80%"><span class="citation" data-cites="Patterson2021Colloquium">(<a href="#/references" role="doc-biblioref" onclick="">Evan Patterson 2021</a>)</span>, <span class="citation" data-cites="Spivak2021">(<a href="#/references" role="doc-biblioref" onclick="">David I. Spivak 2021</a>)</span></span></p>
+</div>
+</div>
+<div class="callout-color2" style="text-align:center;font-size=50%;margin-top:10px;">
+<p><strong>Quick view of Conjunctive Data Migration</strong></p>
+<p><span class="math inline">\(\Delta_F : \cat{C}^{\prime} \xrightarrow{F} \cat{Diag^{op}(C)} \xrightarrow{F^\ast(X)} \cat{Set}\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="types-of-analogies-in-analogical-plan-transfer" class="slide level2">
+<h2>Types of Analogies (in analogical plan transfer)</h2>
+<div style="text-align:center;margin-top:0px;">
+<p><img data-src="assets/typesofanalogies.svg" width="950"></p>
+<!-- :::{style="margin-top:-30px;"}
+[[@Aguinaldo2024dissertation]]{style="font-size:80%"}
+::: -->
+</div>
+</section>
+<section id="analogies-with-task-planning" class="slide level2">
+<h2>Analogies with Task Planning</h2>
+<div style="font-size:90%;margin-top:20px;">
+<div class="callout-color2" style="padding:10px">
+<p>PDDL<sup>1</sup> does not have built-in support for domain comparison or domain ontology alignment. Therefore, a new planning language that supports these capabilities is a prerequisite for analogical plan transfer. <span style="font-size:80%"><span class="citation" data-cites="Aguinaldo2024dissertation">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo 2024</a>)</span></span></p>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="callout-color" style="margin-top:20px;font-size:80%">
+<p><strong>State Transition System Model for Planning</strong></p>
+<ul>
+<li><span class="define">States</span>, <span class="math inline">\(S = \{s_0, s_1, s_2, \dots\}\)</span> set of all possible states</li>
+<li><span class="define">Actions</span>, <span class="math inline">\(A = \{a_0, a_1, a_2, \dots\}\)</span> set of all possible actions
+<ul>
+<li><span class="define">Preconditions</span>, <span class="math inline">\(\mathrm{Pre}(a)\)</span> conditions that must be true in the state for the action to be applied</li>
+<li><span class="define">Effects</span>, <span class="math inline">\(\mathrm{Eff}(a)\)</span> conditions are true in the state after the action is applied</li>
+</ul></li>
+<li><span class="define">Transition function</span>, <span class="math inline">\(\gamma: A \times S \rightarrow S\)</span> partial function that maps an action and a state to the resulting state
+<ul>
+<li><span class="define">Checking applicability</span> an action <span class="math inline">\(a \in A\)</span> is at state <span class="math inline">\(s \in S\)</span> if <span class="math inline">\(\gamma(a, s)\)</span> is defined</li>
+</ul></li>
+</ul>
+<p><span style="font-size:80%"><span class="citation" data-cites="Ghallab2004">(<a href="#/references" role="doc-biblioref" onclick="">Ghallab, Nau, and Traverso 2004</a>)</span></span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<div style="margin-top:90px">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/taskplanning.png"></p>
+<figcaption>Source: https://www.aiai.ed.ac.uk/~gwickler/prop-fwd-ssp.html</figcaption>
+</figure>
+</div>
+</div>
+<!-- ::: {style="font-size:90%;margin-top:10px"}
+```{.pddl}
+(define (domain blocksworld)
+(:requirements :strips :equality)
+(:predicates (clear ?x)
+             (on-table ?x)
+             (arm-empty)
+             (holding ?x)
+             (on ?x ?y))
+
+(:action pickup
+  :parameters (?ob)
+  :precondition (and (clear ?ob) (on-table ?ob) (arm-empty))
+  :effect (and (holding ?ob) (not (clear ?ob)) (not (on-table ?ob)) 
+               (not (arm-empty))))
+
+(:action putdown
+  :parameters  (?ob)
+  :precondition (and (holding ?ob))
+  :effect (and (clear ?ob) (arm-empty) (on-table ?ob) 
+               (not (holding ?ob))))
+
+(:action stack
+  :parameters  (?ob ?underob)
+  //:precondition (and  (clear ?underob) (holding ?ob) (not (= ?ob ?underob)) )
+  :precondition (and  (clear ?underob) (holding ?ob))
+  :effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)
+               (not (clear ?underob)) (not (holding ?ob))))
+
+(:action unstack
+  :parameters  (?ob ?underob)
+  :precondition (and (on ?ob ?underob) (clear ?ob) (arm-empty))
+  :effect (and (holding ?ob) (clear ?underob)
+               (not (on ?ob ?underob)) (not (clear ?ob)) (not (arm-empty)))))
+                      
+```
+
+Blocksworld specification^[https://github.com/gerryai/PDDL4J/blob/master/pddl/blockworld/blocksworld.pddl] in the [**Planning Domain Definition Language (PDDL)**]{.dark-font-color} [[@Ghallab1998]]{style="font-size:80%"}
+::: -->
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>PDDL (Planning Domain Definition Language) <span style="font-size:80%"><span class="citation" data-cites="Ghallab1998">(<a href="#/references" role="doc-biblioref" onclick="">Ghallab et al. 1998</a>)</span></span> is a widely used task planning language in AI, including applications in robotics.</p></li></ol></aside></section>
+<section id="planning-states-as-catc-sets" class="slide level2">
+<h2>Planning States as <span class="math inline">\(\cat{C}\)</span>-sets</h2>
+<div style="font-size:90%">
+<p><strong>Definition</strong>: (<em><span class="math inline">\(\cat{C}\)</span>-set</em>, <em>schema category</em>) A <span class="define"><span class="math inline">\(\cat{C}\)</span>-set</span> is a functor from <span class="math inline">\(\cat{C} \rightarrow \cat{Set}\)</span>. <span class="math inline">\(\cat{C}\)</span> is referred to as the <span class="define">schema category</span> (i.e.&nbsp;ontology). <span class="math inline">\(\cat{Set}\)</span> is a category whose objects are sets and whose morphisms are set function maps.</p>
+</div>
+<div class="callout-color">
+<p><strong>Example:</strong></p>
+<div style="text-align:center;">
+<p>A <span class="math inline">\(\cat{C}\)</span>-set, <span class="math inline">\(X\)</span>, that stores data about what boxes are on which surface.</p>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="margin-top:110px;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/BoxOnSurface-X.png" class="quarto-figure quarto-figure-center" height="200"></p>
+</figure>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/BoxOnSurface-Set.svg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div style="font-size:90%">
+<p>The category of elements construction <span class="citation" data-cites="Riehl2016">(<a href="#/references" role="doc-biblioref" onclick="">Riehl 2016</a>)</span> makes <span class="math inline">\(X\)</span> interoperable with RDF triple syntax (subject, predicate, object), facilitating its use in knowledge graphs <span class="citation" data-cites="Spivak2012">(<a href="#/references" role="doc-biblioref" onclick="">David I. Spivak and Kent 2012</a>)</span>.</p>
+</div>
+</section>
+
+<section id="planning-actions-using-spans-and-dpo-rewriting" class="slide level2">
+<h2>Planning Actions using Spans and DPO Rewriting</h2>
+<p><strong>Definition</strong>: (<em><span class="math inline">\(\catSet{C}\)</span></em>) The category <span class="define"><span class="math inline">\(\catSet{C}\)</span></span> is a category whose objects are <span class="math inline">\(\cat{C}\)</span>-set functors and whose morphisms are natural transformations.</p>
+<p>A <span class="define"><strong>span</strong></span> in <span class="math inline">\(\catSet{C}\)</span> is a diagram of shape (<span class="math inline">\(\bullet \leftarrow \bullet \rightarrow \bullet\)</span>) in <span class="math inline">\(\catSet{C}\)</span>.</p>
+<div class="callout-color2" style="margin-top:20px;text-align:center;height:440px;">
+<div style="margin-top:-5px;">
+<p><span class="define">Actions</span> are spans (<span class="math inline">\(\mathrm{Pre} \hookleftarrow \mathrm{Keep} \rightarrow \mathrm{Eff}\)</span>) in <span class="math inline">\(\catSet{C}\)</span></p>
+</div>
+<!-- https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhybXtQcmV9Il0sWzEsMCwiXFxtYXRocm17S2VlcH0iXSxbMiwwLCJcXG1hdGhybXtFZmZ9Il0sWzAsMSwiWCJdLFsyLDEsIlkiXSxbMSwxLCJaIl0sWzEsMCwibCIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzEsMiwiciJdLFsxLDVdLFswLDMsIm0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFs1LDNdLFs1LDRdLFsyLDRdLFs0LDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFszLDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ== -->
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhybXtQcmV9Il0sWzEsMCwiXFxtYXRocm17S2VlcH0iXSxbMiwwLCJcXG1hdGhybXtFZmZ9Il0sWzAsMSwiWCJdLFsyLDEsIlkiXSxbMSwxLCJaIl0sWzEsMCwibCIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzEsMiwiciJdLFsxLDVdLFswLDMsIm0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFs1LDNdLFs1LDRdLFsyLDRdLFs0LDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFszLDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==&amp;embed" width="438" height="304" style="border-radius: 8px; border: none;">
+</iframe>
+<!-- ![](assets/dpo.png){width=480px} -->
+<div style="margin-top:-30px">
+<p>Actions are applied to state <span class="math inline">\(X\)</span> to produce state <span class="math inline">\(Y\)</span> using <span class="define">Double-Pushout (DPO) Rewriting</span></p>
+</div>
+<div style="margin-top:-10px;">
+<p><span style="font-size:80%;"><span class="citation" data-cites="Aguinaldo2023">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo et al. 2023</a>)</span></span></p>
+</div>
+</div>
+<div style="font-size:85%;margin-top:-5px;">
+<p><span class="math inline">\(\hookleftarrow\)</span> is a <span class="define"><strong>monomorphism</strong></span> (e.g.&nbsp;injective function in <span class="math inline">\(\cat{Set}\)</span>). <span class="math inline">\(\urcorner\)</span> and <span class="math inline">\(\ulcorner\)</span> is a <span class="define"><strong>pushout</strong></span> (e.g.&nbsp;quotiented disjoint union in <span class="math inline">\(\cat{Set}\)</span>).</p>
+</div>
+</section>
+
+<section id="planning-using-catsetc-and-dpo-rewriting" class="slide level2">
+<h2>Planning using <span class="math inline">\(\catSet{C}\)</span> and DPO Rewriting</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div style="margin-top:-10px;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/forwardplan.svg" class="quarto-figure quarto-figure-center" height="600"></p>
+</figure>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<div style="font-size:80%">
+<div class="callout-color2">
+<p>Existing state-space planning algorithms can be adapted to work with this planning representation.</p>
+</div>
+<p><strong>Example</strong>: <code>ForwardPlan()</code> executes depth-first search (DFS) to find a sequence of actions.</p>
+</div>
+<div class="sourceCode" id="cb5" style="height:400px;font-size:90%"><pre class="sourceCode numberSource julia number-lines code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href=""></a><span class="kw">function</span> <span class="fu">ForwardPlan</span>(world<span class="op">::</span><span class="dt">ACSet</span>, goal<span class="op">::</span><span class="dt">ACSet</span>, actions<span class="op">::</span><span class="dt">Dict</span>, </span>
+<span id="cb5-2"><a href=""></a>                      action_limits<span class="op">::</span><span class="dt">Dict</span>, action_usage<span class="op">::</span><span class="dt">Dict</span>, </span>
+<span id="cb5-3"><a href=""></a>                      plan<span class="op">::</span><span class="dt">List</span>)</span>
+<span id="cb5-4"><a href=""></a></span>
+<span id="cb5-5"><a href=""></a>  <span class="co"># Exit criteria: goal is reached if there is a monic morphism from goal to world</span></span>
+<span id="cb5-6"><a href=""></a>  <span class="cf">if</span> <span class="fu">homomorphism</span>(goal, world, monic<span class="op">=</span><span class="cn">true</span>) <span class="op">!==</span> <span class="cn">nothing</span> </span>
+<span id="cb5-7"><a href=""></a>    <span class="fu">println</span>(<span class="st">"Goal reached."</span>)</span>
+<span id="cb5-8"><a href=""></a>    <span class="cf">return</span> plan</span>
+<span id="cb5-9"><a href=""></a>  <span class="cf">end</span></span>
+<span id="cb5-10"><a href=""></a></span>
+<span id="cb5-11"><a href=""></a>  <span class="co"># Find applicable actions for the current world state</span></span>
+<span id="cb5-12"><a href=""></a>  applicable <span class="op">=</span> <span class="fu">find_applicable_actions</span>(world, actions)</span>
+<span id="cb5-13"><a href=""></a></span>
+<span id="cb5-14"><a href=""></a>  <span class="co"># Backtrack criteria: no applicable actions</span></span>
+<span id="cb5-15"><a href=""></a>  <span class="cf">if</span> <span class="fu">length</span>(applicable) <span class="op">&lt;=</span> <span class="fl">0</span></span>
+<span id="cb5-16"><a href=""></a>    <span class="fu">throw</span>(<span class="st">"No applicable actions found! Terminate path..."</span>)</span>
+<span id="cb5-17"><a href=""></a>  <span class="cf">end</span></span>
+<span id="cb5-18"><a href=""></a></span>
+<span id="cb5-19"><a href=""></a>  <span class="co"># Iterate over all applicable actions</span></span>
+<span id="cb5-20"><a href=""></a>  <span class="cf">for</span> action <span class="kw">in</span> applicable</span>
+<span id="cb5-21"><a href=""></a>    action_name <span class="op">=</span> action.first</span>
+<span id="cb5-22"><a href=""></a>    match_morphism <span class="op">=</span> action.second</span>
+<span id="cb5-23"><a href=""></a></span>
+<span id="cb5-24"><a href=""></a>    <span class="co"># Backtrack criteria: action applied too many times</span></span>
+<span id="cb5-25"><a href=""></a>    <span class="cf">try</span></span>
+<span id="cb5-26"><a href=""></a>      <span class="cf">if</span> action_usage[action_name] <span class="op">&gt;=</span> action_limits[action_name]</span>
+<span id="cb5-27"><a href=""></a>        <span class="fu">println</span>(<span class="st">"Abort path. Action used too many times."</span>)</span>
+<span id="cb5-28"><a href=""></a>        <span class="cf">continue</span></span>
+<span id="cb5-29"><a href=""></a>      <span class="cf">end</span></span>
+<span id="cb5-30"><a href=""></a>    <span class="cf">catch</span></span>
+<span id="cb5-31"><a href=""></a>      <span class="co"># Initialize action usage if it doesn't exist</span></span>
+<span id="cb5-32"><a href=""></a>      action_usage[action_name] <span class="op">=</span> <span class="fl">1</span>  </span>
+<span id="cb5-33"><a href=""></a>    <span class="cf">end</span></span>
+<span id="cb5-34"><a href=""></a></span>
+<span id="cb5-35"><a href=""></a>    <span class="co"># Save current world state for backtracking</span></span>
+<span id="cb5-36"><a href=""></a>    prev_world <span class="op">=</span> world</span>
+<span id="cb5-37"><a href=""></a>    selected_action <span class="op">=</span> action[action_name].rule</span>
+<span id="cb5-38"><a href=""></a></span>
+<span id="cb5-39"><a href=""></a>    <span class="co"># Apply the selected action to the current world state</span></span>
+<span id="cb5-40"><a href=""></a>    try</span>
+<span id="cb5-41"><a href=""></a>      world <span class="op">=</span> <span class="fu">rewrite</span>(selected_action, world)</span>
+<span id="cb5-42"><a href=""></a>    catch <span class="cn">e</span></span>
+<span id="cb5-43"><a href=""></a>      <span class="fu">throw</span>(<span class="st">"Could not apply action!"</span>)</span>
+<span id="cb5-44"><a href=""></a>    <span class="kw">end</span></span>
+<span id="cb5-45"><a href=""></a></span>
+<span id="cb5-46"><a href=""></a>    <span class="co"># Record the action and corresponding match morphism in the current plan</span></span>
+<span id="cb5-47"><a href=""></a>    <span class="fu">append!</span>(plan, [selected_action <span class="op">=&gt;</span> match_morphism])</span>
+<span id="cb5-48"><a href=""></a></span>
+<span id="cb5-49"><a href=""></a>    try</span>
+<span id="cb5-50"><a href=""></a>      <span class="co"># Recursively call ForwardPlan with updated world state</span></span>
+<span id="cb5-51"><a href=""></a>      plan <span class="op">=</span> <span class="fu">ForwardPlan</span>(world, goal, actions, action_limits, </span>
+<span id="cb5-52"><a href=""></a>                          action_usage, plan)</span>
+<span id="cb5-53"><a href=""></a>      <span class="cf">return</span> plan</span>
+<span id="cb5-54"><a href=""></a>    catch <span class="cn">e</span></span>
+<span id="cb5-55"><a href=""></a>      <span class="co"># Backtrack to previous world state if path fails</span></span>
+<span id="cb5-56"><a href=""></a>      world <span class="op">=</span> prev_world</span>
+<span id="cb5-57"><a href=""></a>      <span class="fu">pop!</span>(plan)</span>
+<span id="cb5-58"><a href=""></a>      <span class="fu">println</span>(<span class="st">"Path failed. Try a different path."</span>)</span>
+<span id="cb5-59"><a href=""></a>    <span class="kw">end</span></span>
+<span id="cb5-60"><a href=""></a>  <span class="kw">end</span></span>
+<span id="cb5-61"><a href=""></a></span>
+<span id="cb5-62"><a href=""></a>  <span class="co"># If no valid plan is found, report failure</span></span>
+<span id="cb5-63"><a href=""></a>  <span class="fu">println</span>(<span class="st">"No plan found."</span>)</span>
+<span id="cb5-64"><a href=""></a><span class="kw">end</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="transfer-using-functorial-data-migration-delta_f" class="slide level2">
+<h2>Transfer using Functorial Data Migration, <span class="math inline">\(\Delta_F\)</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="callout-color2" style="margin-top:20px;">
+<p><span style="font-size:100%"><strong>High-level Steps in Analogical Plan Transfer</strong></span></p>
+<div style="font-size:75%">
+<ol type="1">
+<li><strong>Define the Source Domain</strong>: Start by defining the ontology, <span class="math inline">\(\cat{D}_S\)</span>, and actions, <span class="math inline">\(A_S\)</span>, for the source domain, <span class="math inline">\(\textbf{D}_S\)</span>.</li>
+<li><strong>Define the Planning Problem</strong>: Establish the initial and goal states, <span class="math inline">\(P_S = (I, G)\)</span> within domain <span class="math inline">\(\textbf{D}_S\)</span>.</li>
+<li><strong>Plan</strong>: Solve for a valid plan, <span class="math inline">\(\pi_S\)</span>, that solves for <span class="math inline">\(P_S\)</span> within domain <span class="math inline">\(\textbf{D}_S\)</span>.</li>
+<li><strong>Define the Target Domain Ontology</strong>: Specify the target ontology, <span class="math inline">\(\cat{D}_T\)</span>, in the new domain, <span class="math inline">\(\textbf{D}_T\)</span>.</li>
+<li><strong>Align Ontologies</strong>: Create a translation map, <span class="math inline">\(F: \cat{D}_T \rightarrow \cat{D}_S\)</span>, linking the types and predicates from the target domain ontology to the source domain ontology.</li>
+<li><strong>Transfer the Plan</strong>: Use the translation map to transfer the grounded plan via <span class="math inline">\(\Delta_F\)</span>, resulting in <span class="math inline">\(\pi_T\)</span>.</li>
+<li><strong>Validate the Plan</strong>: Check that the end state after <span class="math inline">\(\pi_T\)</span> contains <span class="math inline">\(\Delta_F(G)\)</span>.</li>
+</ol>
+<p><span style="font-size:80%"><span class="citation" data-cites="Aguinaldo2024">(<a href="#/references" role="doc-biblioref" onclick="">Aguinaldo, Patterson, and Regli 2024</a>)</span></span></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div style="border: 1px solid #000000;padding:5px;margin-top:-5px;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/StructuralAnalogyTranslationFunctor.svg"></p>
+<figcaption><strong>Step #5</strong> Align the ontologies</figcaption>
+</figure>
+</div>
+</div>
+<div style="border: 1px solid #000000;padding:5px;margin-top:5px;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/PlanTransfer.svg"></p>
+<figcaption><strong>Step #6</strong> and <strong>#7</strong> Transfer and Validate the Plan</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="stacking-blocks-sim-making-a-sandwich" class="slide level2">
+<h2>Stacking Blocks <span class="math inline">\(\sim\)</span> Making a Sandwich</h2>
+<div class="absolute" style="font-size:70%;text-align:center;top: 480px; left: 750px; width: 250px; ">
+<p><em>Kitchenworld ontology derived from AI2-Thor Object Type Documentation <br> <span class="citation" data-cites="AiTHOR_object_types">(<a href="#/references" role="doc-biblioref" onclick="">Allen Institute for Artificial Intelligence 2024</a>)</span></em></p>
+</div>
+
+<img data-src="assets/StructuralAnalogyTranslationFunctor.png" class="r-stretch"><div style="text-align:center;margin-top:-30px;">
+<p><strong>Uses an ontology alignment map that is</strong> <span class="dark-font-color"><strong>functorial</strong></span></p>
+</div>
+</section>
+<section id="result" class="slide level2">
+<h2>Result</h2>
+<div style="text-align:center;margin-top:20px;">
+<p><img data-src="assets/demo/demo-annotated.gif" width="900"></p>
+</div>
+<div style="font-size:70%;margin-top:-20px;">
+<p>Kitchenworld simulation from AI2-Thor <span class="citation" data-cites="AiTHOR_object_types">(<a href="#/references" role="doc-biblioref" onclick="">Allen Institute for Artificial Intelligence 2024</a>)</span></p>
+</div>
+</section>
+
+<section id="advantages-and-limitations-of-categorical-structure-for-planning" class="slide level2">
+<h2>Advantages and Limitations of Categorical Structure for Planning</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="callout-color" style="height:540px">
+<p><span class="dark-font-color" style="font-size:120%"><strong>Advantages</strong></span></p>
+<ul>
+<li>Preserves ontological structure when applying actions and transferring plans</li>
+<li>Predictable runtime complexity w.r.t. PDDL and its extensions, e.g.&nbsp;typing and transitive closure constraints</li>
+<li>Generalized transfer for pair of domains</li>
+<li>Symbolic action (skill) generation</li>
+</ul>
+<div style="margin-top:-20px;">
+<p><img data-src="assets/skillgen.svg"></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="callout-color" style="height:540px;">
+<p><span class="dark-font-color" style="font-size:110%"><strong>Limitations</strong></span></p>
+<ul>
+<li>Reliance on advanced mathematical theory</li>
+<li>Higher runtime complexity for checking applicability of actions, <span class="math inline">\(O(n^k)\)</span>, w.r.t. PDDL, <span class="math inline">\(O(nk)\)</span></li>
+<li>Depends on proper (functorial) ontological alignment</li>
+<li>Difficulty handling structurally dissimilar domains</li>
+</ul>
+<div style="margin-top:-40px;">
+<p><img data-src="assets/blocksworldvstowers.svg"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="areas-of-future-work" class="slide level2">
+<h2>Areas of Future Work</h2>
+<p><img data-src="assets/knowrob_ontology.png" class="absolute" style="top: -30px; left: 710px; width: 420px; "> <img data-src="assets/fof_ontology.png" class="absolute" style="top: 315px; left: 710px; width: 400px; "></p>
+<div class="columns">
+<div class="column" style="width:65%;">
+<div class="callout-color dark-font-color" style="margin-top:20px;font-size:90%">
+<p><strong>Scaling Studies: Empirical and Theoretical</strong></p>
+</div>
+<div style="margin-left:30px;font-size:90%">
+<ul>
+<li>More planning and plan transfer problems</li>
+<li>Scale by the size of the world state and ontology</li>
+<li>Scale by length of plan</li>
+<li>Design benchmarks, e.g.&nbsp;transfer accuracy</li>
+<li>Study functoriality of migration for certain ontology maps</li>
+</ul>
+</div>
+<div class="callout-color dark-font-color" style="position: relative; margin-top:10px;font-size:90%">
+<p><strong>A Software Tool for Category Theory-Based Planning and Transfer</strong></p>
+</div>
+<div style="margin-left:30px;font-size:90%">
+<ul>
+<li>Run planners</li>
+<li>Automate discovery of functorial ontology alignments</li>
+<li>Perform analogical plan transfer</li>
+<li>Compose plans with other plans using sequential transfer</li>
+<li>Check plans satisfy abstract behavior using hierarchical transfer</li>
+</ul>
+</div>
+</div><div style="font-size:60%;margin-top:0px;text-align:right;margin-right:350px">
+<p>Knowrob <span class="citation" data-cites="Tenorth2017">(<a href="#/references" role="doc-biblioref" onclick="">Tenorth and Beetz 2017</a>)</span> and Factory of the Future <span class="citation" data-cites="Schafer2021">(<a href="#/references" role="doc-biblioref" onclick="">Schäfer et al. 2021</a>)</span> ontologies</p>
+</div>
+</div>
+</section>
+<section id="acknowledgements" class="slide level2">
+<h2>Acknowledgements</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><span class="dark-font-color" style="font-size:120%;margin-top:-40px;"><strong>Collaborators and Mentors</strong></span></p>
+<ul>
+<li>Evan Patterson, <span class="light-font-color"><em>AlgebraicJulia</em></span></li>
+<li>Kristopher Brown, <span class="light-font-color"><em>AlgebraicJulia</em></span></li>
+<li>Kevin Arlin, <span class="light-font-color"><em>AlgebraicJulia</em></span></li>
+<li>Owen Lynch, <span class="light-font-color"><em>AlgebraicJulia</em></span></li>
+<li>James Fairbanks, <span class="light-font-color"><em>AlgebraicJulia</em></span></li>
+<li>Brendan Fong, <span class="light-font-color"><em>Topos Institute</em></span></li>
+<li>David Spivak, <span class="light-font-color"><em>Topos Institute</em></span></li>
+<li>Jaime Ruiz, <span class="light-font-color"><em>University of Florida</em></span></li>
+<li>Sophie Libkind, <span class="light-font-color"><em>Topos Institute</em></span></li>
+<li>Nelson Niu, <span class="light-font-color"><em>Univ. of Washington</em></span></li>
+<li>Priyaa Varshinee Srinivasan, <span class="light-font-color"><em>Tallin Univ. of Tech.</em></span></li>
+<li>Spencer Breiner, <span class="light-font-color"><em>NIST</em></span></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li>Dana Nau, <span class="light-font-color"><em>UMD</em></span></li>
+<li>Yiannis Aloimonos, <span class="light-font-color"><em>UMD</em></span></li>
+<li>Dinesh Manocha, <span class="light-font-color"><em>UMD</em></span></li>
+<li>Huan Xu, <span class="light-font-color"><em>UMD</em></span></li>
+<li>Mark Fuge, <span class="light-font-color"><em>UMD/ETH Zurich</em></span></li>
+<li>Eswaran Subrahmanian, <span class="light-font-color"><em>CMU/NIST</em></span></li>
+<li>William Regli, <span class="light-font-color"><em>UMD (Advisor)</em></span></li>
+</ul>
+<p><span class="dark-font-color" style="font-size:120%;margin-top:-40px;"><strong>Funding</strong></span></p>
+<ul>
+<li>Johns Hopkins University Applied Physics</li>
+<li>Adv. Robotics for Manu. ARM-18-01</li>
+<li>DARPA #HR00112220004</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="thank-you-for-your-attention" class="title-slide slide level1 center" style="text-align:center;">
+<h1>Thank you for your attention!</h1>
+<div style="text-align:center;font-size:110%;margin-top:80px;">
+<p><span class="define" style="font-size:130%"><strong>Angeline Aguinaldo</strong></span></p>
+<p><strong>E-mail</strong>: aaguinal@umd.edu</p>
+<p><strong>Website</strong>: angelineaguinaldo.com</p>
+</div>
+</section>
+
+<section>
+<section id="appendix" class="title-slide slide level1 center">
+<h1>Appendix</h1>
+
+</section>
+<section id="what-is-category-theory" class="slide level2">
+<h2>What is category theory?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="margin-top:35px;font-size:90%">
+<p><span class="define">Category theory</span> <span class="citation" data-cites="Eilenberg1945">(<a href="#/references" role="doc-biblioref" onclick="">Eilenberg and MacLane 1945</a>)</span> is often referred to as the <em>“mathematics of mathematics”</em>.</p>
+<div style="margin-left:10px">
+<p>Connects different areas of mathematics by studying the relationships <em>between</em> structures.</p>
+</div>
+<p>Category theory has been applied in many domains outside mathematics<sup>1</sup>, and such works contribute to the field of <span class="define">Applied Category Theory (ACT)</span>.</p>
+</div>
+</div><div class="column" style="text-align:center;margin-top:-20px">
+<p><img data-src="assets/category.svg"></p>
+<div class="fragment" style="text-align:center;margin-top:-325px">
+<p><img data-src="assets/category-example.svg"></p>
+</div>
+</div>
+</div>
+<div class="callout-color" style="font-size:80%;margin-top:-30px;">
+<p><strong>Definition</strong>: <em>(Category)</em> A <span class="define">category</span>, <span class="math inline">\(\cat{C}\)</span>, consists of:</p>
+<ul>
+<li>a collection of <span class="define">objects</span>, <span class="math inline">\(\text{Ob}(\cat{C})\)</span></li>
+<li>a collection of <span class="define">morphisms</span> for every pairs of objects, <span class="math inline">\(\text{Hom}_\cat{C}(X,Y)\)</span> for <span class="math inline">\(X, Y \in \text{Ob}(\cat{C})\)</span></li>
+<li>a composition operation, if <span class="math inline">\(f: X \rightarrow Y\)</span>, <span class="math inline">\(g: Y \rightarrow Z\)</span> then <span class="math inline">\(g \circ f: X \rightarrow Z\)</span></li>
+<li>an identity morphism for every object, <span class="math inline">\(1_X: X \rightarrow X\)</span></li>
+</ul>
+<p>satisfying the <em>associativity</em> law <span class="math inline">\(h \circ (g \circ f) = (h \circ g) \circ f\)</span> and <em>unitality</em> laws <span class="math inline">\(f \circ 1_x = f\)</span> and <span class="math inline">\(1_y \circ f = f\)</span> whenever these equations make sense.</p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p><span class="citation" data-cites="Fong2018">(<a href="#/references" role="doc-biblioref" onclick="">Fong and Spivak 2018</a>)</span>, <span class="citation" data-cites="Patterson2022">(<a href="#/references" role="doc-biblioref" onclick="">Patterson et al. 2022</a>)</span>, <span class="citation" data-cites="Spivak2011">(<a href="#/references" role="doc-biblioref" onclick="">David I. Spivak and Kent 2011</a>)</span>, <span class="citation" data-cites="Shinavier2019">(<a href="#/references" role="doc-biblioref" onclick="">Shinavier and Wisnesky 2019</a>)</span>, <span class="citation" data-cites="Coecke2018">(<a href="#/references" role="doc-biblioref" onclick="">Coecke and Kissinger 2017</a>)</span></p></li></ol></aside></section>
+<section id="functors-and-natural-transformations" class="slide level2">
+<h2>Functors and natural transformations</h2>
+<div style="text-align:center;margin-top:-30px">
+<p><img data-src="assets/functor-example.svg" height="400"></p>
+</div>
+<div style="margin-top:-50px;">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="callout-color">
+<p><span class="define"><strong>Functors</strong></span> map, e.g.&nbsp;<span class="math inline">\(\; F: \cat{P(\{1,2\})} \rightarrow \cat{\mathbb{N}_{\leq}}\)</span>:</p>
+<ul>
+<li>Objects to objects</li>
+<li>Morphisms to morphisms</li>
+<li>Preserves composition in the source category</li>
+</ul>
+</div>
+</div><div class="column" style="width:55%;">
+
+</div>
+</div>
+</div>
+</section>
+<section id="functors-and-natural-transformations-1" class="slide level2">
+<h2>Functors and natural transformations</h2>
+<div style="text-align:center;margin-top:-30px">
+<p><img data-src="assets/naturaltransformation-example.svg" height="400"></p>
+</div>
+<div style="margin-top:-50px;">
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="callout-color">
+<p><span class="define"><strong>Functors</strong></span> map, e.g.&nbsp;<span class="math inline">\(\; F: \cat{P(\{1,2\})} \rightarrow \cat{\mathbb{N}_{\leq}}\)</span>:</p>
+<ul>
+<li>Objects to objects</li>
+<li>Morphisms to morphisms</li>
+<li>Preserves composition in the source category</li>
+</ul>
+</div>
+</div><div class="column" style="width:55%;">
+<div class="callout-color">
+<p><span class="define"><strong>Natural transformations</strong></span> map functors, e.g.&nbsp;<span class="math inline">\(\alpha: F \rightarrow G\)</span>:</p>
+<ul>
+<li>Defines morphism in target category, <span class="math inline">\(\cat{\mathbb{N}_{\leq}}\)</span>, per object in source category, e.g.&nbsp;<span class="math inline">\(\cat{P(\{1,2\})}\)</span></li>
+<li>Preserves composition in the source category</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
+<div class="quarto-auto-generated-content">
+<p><img src="assets/umdcslogo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>Angeline Aguinaldo - AMS JMM Applied Category Theory - January 8, 2025</p>
+</div>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-Aguinaldo2024dissertation" class="csl-entry" role="listitem">
+Aguinaldo, Angeline. 2024. <span>“Sequential, Hierarchical, and Analogical Plan Transfer in Robotics.”</span> Ph.D. Dissertation, University of Maryland, College Park.
+</div>
+<div id="ref-Aguinaldo2023" class="csl-entry" role="listitem">
+Aguinaldo, Angeline, Evan Patterson, James Fairbanks, William Regli, and Jaime Ruiz. 2023. <span>“<span class="nocase">A Categorical Representation Language and Computational System for Knowledge-Based Planning</span>.”</span> In <em>2023 AAAI Fall Symposium on Unifying Representations for Robot Application Development</em>.
+</div>
+<div id="ref-Aguinaldo2024" class="csl-entry" role="listitem">
+Aguinaldo, Angeline, Evan Patterson, and William Regli. 2024. <span>“Automating Transfer of Robot Task Plans Using Functorial Data Migrations.”</span> <a href="https://arxiv.org/abs/2406.15961">https://arxiv.org/abs/2406.15961</a>.
+</div>
+<div id="ref-AiTHOR_object_types" class="csl-entry" role="listitem">
+Allen Institute for Artificial Intelligence. 2024. <span>“<span>AiTHOR Object Types Documentation</span>.”</span> <a href="https://ai2thor.allenai.org/ithor/documentation/objects/object-types" class="uri">https://ai2thor.allenai.org/ithor/documentation/objects/object-types</a>.
+</div>
+<div id="ref-Alnazer2023" class="csl-entry" role="listitem">
+Alnazer, Ebaa, and Ilche Georgievski. 2023. <span>“Understanding Real-World AI Planning Domains: A Conceptual Framework.”</span> In <em>Service-Oriented Computing</em>, edited by Marco Aiello, Johanna Barzen, Schahram Dustdar, and Frank Leymann, 3–23. Cham: Springer Nature Switzerland.
+</div>
+<div id="ref-Brown2021" class="csl-entry" role="listitem">
+Brown, Kristopher, Evan Patterson, Tyler Hanks, and James Fairbanks. 2023. <span>“Computational Category-Theoretic Rewriting.”</span> <em>Journal of Logical and Algebraic Methods in Programming</em> 134: 100888. https://doi.org/<a href="https://doi.org/10.1016/j.jlamp.2023.100888">https://doi.org/10.1016/j.jlamp.2023.100888</a>.
+</div>
+<div id="ref-Coecke2018" class="csl-entry" role="listitem">
+Coecke, Bob, and Aleks Kissinger. 2017. <span>“286Categorical Quantum Mechanics i: Causal Quantum Processes.”</span> In <em>Categories for the Working Philosopher</em>. Oxford University Press. <a href="https://doi.org/10.1093/oso/9780198748991.003.0012">https://doi.org/10.1093/oso/9780198748991.003.0012</a>.
+</div>
+<div id="ref-Eilenberg1945" class="csl-entry" role="listitem">
+Eilenberg, Samuel, and Saunders MacLane. 1945. <span>“<span class="nocase">General Theory of Natural Equivalences</span>.”</span> <em>Transactions of the American Mathematical Society</em> 58 (2): 231. <a href="https://doi.org/10.2307/1990284">https://doi.org/10.2307/1990284</a>.
+</div>
+<div id="ref-Patterson2021Colloquium" class="csl-entry" role="listitem">
+Evan Patterson. 2021. <span>“<span class="nocase">Categories of diagrams in data migration and computational physics</span>.”</span> <a href="https://www.algebraicjulia.org/assets/slides/topos-colloquium-2021.pdf" class="uri">https://www.algebraicjulia.org/assets/slides/topos-colloquium-2021.pdf</a>.
+</div>
+<div id="ref-Fong2018" class="csl-entry" role="listitem">
+Fong, Brendan, and David I. Spivak. 2018. <em><span class="nocase">Seven sketches in compositionality: An invitation to applied category theory</span></em>. Cambridge University Press. <a href="https://arxiv.org/abs/1803.05316">https://arxiv.org/abs/1803.05316</a>.
+</div>
+<div id="ref-Gentner1983" class="csl-entry" role="listitem">
+Gentner, Dedre. 1983. <span>“<span class="nocase">Structure Mapping: A Theoretical Framework for Analogy</span>.”</span> <em>Cognitive Science</em> 7: 155–70. <a href="file://localhost/Volumes/alexvanvenrooij 1/Elektronische Artikelen/Papers/Unknown/2004-34.pdf">file://localhost/Volumes/alexvanvenrooij 1/Elektronische Artikelen/Papers/Unknown/2004-34.pdf</a>.
+</div>
+<div id="ref-Gentner2012" class="csl-entry" role="listitem">
+Gentner, Dedre, and L. Smith. 2012. <em><span>Analogical Reasoning</span></em>. 2nd ed. Vol. 1. Elsevier Inc. <a href="https://doi.org/10.1016/B978-0-12-375000-6.00022-7">https://doi.org/10.1016/B978-0-12-375000-6.00022-7</a>.
+</div>
+<div id="ref-Ghallab1998" class="csl-entry" role="listitem">
+Ghallab, Malik, Craig Knoblock, Drew McDermott, Ashwin Ram, Manuela Veloso, Daniel Weld, and David Wilkins. 1998. <span>“<span>PDDL - The Planning Domain Definition Language (Version 1.2)</span>.”</span> Yale Center for Computational Vision; Control.
+</div>
+<div id="ref-Ghallab2004" class="csl-entry" role="listitem">
+Ghallab, Malik, Dana Nau, and Paolo Traverso. 2004. <em><span class="nocase">Automated Planning: Theory and Practice</span></em>. Morgan Kaufmann Publishers. <a href="https://doi.org/10.1016/B978-1-55860-856-6.X5000-5">https://doi.org/10.1016/B978-1-55860-856-6.X5000-5</a>.
+</div>
+<div id="ref-Ingrand2017" class="csl-entry" role="listitem">
+Ingrand, Félix, and Malik Ghallab. 2017. <span>“<span class="nocase">Deliberation for autonomous robots: A survey</span>.”</span> <em>Artificial Intelligence</em> 247: 10–44. <a href="https://doi.org/10.1016/j.artint.2014.11.003">https://doi.org/10.1016/j.artint.2014.11.003</a>.
+</div>
+<div id="ref-Patterson2022" class="csl-entry" role="listitem">
+Patterson, Evan, Andrew Baas, Timothy Hosgood, and James Fairbanks. 2022. <span>“A Diagrammatic View of Differential Equations in Physics.”</span> <em>Mathematics in Engineering</em> 5 (2): 1–59. <a href="https://doi.org/10.3934/mine.2023036">https://doi.org/10.3934/mine.2023036</a>.
+</div>
+<div id="ref-Patterson2021" class="csl-entry" role="listitem">
+Patterson, Evan, Owen Lynch, and James Fairbanks. 2021. <span>“<span class="nocase">Categorical Data Structures for Technical Computing</span>.”</span> <em>Compositionality</em> 4 (5): 1–27. <a href="http://arxiv.org/abs/2106.04703">http://arxiv.org/abs/2106.04703</a>.
+</div>
+<div id="ref-Riehl2016" class="csl-entry" role="listitem">
+Riehl, Emily. 2016. <em><span class="nocase">Category theory in context</span></em>. Aurora: Dover Modern Math Originals. <a href="http://www.math.jhu.edu/$\sim$eriehl/context/%0Ahttps://store.doverpublications.com/048680903x.html">http://www.math.jhu.edu/$\sim$eriehl/context/%0Ahttps://store.doverpublications.com/048680903x.html</a>.
+</div>
+<div id="ref-Schafer2021" class="csl-entry" role="listitem">
+Schäfer, Philipp Matthias, Franz Steinmetz, Stefan Schneyer, Timo Bachmann, Thomas Eiband, Florian Samuel Lay, Abhishek Padalkar, Christoph Sürig, Freek Stulp, and Korbinian Nottensteiner. 2021. <span>“<span class="nocase">Flexible Robotic Assembly Based on Ontological Representation of Tasks, Skills, and Resources</span>.”</span> <em>Proceedings of the 18th International Conference on Principles of Knowledge Representation and Reasoning, KR 2021</em>, 702–6. <a href="https://doi.org/10.24963/kr.2021/73">https://doi.org/10.24963/kr.2021/73</a>.
+</div>
+<div id="ref-Shinavier2019" class="csl-entry" role="listitem">
+Shinavier, Joshua, and Ryan Wisnesky. 2019. <span>“Algebraic Property Graphs.”</span> <em>ArXiv</em> abs/1909.04881.
+</div>
+<div id="ref-Spivak2021" class="csl-entry" role="listitem">
+Spivak, David I. 2021. <span>“<span class="nocase">Functorial aggregation</span>.”</span> <em>ArXiv</em>. <a href="http://arxiv.org/abs/2111.10968">http://arxiv.org/abs/2111.10968</a>.
+</div>
+<div id="ref-Spivak2012" class="csl-entry" role="listitem">
+Spivak, David I., and Robert E. Kent. 2012. <span>“<span class="nocase">Ologs: A categorical framework for knowledge representation</span>.”</span> <em>PLoS ONE</em> 7 (1). <a href="https://doi.org/10.1371/journal.pone.0024274">https://doi.org/10.1371/journal.pone.0024274</a>.
+</div>
+<div id="ref-Spivak2011" class="csl-entry" role="listitem">
+Spivak, David I, and Robert E Kent. 2011. <span>“<span class="nocase">Ologs: a categorical framework for knowledge representation</span>.”</span> <em>PLOS ONE</em>. <a href="https://arxiv.org/pdf/1102.1889.pdf">https://arxiv.org/pdf/1102.1889.pdf</a>.
+</div>
+<div id="ref-Tenorth2017" class="csl-entry" role="listitem">
+Tenorth, Moritz, and Michael Beetz. 2017. <span>“<span class="nocase">Representations for robot knowledge in the KNOWROB framework</span>.”</span> <em>Artificial Intelligence</em> 247: 151–69. <a href="https://doi.org/10.1016/j.artint.2015.05.010">https://doi.org/10.1016/j.artint.2015.05.010</a>.
+</div>
+<div id="ref-Wilkins2001" class="csl-entry" role="listitem">
+Wilkins, D. E., and M. DesJardins. 2001. <span>“<span class="nocase">A call for knowledge-based planning</span>.”</span> <em>AI Magazine</em> 22 (1): 99–115.
+</div>
+</div>
+</section></section>
+
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="amsjmm2025_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="amsjmm2025_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="amsjmm2025_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="amsjmm2025_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="amsjmm2025_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="amsjmm2025_files/libs/revealjs/plugin/multiplex/socket.io.js"></script>
+  <script src="amsjmm2025_files/libs/revealjs/plugin/multiplex/multiplex.js"></script>
+  <script src="amsjmm2025_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="amsjmm2025_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="amsjmm2025_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="amsjmm2025_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="amsjmm2025_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'multiplex': {"secret":null,"id":"945ab969517b9edf","url":"https://reveal-multiplex.glitch.me/"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        text: function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+        <script type="text/javascript">
+        (function(d) {
+          d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+            let pseudocodeOptions = {
+              indentSize: el.dataset.indentSize || "1.2em",
+              commentDelimiter: el.dataset.commentDelimiter || "//",
+              lineNumber: el.dataset.lineNumber === "true" ? true : false,
+              lineNumberPunc: el.dataset.lineNumberPunc || ":",
+              noEnd: el.dataset.noEnd === "true" ? true : false,
+              titlePrefix: el.dataset.captionPrefix || "Algorithm"
+            };
+            pseudocode.renderElement(el.querySelector(".pseudocode"), pseudocodeOptions);
+          });
+        })(document);
+        (function(d) {
+          d.querySelectorAll(".pseudocode-container").forEach(function(el) {
+            let captionSpan = el.querySelector(".ps-root > .ps-algorithm > .ps-line > .ps-keyword")
+            if (captionSpan !== null) {
+              let captionPrefix = el.dataset.captionPrefix + " ";
+              let captionNumber = "";
+              if (el.dataset.pseudocodeNumber) {
+                captionNumber = el.dataset.pseudocodeNumber + " ";
+                if (el.dataset.chapterLevel) {
+                  captionNumber = el.dataset.chapterLevel + "." + captionNumber;
+                }
+              }
+              captionSpan.innerHTML = captionPrefix + captionNumber;
+            }
+          });
+        })(document);
+        </script>
+      
+    <script>videojs(video_shortcode_videojs_video1);</script>
+    <script>videojs(video_shortcode_videojs_video2);</script>
+    <script>videojs(video_shortcode_videojs_video3);</script>
+    <script>videojs(video_shortcode_videojs_video4);</script>
+    
+
+</body></html>

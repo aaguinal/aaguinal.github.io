@@ -1,0 +1,1128 @@
+---
+title: "Analogical Plan Transfer in Robotics using Functorial Data Migrations"
+# title-slide-attributes:
+#   data-background-image: assets/title-slide-background.png
+#   data-background-size: contain
+subtitle: " <br> <i> Applied Category Theory Special Session </i> <br> AMS Joint Mathematics Meeting 2025"
+author: "Angeline Aguinaldo"
+institute: "Ph.D. in Computer Science <br> University of Maryland, College Park"
+date: "1/8/2025"
+date-format: long
+bibliography: assets/ref.bib
+footer: "Angeline Aguinaldo - AMS JMM Applied Category Theory - January 8, 2025"
+number-sections: false
+format:
+  revealjs:
+    theme: [simple, custom.scss]
+    slide-number: true
+    logo: assets/umdcslogo.png
+    css: style.css
+    multiplex: true
+jupyter: julia-1.10
+execute: 
+  # enabled: false
+  cache: true
+include-in-header: 
+  text: |
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+      .bootstrap-scope {
+        /* Import Bootstrap styles within this scope only */
+        @import url('https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css');
+      }
+    </style>
+filters:
+  - pseudocode
+---
+
+## About Me {visibility="hidden"}
+
+::: {style="margin-top:30px"}
+Ph.D. in Computer Science at **University of Maryland, College Park**
+
+- Since 2018
+- Topos Institute (Research Associate), NIST, Siemens
+  
+Research Staff Member at the **Johns Hopkins University Applied Physics Laboratory** 
+
+- Since 2017
+- Sponsors: CDC, NASA, FEMA, Army National Guard, ...
+
+Previously B.S. and M.S. Electrical Engineering from **Drexel University** in Philadelphia, PA in 2017
+:::
+
+::: columns
+
+::: {.column width="30%"}
+::: {style="text-align:center;margin-top:20px;"}
+![](assets/drexellogo.png){width=150px}
+:::
+:::
+
+::: {.column width="30%"}
+::: {style="text-align:center;margin-top:20px;"}
+![](assets/jhuapllogo.png){width=300px}
+:::
+:::
+
+::: {.column width="30%"}
+::: {style="text-align:center;margin-top:20px;"}
+![](assets/umdlogo.png){width=150px}
+:::
+:::
+
+:::
+
+## Talk Outline
+
+::: {style="margin-top:100px;margin-left:50px;font-size:130%"}
+1. Plan Transfer in Robotics
+2. Analogies using Functors and Data Migrations
+3. Using Analogies in Planning
+4. Advantages + Limitations
+5. Future Work
+:::
+
+## Plan Transfer in Robotics
+
+:::{style="text-align:center;margin-top:10px;margin-top:35px;"}
+Transfer plan from the [**source**]{.define} (_left_) to the [**target**]{.define} (_right_) [**planning domain**]{.define}
+:::
+
+::: {.absolute top=240 left=80 style="text-align:center;color:gray;"}
+Humanoid robot
+
+Arms
+
+Bins
+
+<!-- Conveyer Belt -->
+:::
+
+::: {.absolute top=240 left=800 style="text-align:center;color:gray;"}
+Mobile robot
+
+Lift
+
+Box
+:::
+
+::: columns 
+
+::: {.column width="27%" style="text-align: right;margin-top:-20px;"}
+::: {data-id="video1"}
+[![](assets/AgilityRobotics.gif){height="400"}](https://www.youtube.com/shorts/2zCh_6GO49c)
+<!-- {{< video https://www.youtube.com/shorts/EEnpmhcIc0I width="100%" height="100%" >}} -->
+:::
+:::
+
+::: {.column width="27%" style="text-align: left;margin-top:-20px;"}
+::: {data-id="video2"}
+[![](assets/Brightpick.gif){height="400"}](https://www.youtube.com/shorts/EEnpmhcIc0I)
+<!-- {{< video https://www.youtube.com/shorts/2zCh_6GO49c width="100%" height="100%" >}} -->
+:::
+:::
+
+:::
+
+<!-- ::: {.fragment}
+::: {style="text-align: center; font-size:150%; margin-top:-40px;"}
+_the task_
+:::
+::: {style="text-align:center; font-size:75%;margin-top:-10px;"}
+(your embodiments may vary)
+:::
+::: -->
+
+<!-- :::{.fragment} 
+:::{.callout-color2 style="text-align:center;margin-top:10px;"}
+**Transfer old plans to solve new problems**
+:::
+::: -->
+
+::: {.callout-color2 style="text-align:center;margin-top:-10px;"}
+**Problem:** Designing planning problems and running planners is time-consuming. <br> [[@Alnazer2023]]{style="font-size:80%"} [[@Ingrand2017]]{style="font-size:80%"}
+:::
+
+::: {.hidden}
+$$
+  \newcommand{\N}{\mathbb{N}}
+  \newcommand{\R}{\mathbb{R}}
+  \newcommand{\cat}[1]{\mathsf{#1}}
+  \newcommand{\CAT}[1]{\mathsf{#1}}
+  \newcommand{\Set}{\CAT{Set}}
+  \DeclareMathOperator{\Path}{Path}
+  \newcommand{\catSet}[1]{\cat{#1}\text{-}\Set}
+  \DeclareMathOperator{\Ob}{Ob}
+  \DeclareMathOperator{\Hom}{Hom}
+$$
+:::
+
+## What do I mean by transferring plans? {visibility="hidden"}
+
+::: {style="margin-top:-15px;"}
+
+::: columns 
+
+::: {.column width="23%"}
+::: {style="text-align:center;"}
+::: {data-id="video1"}
+[![](assets/AgilityRobotics.gif){height="400"}](https://www.youtube.com/shorts/2zCh_6GO49c)
+<!-- {{< video https://www.youtube.com/shorts/EEnpmhcIc0I width="100%" height="100%" >}} -->
+:::
+:::
+:::
+
+:::{.column width="54%"}
+::: {style="text-align:center;"}
+![](assets/integrated-plan-transfer.svg)
+:::
+:::
+
+::: {.column width="23%"}
+::: {style="text-align:center;"}
+::: {data-id="video2"}
+[![](assets/Brightpick.gif){height="400"}](https://www.youtube.com/shorts/EEnpmhcIc0I)
+<!-- {{< video https://www.youtube.com/shorts/2zCh_6GO49c width="100%" height="100%" >}} -->
+:::
+:::
+:::
+
+:::
+
+:::
+
+:::{style="margin-top:-55px;text-align:center;font-size:87%"}
+Achieves analogous goal state
+
+Can transfer between different planning domain
+
+**Key Insight:** Transfer whole plans using [**an ontological map between planning domains**]{.define}
+
+**Tools:** $\cat{C}$-sets [[@Spivak2011], [@Patterson2021]]{style="font-size:80%"}, DPO rewriting [[@Brown2021]]{style="font-size:80%"}, and functorial data migrations [[@Spivak2012]]{style="font-size:80%"}
+:::
+
+::: {.fragment style="font-size:150%;text-align:center;"}
+[**Analogical Plan Transfer**]{.dark-font-color}
+:::
+
+## Analogies from Cognitive Psychology
+
+::: columns
+
+::: {.column width="40%"}
+![Analogies, according to cognitive psychology, are formed by [**structure mappings**]{.define} <br> [[@Gentner2012]]{style="font-size:80%"}](assets/analogy.png){height="500px"}
+:::
+
+::: {.column width="60%"}
+
+::: {.callout-color2 style="padding:10px;font-size:90%"}
+**Informal Definition:** _(Analogical Plan Transfer)_ Analogical plan transfer identifies structural similarities, or analogies, between planning domains and leverages these analogies to adapt plans from one domain to another. [[@Aguinaldo2024dissertation]]{style="font-size:80%"}
+:::
+
+
+::: {style="font-size:90%"}
+**Why analogies?** 
+
+[@Wilkins2001] argued that an ideal planning system should mimic human behavior by using [**analogies**]{.dark-font-color} to transfer solutions from one problem to another.
+
+**What are analogies?**
+
+According to [@Gentner1983], analogies:
+
+- have a [**one-to-one correspondence**]{.dark-font-color}, each concept in the source domain maps to at most one concept in the target domain
+- adhere to the [**systematicity principle**]{.dark-font-color}, where analogical maps connect large, densely connected systems of concepts, instead of just a handful of isolated concepts
+
+<!-- An analogy is judged by [**how much new knowledge**]{.define} can be inferred based on it. -->
+:::
+
+<!-- ::: {.callout-color2 style="padding:10px;font-size:80%;"}
+Analogical plan transfer is achieved using [**functorial data migrations**]{.define} from category theory. [[@Aguinaldo2024]]{style="font-size:80%"}
+::: -->
+
+
+:::
+
+:::
+
+## Analogies as Functors
+
+::: {style="text-align:center;"}
+Analogies can be mathematically formalized as [**functors**]{.dark-font-color} <br> and analogical transfer as [**functorial data migrations**]{.dark-font-color}. 
+:::
+
+::: columns
+
+::: {.column width="50%"}
+
+::: {.callout-color}
+**Delta Data Migration**
+
+::: {style="font-size:80%"}
+A [**delta data migration**]{.define}, $\Delta_F: \catSet{C} \rightarrow \catSet{C^{\prime}}$, is defined by a functor $F: \cat{C}^{\prime} \rightarrow \cat{C}$. Explicitly:
+
+For a given object $X$ in $\catSet{C}$,
+
+::: {style="text-align:center;"}
+$\Delta_F(X) = X \circ F$
+:::
+
+For a given morphism $\alpha: X \rightarrow Y$ in $\catSet{C}$, $\Delta_F$ acts on $\alpha$ to produce the following morphism in $\catSet{C^{\prime}}$---
+
+::: {style="text-align:center;"}
+$\Delta_F(\alpha)_{c^{\prime}}: X(F(c^{\prime})) \rightarrow Y(F(c^{\prime}))$ for $c^{\prime} \in \cat{C^{\prime}}$
+::: 
+
+[[@Spivak2012]]{style="font-size:80%"}
+
+:::
+
+:::
+
+::: {.callout-color2 style="text-align:center;font-size=50%;margin-top:10px;"}
+**Quick view of Delta Data Migration**
+
+$\Delta_F : \cat{C}^{\prime} \xrightarrow{F} \cat{C} \xrightarrow{X} \cat{Set}$
+:::
+
+<!-- $\cat{C}$ = source domain
+
+$\cat{C}^{\prime}$ = target domain -->
+
+:::
+
+::: {.column width=50%}
+
+::: {.callout-color}
+**Conjunctive Data Migration**
+
+::: {style="font-size:80%"}
+A [**conjunctive data migration**]{.define}, $\Delta_F: \catSet{C} \rightarrow \catSet{C^{\prime}}$, is defined by a functor $F: \cat{C}^{\prime} \rightarrow \cat{Diag^{op}(C)}$. Explicitly:
+
+For a given object $X$ in $\catSet{C}$,
+
+::: {style="text-align:center;"}
+$\Delta_F(X) = F^\ast(X) \circ F$ where, 
+
+$F^\ast(X): \cat{Diag^{op}(C)} \xrightarrow{\cat{Diag^{op}(X)}} \cat{\cat{Diag^{op}(Set)}} \xrightarrow{\mathrm{lim}} \cat{Set}$
+:::
+
+For a given morphism $\alpha: X \rightarrow Y$ in $\catSet{C}$, $\Delta_F$ acts on $\alpha$ to produce the following morphism in $\catSet{C^{\prime}}$---
+
+::: {style="text-align:center;"}
+$\Delta_F(\alpha)_{c^{\prime}}: F^\ast(X)(c^{\prime}) \rightarrow F^\ast(Y)(c^{\prime})$ for $c^{\prime} \in \cat{C}^{\prime}$
+:::
+
+[[@Patterson2021Colloquium], [@Spivak2021]]{style="font-size:80%"}
+
+:::
+
+:::
+
+::: {.callout-color2 style="text-align:center;font-size=50%;margin-top:10px;"}
+**Quick view of Conjunctive Data Migration**
+
+$\Delta_F : \cat{C}^{\prime} \xrightarrow{F} \cat{Diag^{op}(C)} \xrightarrow{F^\ast(X)} \cat{Set}$
+:::
+
+:::
+
+:::
+
+## Types of Analogies (in analogical plan transfer)
+
+:::{style="text-align:center;margin-top:0px;"}
+![](assets/typesofanalogies.svg){width="950"}
+
+<!-- :::{style="margin-top:-30px;"}
+[[@Aguinaldo2024dissertation]]{style="font-size:80%"}
+::: -->
+:::
+
+## Analogies with Task Planning
+
+::: {style="font-size:90%;margin-top:20px;"}
+
+::: {.callout-color2 style="padding:10px"}
+PDDL^[PDDL (Planning Domain Definition Language) [[@Ghallab1998]]{style="font-size:80%"} is a widely used task planning language in AI, including applications in robotics.] does not have built-in support for domain comparison or domain ontology alignment. Therefore, a new planning language that supports these capabilities is a prerequisite for analogical plan transfer. [[@Aguinaldo2024dissertation]]{style="font-size:80%"}
+:::
+
+:::
+
+::: columns
+
+::: {.column width="50%"}
+
+:::{.callout-color style="margin-top:20px;font-size:80%"}
+**State Transition System Model for Planning** 
+
+- [States]{.define}, $S = \{s_0, s_1, s_2, \dots\}$ set of all possible states
+- [Actions]{.define}, $A = \{a_0, a_1, a_2, \dots\}$ set of all possible actions
+  - [Preconditions]{.define}, $\mathrm{Pre}(a)$ conditions that must be true in the state for the action to be applied
+  - [Effects]{.define}, $\mathrm{Eff}(a)$ conditions are true in the state after the action is applied
+- [Transition function]{.define}, $\gamma: A \times S \rightarrow S$ partial function that maps an action and a state to the resulting state
+  - [Checking applicability]{.define} an action $a \in A$ is \textit{applicable} at state $s \in S$ if $\gamma(a, s)$ is defined
+
+[[@Ghallab2004]]{style="font-size:80%"}
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {style="margin-top:90px"}
+![Source: https://www.aiai.ed.ac.uk/~gwickler/prop-fwd-ssp.html](assets/taskplanning.png)
+:::
+
+<!-- ::: {style="font-size:90%;margin-top:10px"}
+```{.pddl}
+(define (domain blocksworld)
+(:requirements :strips :equality)
+(:predicates (clear ?x)
+             (on-table ?x)
+             (arm-empty)
+             (holding ?x)
+             (on ?x ?y))
+
+(:action pickup
+  :parameters (?ob)
+  :precondition (and (clear ?ob) (on-table ?ob) (arm-empty))
+  :effect (and (holding ?ob) (not (clear ?ob)) (not (on-table ?ob)) 
+               (not (arm-empty))))
+
+(:action putdown
+  :parameters  (?ob)
+  :precondition (and (holding ?ob))
+  :effect (and (clear ?ob) (arm-empty) (on-table ?ob) 
+               (not (holding ?ob))))
+
+(:action stack
+  :parameters  (?ob ?underob)
+  //:precondition (and  (clear ?underob) (holding ?ob) (not (= ?ob ?underob)) )
+  :precondition (and  (clear ?underob) (holding ?ob))
+  :effect (and (arm-empty) (clear ?ob) (on ?ob ?underob)
+               (not (clear ?underob)) (not (holding ?ob))))
+
+(:action unstack
+  :parameters  (?ob ?underob)
+  :precondition (and (on ?ob ?underob) (clear ?ob) (arm-empty))
+  :effect (and (holding ?ob) (clear ?underob)
+               (not (on ?ob ?underob)) (not (clear ?ob)) (not (arm-empty)))))
+                      
+```
+
+Blocksworld specification^[https://github.com/gerryai/PDDL4J/blob/master/pddl/blockworld/blocksworld.pddl] in the [**Planning Domain Definition Language (PDDL)**]{.dark-font-color} [[@Ghallab1998]]{style="font-size:80%"}
+::: -->
+
+:::
+
+:::
+
+## Planning States as $\cat{C}$-sets
+
+:::{style="font-size:90%"}
+**Definition**: (_$\cat{C}$-set_, _schema category_) A [$\cat{C}$-set]{.define} is a functor from $\cat{C} \rightarrow \cat{Set}$. $\cat{C}$ is referred to as the [schema category]{.define} (i.e. ontology). $\cat{Set}$ is a category whose objects are sets and whose morphisms are set function maps.
+:::
+
+::: {.callout-color}
+**Example****:**
+
+::: {style="text-align:center;"}
+A $\cat{C}$-set, $X$, that stores data about what boxes are on which surface. 
+:::
+
+::: columns
+::: {.column width=50%}
+::: {style="margin-top:110px;"}
+![](assets/BoxOnSurface-X.png){fig-align="center" height="200"}
+:::
+:::
+
+::: {.column width=50%}
+![](assets/BoxOnSurface-Set.svg){fig-align="center"}
+:::
+:::
+
+:::
+
+:::{style="font-size:90%"}
+The category of elements construction [@Riehl2016] makes $X$ interoperable with RDF triple syntax (subject, predicate, object), facilitating its use in knowledge graphs [@Spivak2012].
+:::
+
+## $\cat{ColorBlocksworld}$-set in Code {visibility="hidden"}
+
+::: {.div}
+
+::: {.panel-tabset style="margin-top:-10px;"}
+
+### Ontology
+
+:::: {.columns}
+
+::: {.column width="50%;font-size:80%"}
+```{julia}
+#| echo: false
+#| output: false
+using Pkg
+# cd("/Users/aguinam1/Documents/Git/kr2023-csetplanning/aaai-urrad-presentation/julia")  # use this environment to avoid `constructor` error
+cd("julia")
+Pkg.activate(".")
+include("AlgebraicPlanning.jl")
+using PrettyTables
+```
+
+```{julia}
+#| echo: true
+#| output: false
+using Catlab
+using AlgebraicRewriting
+
+@present OntColorBlocksworld(FreeSchema) begin
+  # Types
+  Block::Ob
+  Empty::Ob
+  Gripper::Ob
+
+  HasColor::Ob
+  IsClear::Ob
+  IsOnTable::Ob
+  HasLabel::Ob
+
+  Color::AttrType
+  Clear::AttrType
+  OnTable::AttrType
+  Label::AttrType
+
+  # Predicates
+  isEmpty::Hom(Empty, Block)
+  isHolding::Hom(Gripper, Block)
+  hasColor::Attr(HasColor, Color)
+  hasColorDom::Hom(HasColor, Block)
+  isClear::Attr(IsClear, Clear)
+  isClearDom::Hom(IsClear, Block)
+  isOnTable::Attr(IsOnTable, OnTable)
+  isOnTableDom::Hom(IsOnTable, Block)
+  hasLabel::Attr(HasLabel, Label)
+  hasLabelDom::Hom(HasLabel, Block)
+
+  # Relations
+  On::Ob
+  onL::Hom(On, Block)
+  onR::Hom(On, Block)
+end
+
+# Create a C-set type based on ontology
+@acset_type ColorBlocksworld(OntColorBlocksworld)
+```
+:::
+
+::: {.column width="50%" style="margin-top:80px"}
+![$\cat{OntColorBlocksworld}$ Schema Category](assets/ColorBlocksworldSchema.svg){ fig-align="center" width="700"}
+:::
+
+::::
+
+### Data
+
+```{julia}
+#| echo: false
+#| output: false
+yColorBlocksworld = yoneda(ColorBlocksworld{String,Bool,Bool,String})
+```
+
+::: {#foo .div style="height:50;font-size:80%"}
+```{julia}
+#| echo: true
+#| output: true
+#| output-location: column
+state = @acset_colim yColorBlocksworld begin
+  gripper::Gripper
+  empty::Empty
+
+  null::Block
+  isHolding(gripper) == null
+  isEmpty(empty) == null
+  (labelNull)::HasLabel
+  hasLabelDom(labelNull) == null
+  hasLabel(labelNull) == "null"
+
+  (A, B, C, D, E, F)::Block
+  (colorA, colorB, colorC, colorD, colorE, colorF)::HasColor
+  hasColorDom(colorA) == A
+  hasColorDom(colorB) == B
+  hasColorDom(colorC) == C
+  hasColorDom(colorD) == D
+  hasColorDom(colorE) == E
+  hasColorDom(colorF) == F
+  hasColor(colorA) == "green"
+  hasColor(colorB) == "red"
+  hasColor(colorC) == "yellow"
+  hasColor(colorD) == "purple"
+  hasColor(colorE) == "purple"
+  hasColor(colorF) == "blue"
+
+  (labelA, labelB, labelC, labelD, labelE, labelF)::HasLabel
+  hasLabelDom(labelA) == A
+  hasLabelDom(labelB) == B
+  hasLabelDom(labelC) == C
+  hasLabelDom(labelD) == D
+  hasLabelDom(labelE) == E
+  hasLabelDom(labelF) == F
+  hasLabel(labelA) == "A"
+  hasLabel(labelB) == "B"
+  hasLabel(labelC) == "C"
+  hasLabel(labelD) == "D"
+  hasLabel(labelE) == "E"
+  hasLabel(labelF) == "F"
+
+  (x1, x2)::On
+  onL(x1) == E
+  onR(x1) == D
+  onL(x2) == D
+  onR(x2) == C
+
+  (clearA, clearB, clearC, clearD, clearE, clearF)::IsClear
+  isClearDom(clearA) == A
+  isClearDom(clearB) == B
+  isClearDom(clearC) == C
+  isClearDom(clearD) == D
+  isClearDom(clearE) == E
+  isClearDom(clearF) == F
+  isClear(clearA) == true
+  isClear(clearB) == true
+  isClear(clearC) == false
+  isClear(clearD) == false
+  isClear(clearE) == true
+  isClear(clearF) == true
+
+  (onTableA, onTableB, onTableC, onTableD, onTableE, onTableF)::IsOnTable
+  isOnTableDom(onTableA) == A
+  isOnTableDom(onTableB) == B
+  isOnTableDom(onTableC) == C
+  isOnTableDom(onTableD) == D
+  isOnTableDom(onTableE) == E
+  isOnTableDom(onTableF) == F
+  isOnTable(onTableA) == true
+  isOnTable(onTableB) == true
+  isOnTable(onTableC) == true
+  isOnTable(onTableD) == false
+  isOnTable(onTableD) == false
+  isOnTable(onTableE) == false
+  isOnTable(onTableF) == true
+end
+pretty_tables(state)
+```
+
+<!-- ![](assets/ColorBlocksworldState.png){.absolute top=465 left=730 width="350"} -->
+
+:::
+
+:::
+
+::: 
+
+:::{style="margin-top:0px;"}
+[Uses category theory programming framework provided by [AlgebraicJulia](https://www.algebraicjulia.org/)]{style="font-size:90%"}
+:::
+
+## Planning Actions using Spans and DPO Rewriting
+
+**Definition**: (_$\catSet{C}$_) The category [$\catSet{C}$]{.define} is a category whose objects are $\cat{C}$-set functors and whose morphisms are natural transformations.
+
+A [**span**]{.define} in $\catSet{C}$ is a diagram of shape ($\bullet \leftarrow \bullet \rightarrow \bullet$) in $\catSet{C}$.
+
+::: {.callout-color2 style="margin-top:20px;text-align:center;height:440px;"}
+
+::: {style="margin-top:-5px;"} 
+[Actions]{.define} are spans ($\mathrm{Pre} \hookleftarrow \mathrm{Keep} \rightarrow \mathrm{Eff}$) in $\catSet{C}$ 
+:::
+
+<!-- https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhybXtQcmV9Il0sWzEsMCwiXFxtYXRocm17S2VlcH0iXSxbMiwwLCJcXG1hdGhybXtFZmZ9Il0sWzAsMSwiWCJdLFsyLDEsIlkiXSxbMSwxLCJaIl0sWzEsMCwibCIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzEsMiwiciJdLFsxLDVdLFswLDMsIm0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFs1LDNdLFs1LDRdLFsyLDRdLFs0LDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFszLDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ== -->
+<iframe class="quiver-embed" src="https://q.uiver.app/#q=WzAsNixbMCwwLCJcXG1hdGhybXtQcmV9Il0sWzEsMCwiXFxtYXRocm17S2VlcH0iXSxbMiwwLCJcXG1hdGhybXtFZmZ9Il0sWzAsMSwiWCJdLFsyLDEsIlkiXSxbMSwxLCJaIl0sWzEsMCwibCIsMix7InN0eWxlIjp7InRhaWwiOnsibmFtZSI6Imhvb2siLCJzaWRlIjoiYm90dG9tIn19fV0sWzEsMiwiciJdLFsxLDVdLFswLDMsIm0iLDIseyJzdHlsZSI6eyJ0YWlsIjp7Im5hbWUiOiJob29rIiwic2lkZSI6ImJvdHRvbSJ9fX1dLFs1LDNdLFs1LDRdLFsyLDRdLFs0LDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dLFszLDEsIiIsMix7InN0eWxlIjp7Im5hbWUiOiJjb3JuZXIifX1dXQ==&embed" width="438" height="304" style="border-radius: 8px; border: none;"></iframe>
+
+<!-- ![](assets/dpo.png){width=480px} -->
+
+::: {style="margin-top:-30px"}
+Actions are applied to state $X$ to produce state $Y$ using [Double-Pushout (DPO) Rewriting]{.define} 
+:::
+
+::: {style="margin-top:-10px;"}
+[[@Aguinaldo2023]]{style="font-size:80%;"}
+:::
+
+:::
+
+::: {style="font-size:85%;margin-top:-5px;"}
+$\hookleftarrow$ is a [**monomorphism**]{.define} (e.g. injective function in $\cat{Set}$). $\urcorner$ and $\ulcorner$ is a [**pushout**]{.define} (e.g. quotiented disjoint union in $\cat{Set}$).
+:::
+
+## Actions in $\catSet{ColorBlocksworld}$ in Code {visibility="hidden"}
+
+:::: {.columns}
+
+::: {.column width="10%" style="font-size:90%"}
+[`unstack` action span written in [AlgebraicJulia](https://www.algebraicjulia.org/)]{style="margin-left:60px;font-size:70%"}
+
+```{julia}
+#| echo: true
+#| output: false
+#| class-source: code-block-narrow
+#| classes: code-block-narrow
+unstack = @migration SchRule OntColorBlocksworld begin
+  L => @join begin
+    gripper::Gripper
+    empty::Empty
+    (block, underblock, null)::Block
+    isEmpty(empty) == null
+
+    o::On
+    onL(o) == block
+    onR(o) == underblock
+
+    isHolding(gripper) == null
+
+    clearblock::IsClear
+    isClearDom(clearblock) == block
+    isClear(clearblock) == true
+  end
+  K => @join begin
+    (block, underblock, null)::Block
+  end
+  R => @join begin
+    gripper::Gripper
+    empty::Empty
+    (block, underblock, null)::Block
+    isEmpty(empty) == null
+
+    isHolding(gripper) == block
+
+    clearunderblock::IsClear
+    isClearDom(clearunderblock) == underblock
+    isClear(clearunderblock) == true
+  end
+  l => begin
+    null => null
+    block => block
+    underblock => underblock
+  end
+  r => begin
+    null => null
+    block => block
+    underblock => underblock
+  end
+end;
+```
+
+```{julia}
+#| echo: false
+#| output: false
+unstack = DRule(unstack);
+unstack_rule = make_rule(unstack, yColorBlocksworld);
+```
+:::
+
+::: {.column width=90%"}
+::: {style="text-align:center;margin-top:100px;"}
+[unstack action applied to the initial state $X$]{style="font-size:70%;margin-left:-40px"}
+![](assets/BlocksworldUnstackAction.svg){.absolute left="450" width="650"}
+:::
+
+:::
+
+::::
+
+## Planning using $\catSet{C}$ and DPO Rewriting
+
+::: columns
+
+::: {.column width="40%"}
+::: {style="margin-top:-10px;"}
+![](assets/forwardplan.svg){fig-align="center" height="600"}
+:::
+:::
+
+::: {.column width="60%"}
+
+::: {style="font-size:80%"}
+::: {.callout-color2}
+Existing state-space planning algorithms can be adapted to work with this planning representation. 
+:::
+
+**Example**: `ForwardPlan()` executes depth-first search (DFS) to find a sequence of actions.
+:::
+
+```{.julia style="height:400px;font-size:90%"}
+function ForwardPlan(world::ACSet, goal::ACSet, actions::Dict, 
+                      action_limits::Dict, action_usage::Dict, 
+                      plan::List)
+
+  # Exit criteria: goal is reached if there is a monic morphism from goal to world
+  if homomorphism(goal, world, monic=true) !== nothing 
+    println("Goal reached.")
+    return plan
+  end
+
+  # Find applicable actions for the current world state
+  applicable = find_applicable_actions(world, actions)
+
+  # Backtrack criteria: no applicable actions
+  if length(applicable) <= 0
+    throw("No applicable actions found! Terminate path...")
+  end
+
+  # Iterate over all applicable actions
+  for action in applicable
+    action_name = action.first
+    match_morphism = action.second
+
+    # Backtrack criteria: action applied too many times
+    try
+      if action_usage[action_name] >= action_limits[action_name]
+        println("Abort path. Action used too many times.")
+        continue
+      end
+    catch
+      # Initialize action usage if it doesn't exist
+      action_usage[action_name] = 1  
+    end
+
+    # Save current world state for backtracking
+    prev_world = world
+    selected_action = action[action_name].rule
+
+    # Apply the selected action to the current world state
+    try
+      world = rewrite(selected_action, world)
+    catch e
+      throw("Could not apply action!")
+    end
+
+    # Record the action and corresponding match morphism in the current plan
+    append!(plan, [selected_action => match_morphism])
+
+    try
+      # Recursively call ForwardPlan with updated world state
+      plan = ForwardPlan(world, goal, actions, action_limits, 
+                          action_usage, plan)
+      return plan
+    catch e
+      # Backtrack to previous world state if path fails
+      world = prev_world
+      pop!(plan)
+      println("Path failed. Try a different path.")
+    end
+  end
+
+  # If no valid plan is found, report failure
+  println("No plan found.")
+end
+```
+
+:::
+
+:::
+
+## Transfer using Functorial Data Migration, $\Delta_F$
+
+::: columns
+
+::: {.column width="50%"}
+
+::: {.callout-color2 style="margin-top:20px;"}
+[**High-level Steps in Analogical Plan Transfer**]{style="font-size:100%"}
+
+::: {style="font-size:75%"}
+1. **Define the Source Domain**: Start by defining the ontology, $\cat{D}_S$, and actions, $A_S$, for the source domain, $\textbf{D}_S$.
+2. **Define the Planning Problem**: Establish the initial and goal states, $P_S = (I, G)$ within domain $\textbf{D}_S$.
+3. **Plan**: Solve for a valid plan, $\pi_S$, that solves for $P_S$ within domain $\textbf{D}_S$.
+4. **Define the Target Domain Ontology**: Specify the target ontology, $\cat{D}_T$, in the new domain, $\textbf{D}_T$.
+5. **Align Ontologies**: Create a translation map, $F: \cat{D}_T \rightarrow \cat{D}_S$, linking the types and predicates from the target domain ontology to the source domain ontology.
+6. **Transfer the Plan**: Use the translation map to transfer the grounded plan via $\Delta_F$, resulting in $\pi_T$.
+7. **Validate the Plan**: Check that the end state after $\pi_T$ contains $\Delta_F(G)$.
+
+[[@Aguinaldo2024]]{style="font-size:80%"}
+:::
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {style="border: 1px solid #000000;padding:5px;margin-top:-5px;"}
+![**Step #5** Align the ontologies](assets/StructuralAnalogyTranslationFunctor.svg){fig-align="center"}
+:::
+
+::: {style="border: 1px solid #000000;padding:5px;margin-top:5px;"}
+![**Step #6** and **#7** Transfer and Validate the Plan](assets/PlanTransfer.svg){fig-align="center"}
+:::
+
+:::
+
+:::
+
+## Stacking Blocks $\sim$ Making a Sandwich
+
+::: {.absolute top=480 left=750 width=250 style="font-size:70%;text-align:center;"}
+_Kitchenworld ontology derived from AI2-Thor Object Type Documentation <br> [@AiTHOR_object_types]_
+:::
+
+![](assets/StructuralAnalogyTranslationFunctor.png)
+
+:::{style="text-align:center;margin-top:-30px;"}
+**Uses an ontology alignment map that is** [**functorial**]{.dark-font-color}
+:::
+
+## Result
+
+:::{style="text-align:center;margin-top:20px;"}
+![](assets/demo/demo-annotated.gif){width="900"}
+:::
+
+::: {style="font-size:70%;margin-top:-20px;"}
+Kitchenworld simulation from AI2-Thor [@AiTHOR_object_types]
+:::
+
+## A review {visibility="hidden"}
+
+:::{style="text-align:center;margin-top:15px;"}
+![](assets/demo/demo-annotated.gif){width="900"}
+:::
+
+<!-- ::: {style="font-size:70%;margin-top:-20px;text-align:center;"}
+The frame rate is _not_ proportional to the speed of computation.
+::: -->
+
+## Advantages and Limitations of Categorical Structure for Planning
+
+::: columns
+
+::: {.column width="50%"}
+::: {.callout-color style="height:540px"}
+[**Advantages**]{.dark-font-color style="font-size:120%"}
+
+- Preserves ontological structure when applying actions and transferring plans
+- Predictable runtime complexity w.r.t. PDDL and its extensions, e.g. typing and transitive closure constraints
+- Generalized transfer for pair of domains
+- Symbolic action (skill) generation 
+
+::: {style="margin-top:-20px;"}
+![](assets/skillgen.svg)
+:::
+:::
+:::
+
+::: {.column width="50%"}
+::: {.callout-color style="height:540px;"}
+[**Limitations**]{.dark-font-color style="font-size:110%"}
+
+- Reliance on advanced mathematical theory
+- Higher runtime complexity for checking applicability of actions, $O(n^k)$, w.r.t. PDDL, $O(nk)$
+- Depends on proper (functorial) ontological alignment
+- Difficulty handling structurally dissimilar domains
+
+::: {style="margin-top:-40px;"}
+![](assets/blocksworldvstowers.svg)
+:::
+
+
+:::
+
+
+:::
+
+:::
+
+## Areas of Future Work
+
+![](assets/knowrob_ontology.png){.absolute top=-30 left=710 width=420}
+![](assets/fof_ontology.png){.absolute top=315 left=710 width=400}
+
+::: columns
+
+::: {.column width=65%}
+::: {.callout-color .dark-font-color style="margin-top:20px;font-size:90%"}
+**Scaling Studies: Empirical and Theoretical**
+:::
+
+::: {style="margin-left:30px;font-size:90%"}
+- More planning and plan transfer problems
+- Scale by the size of the world state and ontology
+- Scale by length of plan
+- Design benchmarks, e.g. transfer accuracy
+- Study functoriality of migration for certain ontology maps
+:::
+
+::: {.callout-color .dark-font-color style="position: relative; margin-top:10px;font-size:90%"}
+**A Software Tool for Category Theory-Based Planning and Transfer**
+:::
+
+::: {style="margin-left:30px;font-size:90%"}
+- Run planners 
+- Automate discovery of functorial ontology alignments
+- Perform analogical plan transfer
+- Compose plans with other plans using sequential transfer
+- Check plans satisfy abstract behavior using hierarchical transfer
+:::
+
+:::
+
+::: {style="font-size:60%;margin-top:0px;text-align:right;margin-right:350px"}
+Knowrob [@Tenorth2017] and Factory of the Future [@Schafer2021] ontologies
+:::
+
+:::
+
+## Acknowledgements
+
+::: columns
+
+::: {.column width="50%"}
+
+[**Collaborators and Mentors**]{.dark-font-color style="font-size:120%;margin-top:-40px;"}
+
+- Evan Patterson, [_AlgebraicJulia_]{.light-font-color}
+- Kristopher Brown, [_AlgebraicJulia_]{.light-font-color}
+- Kevin Arlin, [_AlgebraicJulia_]{.light-font-color}
+- Owen Lynch, [_AlgebraicJulia_]{.light-font-color}
+- James Fairbanks, [_AlgebraicJulia_]{.light-font-color}
+- Brendan Fong, [_Topos Institute_]{.light-font-color}
+- David Spivak, [_Topos Institute_]{.light-font-color}
+- Jaime Ruiz, [_University of Florida_]{.light-font-color}
+- Sophie Libkind, [_Topos Institute_]{.light-font-color}
+- Nelson Niu, [_Univ. of Washington_]{.light-font-color}
+- Priyaa Varshinee Srinivasan, [_Tallin Univ. of Tech._]{.light-font-color}
+- Spencer Breiner, [_NIST_]{.light-font-color}
+:::
+
+::: {.column width="50%"}
+
+- Dana Nau, [_UMD_]{.light-font-color}
+- Yiannis Aloimonos, [_UMD_]{.light-font-color}
+- Dinesh Manocha, [_UMD_]{.light-font-color}
+- Huan Xu, [_UMD_]{.light-font-color}
+- Mark Fuge, [_UMD/ETH Zurich_]{.light-font-color}
+- Eswaran Subrahmanian, [_CMU/NIST_]{.light-font-color}
+- William Regli, [_UMD (Advisor)_]{.light-font-color}
+
+[**Funding**]{.dark-font-color style="font-size:120%;margin-top:-40px;"}
+
+- Johns Hopkins University Applied Physics 
+- Adv. Robotics for Manu. ARM-18-01
+- DARPA #HR00112220004 
+
+:::
+
+:::
+
+# Thank you for your attention! {style="text-align:center;"}
+
+::: {style="text-align:center;font-size:110%;margin-top:80px;"}
+[**Angeline Aguinaldo**]{.define style="font-size:130%"}
+
+**E-mail**: aaguinal@umd.edu
+
+**Website**: angelineaguinaldo.com
+:::
+
+# Appendix 
+
+## What is category theory? 
+
+::: columns
+
+::: {.column width="50%"}
+::: {style="margin-top:35px;font-size:90%"}
+
+[Category theory]{.define} [@Eilenberg1945] is often referred to as the _"mathematics of mathematics"_.
+
+::: {style="margin-left:10px"}
+Connects different areas of mathematics by studying the relationships _between_ structures. 
+:::
+
+Category theory has been applied in many domains outside mathematics^[[@Fong2018], [@Patterson2022], [@Spivak2011], [@Shinavier2019], [@Coecke2018]], and such works contribute to the field of [Applied Category Theory (ACT)]{.define}.
+
+:::
+:::
+
+::: {.column width="50%" style="text-align:center;margin-top:-20px"}
+![](assets/category.svg)
+
+::: {.fragment style="text-align:center;margin-top:-325px"}
+![](assets/category-example.svg)
+:::
+
+:::
+
+:::
+
+::: {.callout-color style="font-size:80%;margin-top:-30px;"}
+**Definition**: _(Category)_ A [category]{.define}, $\cat{C}$, consists of:
+
+- a collection of [objects]{.define}, $\text{Ob}(\cat{C})$
+- a collection of [morphisms]{.define} for every pairs of objects, $\text{Hom}_\cat{C}(X,Y)$ for $X, Y \in \text{Ob}(\cat{C})$
+- a composition operation, if $f: X \rightarrow Y$, $g: Y \rightarrow Z$ then $g \circ f: X \rightarrow Z$
+- an identity morphism for every object, $1_X: X \rightarrow X$
+
+satisfying the *associativity* law $h \circ (g \circ f) = (h \circ g) \circ f$ and *unitality* laws $f \circ 1_x = f$ and $1_y \circ f = f$ whenever these equations make sense.
+:::
+
+
+## Functors and natural transformations
+
+::: {style="text-align:center;margin-top:-30px"}
+![](assets/functor-example.svg){height="400"}
+:::
+
+::: {style="margin-top:-50px;"}
+::: columns
+
+::: {.column width=45%}
+::: {.callout-color}
+[**Functors**]{.define} map, e.g. $\; F: \cat{P(\{1,2\})} \rightarrow \cat{\mathbb{N}_{\leq}}$:
+
+- Objects to objects
+- Morphisms to morphisms
+- Preserves composition in the source category
+:::
+:::
+
+::: {.column width="55%"}
+
+:::
+:::
+
+:::
+
+## Functors and natural transformations
+
+::: {style="text-align:center;margin-top:-30px"}
+![](assets/naturaltransformation-example.svg){height="400"}
+:::
+
+::: {style="margin-top:-50px;"}
+::: columns
+
+::: {.column width=45%}
+::: {.callout-color}
+[**Functors**]{.define} map, e.g. $\; F: \cat{P(\{1,2\})} \rightarrow \cat{\mathbb{N}_{\leq}}$:
+
+- Objects to objects
+- Morphisms to morphisms
+- Preserves composition in the source category
+:::
+:::
+
+::: {.column width="55%"}
+::: {.callout-color}
+[**Natural transformations**]{.define} map functors, e.g. $\alpha: F \rightarrow G$:
+
+- Defines morphism in target category, $\cat{\mathbb{N}_{\leq}}$, per object in source category, e.g. $\cat{P(\{1,2\})}$
+- Preserves composition in the source category
+:::
+:::
+:::
+
+:::
+
+## References
