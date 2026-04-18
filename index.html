@@ -1,219 +1,687 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>
-    Angeline Aguinaldo
-  </title>
-  <style>
-    a {
-      color: blue;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angeline Aguinaldo</title>
+<meta name="description" content="Researcher at Johns Hopkins Applied Physics Laboratory working on formal methods for safe, generalizable decision-making in embodied AI and robotics.">
 
-    .container {
-    margin-left: 22em;
-    margin-right: 22em;
-    margin-top: 5em;
-    margin-bottom: 5em;
-    }
+<meta property="og:title" content="Angeline Aguinaldo">
+<meta property="og:description" content="Researcher working at the intersection of AI planning, robotics, and formal methods for safe autonomy.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://angelineaguinaldo.com">
 
-    @media (max-width: 1080px) {
-      .container {
-        margin-left: 1em;
-        margin-right: 1em;
-      }
-    }
+<style>
+  :root {
+    --accent: #0c5a54;
+    --accent-hover: #083d38;
+    --bg: #ffffff;
+    --text: #1a1a1a;
+    --text-muted: #555;
+    --text-light: #888;
+    --border: #e4e0d6;
+    --serif: Georgia, "Times New Roman", Times, serif;
+    --max-width: 860px;
+  }
 
-    table {
-    font-size: 16px;
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    padding: 0.5em 1em;
+    background: var(--accent);
+    color: white;
+    z-index: 100;
+  }
+  .skip-link:focus { left: 0; }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  main { padding: 0 0 2rem; }
+
+  section {
+    padding: 1.5rem 0 1rem;
+    border-top: 1px solid var(--border);
+  }
+  section:first-of-type { border-top: none; }
+
+  header.hero {
+    padding: 2.5rem 0 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .hero-text { min-width: 0; }
+
+  .hero-photo img {
+    width: 200px;
+    height: 240px;
+    border-radius: 4px;
+    object-fit: cover;
+    display: block;
+  }
+
+  h1.name {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+    color: var(--text);
+  }
+
+  p.tagline {
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+    margin: 0 0 1rem;
+    max-width: 36em;
+  }
+
+  .links-bar {
+    font-size: 0.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+  }
+  .links-bar a {
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+    transition: color 0.15s ease, border-color 0.15s ease;
+  }
+  .links-bar a:hover {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  h2.section-title {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin: 0 0 0.75rem;
+  }
+
+  h3 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: 1rem;
+    margin: 1rem 0 0.4rem;
+    color: var(--text);
+  }
+
+  p { margin: 0 0 0.75rem; }
+
+  a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: color 0.15s ease;
+  }
+  a:hover { color: var(--accent-hover); }
+
+  em, i { font-style: italic; }
+  strong, b { font-weight: 700; }
+
+  .pillar { margin-bottom: 0.9rem; }
+
+  .pillar-title {
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 0.25rem;
+    font-size: 1rem;
+  }
+
+  .pillar-body { color: var(--text); margin: 0; }
+
+  .news-list,
+  .award-list,
+  .talk-list,
+  .service-list,
+  .exp-list,
+  .writing-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .news-list li,
+  .talk-list li,
+  .exp-list li,
+  .writing-list li {
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 0.75rem;
+    padding: 0.35rem 0;
+    align-items: baseline;
+  }
+
+  .news-date,
+  .talk-year,
+  .exp-year,
+  .writing-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  .news-body, .exp-body, .writing-body, .talk-body { color: var(--text); }
+
+  .award-list li {
+    padding: 0.3rem 0;
+    display: flex;
+    gap: 0.75rem;
+    align-items: baseline;
+  }
+  .award-year {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-variant-numeric: tabular-nums;
+    min-width: 3rem;
+    flex-shrink: 0;
+  }
+  .award-text strong { color: var(--text); }
+  .award-text { color: var(--text-muted); }
+
+  .pub-group { margin-bottom: 1.25rem; }
+
+  .pub-group-title {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.5rem;
+  }
+
+  .pub-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: pub;
+  }
+
+  .pub-list li {
+    position: relative;
+    padding: 0.45rem 0 0.45rem 1.75rem;
+    border-bottom: 1px solid var(--border);
+    counter-increment: pub;
+  }
+  .pub-list li:last-child { border-bottom: none; }
+
+  .pub-list li::before {
+    content: counter(pub) ".";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .pub-venue { color: var(--text-muted); font-style: italic; }
+  .pub-note {
+    display: block;
+    font-size: 0.9em;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.15rem;
+  }
+  .pub-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 0.1em 0.45em;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+    vertical-align: 0.1em;
+    margin-left: 0.25em;
+    text-transform: uppercase;
+  }
+  .pub-self { font-weight: 700; }
+
+  .pub-links { font-size: 0.85rem; margin-left: 0.35em; }
+  .pub-links a { color: var(--text-muted); margin-right: 0.35rem; }
+  .pub-links a:hover { color: var(--accent); }
+
+  .talk-title { color: var(--text); font-style: italic; }
+  .talk-venue { color: var(--text-muted); font-style: normal; }
+
+  .service-list li {
+    padding: 0.3rem 0;
+    color: var(--text);
+    display: grid;
+    grid-template-columns: 6rem 1fr;
+    gap: 0.75rem;
+    align-items: baseline;
+  }
+  .service-year { font-size: 0.85rem; color: var(--text-light); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.5rem 0 2.5rem;
+    margin-top: 1.5rem;
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+  footer p { margin: 0.2rem 0; }
+
+  @media (max-width: 640px) {
+    header.hero {
+      grid-template-columns: 1fr;
+      gap: 1rem;
     }
-  </style>
+    .hero-photo { order: -1; }
+    .hero-photo img { width: 100px; height: 120px; }
+    h1.name { font-size: 1.7rem; }
+    p.tagline { font-size: 1rem; }
+
+    .news-list li,
+    .talk-list li,
+    .exp-list li,
+    .writing-list li,
+    .service-list li {
+      grid-template-columns: 1fr;
+      gap: 0.1rem;
+    }
+    .award-list li { flex-direction: column; gap: 0.1rem; }
+    .award-year { min-width: 0; }
+  }
+
+  @media print {
+    :root { --bg: white; --text: black; --text-muted: #333; --border: #ccc; }
+    section { break-inside: avoid; padding: 0.75rem 0; }
+    header.hero { padding: 0.5rem 0; }
+    a { color: black; text-decoration: none; }
+    .links-bar a { border: none; }
+    .hero-photo { display: none; }
+  }
+</style>
 </head>
+<body>
 
-<body style="background-color:rgba(245, 242, 245, 0.657); font-family: Arial, Helvetica, sans-serif;">
-  <div class="container">
-    <img src="assets/me.jpg" alt="" width=250>
-    <h1>Angeline Aguinaldo</h1>
-    <br>
-    <strong>Github</strong>: <a href="https://github.com/aaguinal">https://github.com/aaguinal</a>
-    <br>
-    <strong>Google Scholar</strong>: <a
-      href="https://scholar.google.com/citations?hl=en&user=7-4RZdcAAAAJ">https://scholar.google.com/citations?hl=en&user=7-4RZdcAAAAJ</a>
-    <br>
-    <strong>Email:</strong> aaguinal@cs.umd.edu
-    <p>
-    I recently graduated with my Ph.D. in Computer Science from the University of Maryland, College Park. I was advised by William (Bill) Regli <a
-    href="https://robotics.umd.edu/clark/faculty/902/William-Regli">[bio]</a>. My research explores category-theoretic approaches to knowledge-based task planning, plan transfer, and plan composition for AI and robotics applications.</p>
+<a class="skip-link" href="#main">Skip to content</a>
 
-    <p>I am also a research staff member at the Johns Hopkins University Applied Physics Laboratory, where I have developed software platforms for geospatial computer vision processing in support of humanitarian and disaster relief efforts <a href='https://www.jhuapl.edu/PressRelease/190926'>[ref]</a>, as well as for testing and evaluating metagenomic classifiers <a href='https://github.com/JHUAPL/meta-system'>[ref]</a>.</p>
+<div class="container">
 
-    <p>My research areas of interest include AI planning, robotics, knowledge representation, and category theory. My hobbies include musical theater and video editing.</p>
+  <header class="hero">
+    <div class="hero-text">
+      <h1 class="name">Angeline Aguinaldo</h1>
+      <p class="tagline">I develop formal and computational methods for safe, generalizable decision-making in embodied AI systems. My work focuses on how robots can transfer task strategies across domains and embodiments, and how to specify their behavior so it stays interpretable when conditions change.</p>
+      <nav class="links-bar" aria-label="Contact and profiles">
+        <a href="mailto:angeline.m.aguinaldo@gmail.com">Email</a>
+        <a href="assets/Aguinaldo_CV.pdf">CV</a>
+        <a href="https://scholar.google.com/citations?user=7-4RZdcAAAAJ" rel="noopener">Google Scholar</a>
+        <a href="https://github.com/aaguinal" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/angeline-aguinaldo-8a56b870/" rel="noopener">LinkedIn</a>
+      </nav>
+    </div>
+    <div class="hero-photo">
+      <img src="assets/me.jpg" alt="Angeline Aguinaldo">
+    </div>
+  </header>
 
-    <a href="assets/Aguinaldo_CV.pdf">CV</a>
+<main id="main">
 
-    <h2 id="places">Places</h2>
-    <table>
-      <tr>
-        <td style="padding-right: 2em;">2017 - <i>now</i></td>
-        <td style="padding-right: 2em;">Johns Hopkins University Applied Physics Laboratory</td>
-        <!-- <td style="padding-right: 2em;">Laurel, MD</td> -->
-      </tr>
-      <tr>
-        <td style="padding-right: 2em;">2018 - 2025</td>
-        <td style="padding-right: 2em;">University of Maryland, College Park</td>
-        <!-- <td style="padding-right: 2em;">College Park, MD</td> -->
-      </tr>
-      <tr>
-        <td style="padding-right: 2em;">2022 - 2023</td>
-        <td style="padding-right: 2em;">Topos Institute</td>
-        <!-- <td style="padding-right: 2em;">Berkeley, CA</td> -->
-      </tr>
-      <tr>
-        <td style="padding-right: 2em;">2012 - 2017</td>
-        <td style="padding-right: 2em;">Drexel University</td>
-        <!-- <td style="padding-right: 2em;">Philadelphia, PA</td> -->
-      </tr>
-    </table>
+  <section id="about" aria-labelledby="about-title">
+    <h2 class="section-title" id="about-title">About</h2>
+    <p>I am a senior research scientist at the <a href="https://www.jhuapl.edu">Johns Hopkins University Applied Physics Laboratory</a>, where I work on agentic reasoning, planning, and safe autonomous behavior for AI-controlled systems. I recently completed my Ph.D. in Computer Science at the University of Maryland, College Park, advised by <a href="https://robotics.umd.edu/clark/faculty/902/William-Regli">William Regli</a>. My dissertation, <em>Sequential, Hierarchical, and Analogical Plan Transfer in Robotics</em>, received the <strong>Larry S. Davis Doctoral Dissertation Award</strong>.</p>
+    <p>My research sits at the intersection of AI planning, knowledge representation, and category theory. I have built formal frameworks for how robots can reuse and adapt task strategies across different domains and embodiments, a problem foundation-model-driven robot agents now face empirically at scale. At JHU APL, I have led applied research on safety-critical autonomous systems, real-time geospatial computer vision for humanitarian disaster response, and LLM-based agent architectures.</p>
+  </section>
 
-    <h2 id="dissertation">Dissertation</h2>
-    <strong>Aguinaldo, A.</strong>. Sequential, hierarchical, and analogical plan transfer in robotics. University of Maryland, College Park, PhD dissertation, 2025. <br>
-    <a href="https://drum.lib.umd.edu/items/c8dfde88-dcaf-41dd-bd35-0dabf134e14d">[dissertation]</a>, <a href="https://tinyurl.com/angeline-defense">[slides]</a><br><br> 
-    
-    <i>Larry S. Davis Doctoral Dissertation Award Recipient</i> <a href="https://www.cs.umd.edu/article/2025/11/two-former-graduate-students-receive-larry-s-davis-doctoral-dissertation-awards">[award]</a>
-
-    <h2 id="papers">Peer-Reviewed Papers</h2>
-
-    <ol>
-      <li><strong>Aguinaldo A.</strong>, Patterson E., Regli W. Automating Transfer of Robot Task Plans Using Functorial Data Migrations. IEEE Transactions on Automation Science and Engineering, 2025. doi: 10.1109/TASE.2025.3586549. <a
-          href="https://ieeexplore.ieee.org/document/11072193">[paper]</a></li>
-      <li><strong>Aguinaldo, A.</strong>, Patterson, E., Fairbanks, J., Regli, W., & Ruiz, J. A Categorical
-        Representation Language and Computational System for Knowledge-Based Planning. 2023 AAAI Fall Symposium on
-        Unifying Representations for Robot Application Development <i>(Best Paper)</i>, 2023. <a
-          href="https://arxiv.org/abs/2305.17208">[paper]</a>, <a
-          href="/assets/slides/aaai-symposiumtalk-2023/presentation.html">[slides]</a></li>
-      <li>Player, R. A., <strong>Aguinaldo, A.</strong>, Merritt, B. B., Maszkiewicz, L. N., Adeyemo, O. E., Forsyth, E.
-        R., Verratti, K. J., Chee, B. W., Grady, S. L., & Bradburne, C. The META Tool Optimizes Metagenomic
-        Analyses Across Sequencing Platforms and Classifiers. Frontiers in Bioinformatics, January, 1–14, 2021.
-        https://doi.org/10.2139/ssrn.3899428 <a
-          href="https://www.frontiersin.org/articles/10.3389/fbinf.2022.969247/full">[paper]</a></li>
-      <li><strong>Aguinaldo A.</strong>, Bunker J., Pollard B., Shukla A., Canedo A., Quiros G., Regli W. RoboCat: A
-        Category Theoretic Framework for Robotic Interoperability Using Goal-Oriented Programming. IEEE Transactions on
-        Automation Science and Engineering, 2019. doi: 10.1109/TASE.2021.3094055. <a
-          href="https://ieeexplore.ieee.org/abstract/document/9488275">[paper]</a></li>
-      <li>Winter M., Mankowski W., Wait E., De La Hoz E. C., <strong>Aguinaldo A.</strong>, Cohen A. R. Separating
-        Touching Cells Using Pixel Replicated Elliptical Shape Models. IEEE Trans Med Imaging. 2019;38(4):883-893, 2019.
-        doi:
-        10.1109/TMI.2018.2874104. <a href="https://ieeexplore.ieee.org/abstract/document/8482305">[paper]</a></li>
-      <li>Caino M., Seo J., <strong>Aguinaldo A.</strong> et al. A neuronal network of mitochondrial dynamics regulates
-        metastasis. Nat Commun 7, 13730 (2016). https://doi.org/10.1038/ncomms13730. <a
-          href="https://doi.org/10.1038/ncomms13730">[paper]</a></li>
-    </ol>
-
-    <h2 id="preprints">Pre-prints</h2>
-
-    <ol>
-      <li><strong>Aguinaldo, A.</strong>, Patterson, E., Regli, W. Automating Transfer of Robot Task Plans using Functorial Data Migrations. arXiv pre-print (Under Revision IEEE T-ASE 2024). <a
-          href="https://arxiv.org/abs/2406.15961">[paper]</a></li>
-      <li><strong>Aguinaldo, A.</strong>, Patterson, E., Fairbanks, J., & Ruiz, J. A Categorical Representation Language
-        and Computational System for Knowledge-Based Planning. arXiv pre-print (submitted 2023). <a
-          href="http://arxiv.org/abs/2305.17208">[paper]</a></li>
-      <li><strong>Aguinaldo A.</strong>, Regli W. Modeling traceability, change information, and synthesis in autonomous
-        system design using symmetric delta lenses. ICRA Compositional Robotics Workshop 2022. <a
-          href="https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control/idsc-dam/Research_Frazzoli/workshops/ICRA2022CRMT_paper_1880.pdf">[paper]</a>
+  <section id="news" aria-labelledby="news-title">
+    <h2 class="section-title" id="news-title">News</h2>
+    <ul class="news-list">
+      <li>
+        <span class="news-date">Jan 2026</span>
+        <span class="news-body">Co-organized the <a href="https://meetings.ams.org/math/jmm2026/meetingapp.cgi/Session/13329">Applied Category Theory Special Session</a> at the AMS Joint Mathematics Meetings.</span>
       </li>
-      <li><strong>Aguinaldo A.</strong>, Regli W. Encoding Compositionality in Classical Planning Solutions. IJCAI
-        Workshop on Generalization in Planning 2021. <a href="https://arxiv.org/abs/2107.05850">[paper]</a></li>
-      <li><strong>Aguinaldo A.</strong>, Regli W. A Graphical Model-Based Representation for Classical AI Plans using
-        Category Theory. ICAPS 2021 Workshop on Explainable AI Planning. <a
-          href="https://openreview.net/pdf?id=YlA8hA4Z-5Z">[paper]</a></li>
-      <li><strong>Aguinaldo A.</strong>, Chiang P., Gain A., Patil A., Pearson K., Feizi S. Compressing GANs using
-        Knowledge Distillation. arXiv pre-print (submitted 2019). <a href="https://arxiv.org/abs/1902.00159">[paper]</a>
+      <li>
+        <span class="news-date">Nov 2025</span>
+        <span class="news-body">Honored to receive the <a href="https://www.cs.umd.edu/article/2025/11/two-former-graduate-students-receive-larry-s-davis-doctoral-dissertation-awards">Larry S. Davis Doctoral Dissertation Award</a> from the UMD Department of Computer Science.</span>
       </li>
-    </ol>
-
-    <h2 id="talks">Talks</h2>
-
-    <ol>
-      <li><i>"Analogical Plan Transfer in Robotics using Functorial Data Migrations"</i> at AMS Joint Mathematics Meeting (JMM) 2025 <a href="https://meetings.ams.org/math/jmm2025/meetingapp.cgi/Paper/43161">[abstract]</a>, <a href="assets/slides/amsjmm-act-2025/amsjmm2025.html">[slides]</a></li>
-      <li><i>"'What's the plan?', asked my robot"</i> at JuliaCon 2024 <a href="https://pretalx.com/juliacon2024/talk/BTHAFN/">[abstract]</a>, <a href="assets/slides/juliacon-2024/presentation.html">[slides]</a>, <a href="https://www.youtube.com/watch?v=tkvp5aM0eT8">[video]</a></li>
-      <li><i>"A Category Theoretic Approach to Planning in a Complex World"</i> at Microsoft Future Leaders in Robotics
-        and AI Seminar Series in 2023 <a
-          href="https://robotics.umd.edu/event/18250/microsoft-future-leaders-in-robotics-and-ai-seminar-series-angeline-aguinaldo">[website]</a><a
-          href="assets/slides/FutureLeadersRoboticsAI-Aguinaldo-04072023-withoutappendix.pdf">[slides]</a><a
-          href="https://www.youtube.com/watch?v=JbJ4R0RWJqQ">[video]</a></li>
-      <li><i>"Contextual affordances in context-aware autonomous systems"</i> at AMS JMM 2023 Special Session on Applied
-        Category Theory (a Mathematics Research Communities session) <a
-          href="https://www.jointmathematicsmeetings.org/meetings/national/jmm2023/2270_program_ss96.html#title">[website]</a><a
-          href="assets/slides/AMSJMM_ACT_012023_Aguinaldo_removeappendix.pdf">[slides]</a></li>
-      <li><i>"Contextual affordances in context-aware autonomous systems"</i> at NIST Compositional Structures for
-        Systems Engineering and Design Workshop <a
-          href="https://www.nist.gov/news-events/events/2022/11/compositional-structures-systems-engineering-and-design-0">[website]</a><a
-          href="assets/slides/NIST_CompositionalSystems_112022_Aguinaldo_removeappendix.pdf">[slides]</a></li>
-      <li><i>"Category theory for automated planning and program compilation in robotics"</i> at Topos Berkeley Seminar
-        <a href="https://topos.site/berkeley-seminar/">[website]</a><a
-          href="assets/slides/ToposBerkeley_Aguinaldo_082022.pdf">[slides]</a><a
-          href="https://youtu.be/cy7qsXzT_Tw">[video]</a>
+      <li>
+        <span class="news-date">Nov 2025</span>
+        <span class="news-body">Co-authored a <a href="https://ntrs.nasa.gov/citations/20250010771">NASA Technical Memorandum</a> (NASA/TM-20250010771) with NASA Langley Research Center applying category-theoretic systems ontology to aviation system architectures.</span>
       </li>
-      <li> <i>"Applications of category theory to automated planning and program compilation in robotics"</i> at Xerox
-        PARC Design Seminar <a href="assets/slides/XeroxPARC_Aguinaldo_082022.pdf">[slides]</a></li>
-      <li> <i>"Modeling traceability, change information, and synthesis in autonomous system design using symmetric
-          delta lenses"</i> at International Conference for Robotics and Automation (ICRA) 2022 Compositional Robotics
-        Workshop in 2022 <a
-          href="https://idsc.ethz.ch/research-frazzoli/workshops/compositional-robotics-2022.html">[website]</a><a
-          href="assets/slides/ICRA_2022_Compositional_Robotics_Aguinaldo_SLIDES_FINAL.pdf">[slides]</a></li>
-      <li> <i>"Encoding Compositionality in Classical Planning Solutions"</i> at International Joint Conference for
-        Artifical Intelligence (IJCAI): Workshop on Generalization in Planning in 2021 <a
-          href="https://sites.google.com/view/genplan21/home/accepted-papers?authuser=0">[website]</a><a
-          href="assets/slides/ijcai_genplanning_poster_aguinaldo.pdf">[slides]</a></li>
-      <li> <i>"A Graphical Model-Based Representation for Classical AI Plans using Category Theory"</i> at International
-        Conference for Automated Planning and Scheduling (ICAPS): Explainable AI Planning Workshop in 2021 <a
-          href="http://xaip.mybluemix.net/2021">[website]</a><a
-          href="assets/slides/ICAPS_XAIP_2021_Aguinaldo.pdf">[slides]</a>
+      <li>
+        <span class="news-date">Jul 2025</span>
+        <span class="news-body">New paper in <em>IEEE Transactions on Automation Science and Engineering</em>: <a href="https://ieeexplore.ieee.org/document/11072193">Automating Transfer of Robot Task Plans Using Functorial Data Migrations</a>.</span>
       </li>
-      <li> <i>"Polynomial Functors in Catlab"</i> at the Applied Category Theory Conference in 2021 <a
-          href="assets/slides/ACT2021_AguinaldoBrown__07-12-2021.pdf">[slides]</a></li>
-      <li> <i>"Diary of a software engineering using categories"</i> at Topos Institute: Berkeley Seminar <a
-          href="https://topos.site/berkeley-seminar/">[website]</a> and Lógicos em Quarentena (LQ) Seminar <a
-          href="http://sbl.org.br/pmwiki.php/LQ/Quarentena">[website]</a> in 2021 <a
-          href="assets/slides/ToposBerkeleySeminar_Aguinaldo__07-06-2021.pdf">[slides]</a><a
-          href="https://www.youtube.com/watch?v=gbP5ww3U10g">[video]</a></li>
-      <li> <i>"Category Theory for Software Modeling and Design"</i> at Hunter College Applied Mathematics Seminar in
-        2020 <a href="http://math.hunter.cuny.edu/vmartine/seminar_2020-fall.html">[website]</a><a
-          href="assets/slides/HCAM_Seminar___Oct_29_2020.pdf">[slides]</a></li>
-    </ol>
-
-    <h2 id="blogposts">Blog posts</h2>
-
-    <ul>
-      <li>(04/2025) <i>"Analogies in Planning using Functorial Data Migrations"</i> on the AlgebraicJulia Blog <a href="https://blog.algebraicjulia.org/post/2025/04/analogicaltransfer/">[post]</a></li>
-      <li>(09/2022) <i>"Using categorical logic for AI planning"</i> on the Topos Institute Blog <a
-          href="https://topos.site/blog/2022/09/using-categorical-logic-for-ai-planning/">[post]</a> and AlgebraicJulia
-        Blog <a href="https://www.algebraicjulia.org/blog/post/2022/09/ai-planning-cset/">[cross-post]</a></li>
-      <li>(08/2021) <i>"Cospans and Computation"</i> on the n-Category Cafe <a
-          href="https://golem.ph.utexas.edu/category/2021/08/cospans_and_computation_part_2.html">[post]</a></li>
+      <li>
+        <span class="news-date">Apr 2025</span>
+        <span class="news-body">Blog post: <a href="https://blog.algebraicjulia.org/post/2025/04/analogicaltransfer/">Analogies in Planning using Functorial Data Migrations</a>, on the AlgebraicJulia blog.</span>
+      </li>
+      <li>
+        <span class="news-date">Dec 2024</span>
+        <span class="news-body">Successfully defended my Ph.D. dissertation (<a href="https://tinyurl.com/angeline-defense">slides</a>).</span>
+      </li>
+      <li>
+        <span class="news-date">2024</span>
+        <span class="news-body">Co-authored <a href="https://toposinstitute.github.io/RelationalThinking-Book/intro.html"><em>Relational Thinking: From Abstractions to Applications</em></a>, a digital textbook from the Topos Institute.</span>
+      </li>
+      <li>
+        <span class="news-date">Jul 2024</span>
+        <span class="news-body">Talk at JuliaCon 2024: <a href="https://www.youtube.com/watch?v=tkvp5aM0eT8"><em>"What's the plan?", asked my robot</em></a>.</span>
+      </li>
     </ul>
+  </section>
 
-    <h2 id="service">Community Service</h2>
-    <p>Co-organizer of the Applied Category Theory Special Session at AMS JMM,  <a href="https://meetings.ams.org/math/jmm2026/meetingapp.cgi/Session/13329">2026</a></p>
-    <p>Reviewer for <a href="https://www.icaps-conference.org/">International Conference on Automated Planning and Scheduling (ICAPS)</a></p>
-    <p>Co-author of <a href="https://toposinstitute.github.io/RelationalThinking-Book/intro.html">Relational Thinking: From Abstractions to Applications</a> (2024) digital textbook</p>
-    <p>Open-source contributor to <a href="https://www.algebraicjulia.org/">AlgebraicJulia</a></p>
-    <p>Local organizer of the Applied Category Theory (ACT) conference, <a href="https://act2023.github.io/">2023</a></p>
-    <p>Co-organizer of ICRA Compositional Robotics:
-        Mathematics and Tools, <a
-        href="https://idsc.ethz.ch/research-frazzoli/workshops/compositional-robotics-2023.html">2023</a></p>
+  <section id="research" aria-labelledby="research-title">
+    <h2 class="section-title" id="research-title">Research</h2>
 
-    <p>Co-organizer of The Adjoint School, <a href="https://adjointschool.com/2022.html">2022</a>, <a
-        href="https://adjointschool.com/2023.html">2023</a></p>
+    <p>My work is organized around three threads:</p>
 
-    <p>Student of The Adjoint School, <a href="http://adjointschool.com/2021.html">2021</a></p>
+    <div class="pillar">
+      <p class="pillar-title">Cross-domain plan transfer.</p>
+      <p class="pillar-body">How can a robot reuse learned task plans across different task domains, levels of abstraction, and embodiments without retraining from scratch? My dissertation developed three categories of plan transfer (sequential, hierarchical, and analogical) and formal methods to validate each, with case studies ranging from a Blocksworld-to-Kitchenworld simulation transfer to Baxter & UR5 machine-tending hardware demonstrations (hierarchical composition) in collaboration with Siemens.</p>
+    </div>
 
-    <br><br>
-    <div class="row" style="text-align:center;"><i>Last modified
-        <script>document.write(document.lastModified);</script> EST
-      </i></div>
+    <div class="pillar">
+      <p class="pillar-title">Safe and interpretable autonomous behavior.</p>
+      <p class="pillar-body">How do we specify what autonomous systems should and should not do, in ways that are interpretable, formally analyzable, and robust to changes in the system or environment? At JHU APL I have built formal representations of behavior for safety-critical autonomous systems, most recently in a <a href="https://ntrs.nasa.gov/citations/20250010771">NASA Technical Memorandum</a> (NASA/TM-20250010771, 2025) with NASA Langley applying category-theoretic systems ontology to aviation autonomy integration.</p>
+    </div>
 
-  </div>
+    <div class="pillar">
+      <p class="pillar-title">Applied category theory for AI and robotics.</p>
+      <p class="pillar-body">Category theory is a useful mathematical language for compositionality, knowledge representation, and principled plan composition in AI systems. My work contributes practical methods (categorical representation languages for planning, functorial data migrations for analogical transfer, symmetric monoidal categories for composition) and open-source tools within the <a href="https://www.algebraicjulia.org/">AlgebraicJulia</a> ecosystem.</p>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="experience-title">
+    <h2 class="section-title" id="experience-title">Experience</h2>
+    <ul class="exp-list">
+      <li>
+        <span class="exp-year">2017 – now</span>
+        <span class="exp-body">Johns Hopkins University Applied Physics Laboratory, <span style="color: var(--text-muted);">Senior Research Scientist</span></span>
+      </li>
+      <li>
+        <span class="exp-year">2018 – 2025</span>
+        <span class="exp-body">University of Maryland, College Park, <span style="color: var(--text-muted);">Ph.D., Computer Science</span></span>
+      </li>
+      <li>
+        <span class="exp-year">2022 – 2023</span>
+        <span class="exp-body">Topos Institute, <span style="color: var(--text-muted);">Research Associate</span></span>
+      </li>
+      <li>
+        <span class="exp-year">2012 – 2017</span>
+        <span class="exp-body">Drexel University, <span style="color: var(--text-muted);">B.S. &amp; M.S., Engineering</span></span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="awards" aria-labelledby="awards-title">
+    <h2 class="section-title" id="awards-title">Awards &amp; Honors</h2>
+    <ul class="award-list">
+      <li>
+        <span class="award-year">2025</span>
+        <span class="award-text"><strong>Larry S. Davis Doctoral Dissertation Award</strong> &middot; UMD Department of Computer Science</span>
+      </li>
+      <li>
+        <span class="award-year">2023</span>
+        <span class="award-text"><strong>Best Paper Award</strong> &middot; AAAI Fall Symposium on Unifying Representations for Robot Application Development</span>
+      </li>
+      <li>
+        <span class="award-year">2022</span>
+        <span class="award-text"><strong>Special Achievement Award</strong> &middot; Johns Hopkins University Applied Physics Laboratory</span>
+      </li>
+      <li>
+        <span class="award-year">2020</span>
+        <span class="award-text"><strong>Special Achievement Award</strong> &middot; Johns Hopkins University Applied Physics Laboratory</span>
+      </li>
+      <li>
+        <span class="award-year">2019</span>
+        <span class="award-text"><strong>Special Achievement Award</strong> &middot; Johns Hopkins University Applied Physics Laboratory</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="dissertation" aria-labelledby="dissertation-title">
+    <h2 class="section-title" id="dissertation-title">Dissertation</h2>
+    <p><strong>Aguinaldo, A.</strong> <em>Sequential, Hierarchical, and Analogical Plan Transfer in Robotics.</em> Ph.D. Dissertation, University of Maryland, College Park, 2025. Advisor: William Regli.</p>
+    <p class="pub-links">
+      <a href="https://drum.lib.umd.edu/items/c8dfde88-dcaf-41dd-bd35-0dabf134e14d">Full text (DRUM)</a>
+      <a href="https://tinyurl.com/angeline-defense">Defense slides</a>
+    </p>
+  </section>
+
+  <section id="publications" aria-labelledby="publications-title">
+    <h2 class="section-title" id="publications-title">Publications</h2>
+
+    <div class="pub-group">
+      <h3 class="pub-group-title">Peer-Reviewed Articles</h3>
+      <ol class="pub-list">
+        <li>
+          <span class="pub-self">Aguinaldo, A.</span>, Patterson, E., Regli, W. Automating Transfer of Robot Task Plans Using Functorial Data Migrations. <span class="pub-venue">IEEE Transactions on Automation Science and Engineering</span>, 2025.
+          <span class="pub-links"><a href="https://ieeexplore.ieee.org/document/11072193">paper</a></span>
+        </li>
+        <li>
+          <span class="pub-self">Aguinaldo, A.</span>, Patterson, E., Fairbanks, J., Regli, W., Ruiz, J. A Categorical Representation Language and Computational System for Knowledge-Based Planning. <span class="pub-venue">AAAI Fall Symposium on Unifying Representations for Robot Application Development (URRAD)</span>, 2023.<span class="pub-badge">Best Paper</span>
+          <span class="pub-links"><a href="https://arxiv.org/abs/2305.17208">paper</a> <a href="https://angelineaguinaldo.com/assets/slides/aaai-symposiumtalk-2023/presentation.html">slides</a></span>
+        </li>
+        <li>
+          Player, R. A., <span class="pub-self">Aguinaldo, A.</span>, Merritt, B. B., et al. The META Tool Optimizes Metagenomic Analyses Across Sequencing Platforms and Classifiers. <span class="pub-venue">Frontiers in Bioinformatics</span>, 2:969247, 2023.
+          <span class="pub-links"><a href="https://www.frontiersin.org/articles/10.3389/fbinf.2022.969247/full">paper</a></span>
+        </li>
+        <li>
+          <span class="pub-self">Aguinaldo, A.</span>, Bunker, J., Pollard, B., Shukla, A., Canedo, A., Quiros, G., Regli, W. RoboCat: A Category Theoretic Framework for Robotic Interoperability Using Goal-Oriented Programming. <span class="pub-venue">IEEE Transactions on Automation Science and Engineering</span>, 2021.
+          <span class="pub-note">Demonstrated on Baxter & UR5 robotic arms in a machine-tending scenario (Siemens collaboration).</span>
+          <span class="pub-links"><a href="https://ieeexplore.ieee.org/abstract/document/9488275">paper</a></span>
+        </li>
+        <li>
+          Winter, M., Mankowski, W., Wait, E., De La Hoz, E. C., <span class="pub-self">Aguinaldo, A.</span>, Cohen, A. R. Separating Touching Cells Using Pixel Replicated Elliptical Shape Models. <span class="pub-venue">IEEE Transactions on Medical Imaging</span>, 2019.
+          <span class="pub-links"><a href="https://ieeexplore.ieee.org/abstract/document/8482305">paper</a></span>
+        </li>
+        <li>
+          Caino, M., Seo, J., <span class="pub-self">Aguinaldo, A.</span>, et al. A neuronal network of mitochondrial dynamics regulates metastasis. <span class="pub-venue">Nature Communications</span>, 2016.
+          <span class="pub-links"><a href="https://doi.org/10.1038/ncomms13730">paper</a></span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="pub-group">
+      <h3 class="pub-group-title">Technical Reports</h3>
+      <ol class="pub-list">
+        <li>
+          Mahlum, M., Jarvis, S., Niu, N., <span class="pub-self">Aguinaldo, A.</span>, Hicks, A., Levitt, I. Formal Structures in Systems Ontology towards Air Traffic Management Architectures. <span class="pub-venue">NASA Technical Memorandum NASA/TM-20250010771</span>, November 2025.
+          <span class="pub-links"><a href="https://ntrs.nasa.gov/citations/20250010771">paper</a></span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="pub-group">
+      <h3 class="pub-group-title">Workshop Papers &amp; Preprints</h3>
+      <ol class="pub-list">
+        <li>
+          <span class="pub-self">Aguinaldo, A.</span>, Regli, W. Modeling traceability, change information, and synthesis in autonomous system design using symmetric delta lenses. <span class="pub-venue">ICRA Compositional Robotics Workshop</span>, 2022.
+          <span class="pub-links"><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control/idsc-dam/Research_Frazzoli/workshops/ICRA2022CRMT_paper_1880.pdf">paper</a></span>
+        </li>
+        <li>
+          <span class="pub-self">Aguinaldo, A.</span>, Regli, W. Encoding Compositionality in Classical Planning Solutions. <span class="pub-venue">IJCAI Workshop on Generalization in Planning</span>, 2021.
+          <span class="pub-links"><a href="https://arxiv.org/abs/2107.05850">paper</a></span>
+        </li>
+        <li>
+          <span class="pub-self">Aguinaldo, A.</span>, Regli, W. A Graphical Model-Based Representation for Classical AI Plans using Category Theory. <span class="pub-venue">ICAPS Workshop on Explainable AI Planning</span>, 2021.
+          <span class="pub-links"><a href="https://openreview.net/pdf?id=YlA8hA4Z-5Z">paper</a></span>
+        </li>
+        <li>
+          <span class="pub-self">Aguinaldo, A.</span>, Chiang, P., Gain, A., Patil, A., Pearson, K., Feizi, S. Compressing GANs using Knowledge Distillation. <span class="pub-venue">arXiv preprint</span>, 2019.
+          <span class="pub-links"><a href="https://arxiv.org/abs/1902.00159">paper</a></span>
+        </li>
+      </ol>
+    </div>
+
+    <div class="pub-group">
+      <h3 class="pub-group-title">Books</h3>
+      <ol class="pub-list">
+        <li>
+          Co-author. Relational Thinking: From Abstractions to Applications. <span class="pub-venue">Digital textbook, Topos Institute</span>, 2024.
+          <span class="pub-links"><a href="https://toposinstitute.github.io/RelationalThinking-Book/intro.html">read online</a></span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="talks" aria-labelledby="talks-title">
+    <h2 class="section-title" id="talks-title">Selected Talks</h2>
+    <ul class="talk-list">
+      <li>
+        <span class="talk-year">2025</span>
+        <span class="talk-body">
+          <span class="talk-title">Analogical Plan Transfer in Robotics using Functorial Data Migrations.</span>
+          <span class="talk-venue">AMS Joint Mathematics Meetings, Applied Category Theory Special Session.</span>
+          <span class="pub-links"><a href="https://angelineaguinaldo.com/assets/slides/amsjmm-act-2025/amsjmm2025.html">slides</a></span>
+        </span>
+      </li>
+      <li>
+        <span class="talk-year">2024</span>
+        <span class="talk-body">
+          <span class="talk-title">"What's the plan?", asked my robot.</span>
+          <span class="talk-venue">JuliaCon.</span>
+          <span class="pub-links"><a href="https://www.youtube.com/watch?v=tkvp5aM0eT8">video</a> <a href="https://angelineaguinaldo.com/assets/slides/juliacon-2024/presentation.html">slides</a></span>
+        </span>
+      </li>
+      <li>
+        <span class="talk-year">2023</span>
+        <span class="talk-body">
+          <span class="talk-title">A Category Theoretic Approach to Planning in a Complex World.</span>
+          <span class="talk-venue">Microsoft Future Leaders in Robotics and AI Seminar Series.</span>
+          <span class="pub-links"><a href="https://www.youtube.com/watch?v=JbJ4R0RWJqQ">video</a></span>
+        </span>
+      </li>
+      <li>
+        <span class="talk-year">2022</span>
+        <span class="talk-body">
+          <span class="talk-title">Category theory for automated planning and program compilation in robotics.</span>
+          <span class="talk-venue">Topos Institute Berkeley Seminar.</span>
+          <span class="pub-links"><a href="https://youtu.be/cy7qsXzT_Tw">video</a></span>
+        </span>
+      </li>
+      <li>
+        <span class="talk-year">2022</span>
+        <span class="talk-body">
+          <span class="talk-title">Contextual affordances in context-aware autonomous systems.</span>
+          <span class="talk-venue">NIST Compositional Structures for Systems Engineering and Design Workshop.</span>
+        </span>
+      </li>
+      <li>
+        <span class="talk-year">2022</span>
+        <span class="talk-body">
+          <span class="talk-title">Modeling traceability, change information, and synthesis in autonomous system design using symmetric delta lenses.</span>
+          <span class="talk-venue">ICRA Compositional Robotics Workshop.</span>
+        </span>
+      </li>
+      <li>
+        <span class="talk-year">2022</span>
+        <span class="talk-body">
+          <span class="talk-title">Applications of category theory to automated planning and program compilation in robotics.</span>
+          <span class="talk-venue">Xerox PARC Design Seminar.</span>
+        </span>
+      </li>
+    </ul>
+    <p style="margin-top: 0.75rem; font-size: 0.9em; color: var(--text-muted);">Full list of talks on the <a href="assets/Aguinaldo_CV.pdf">CV</a>.</p>
+  </section>
+
+  <section id="writing" aria-labelledby="writing-title">
+    <h2 class="section-title" id="writing-title">Writing</h2>
+    <ul class="writing-list">
+      <li>
+        <span class="writing-date">Apr 2025</span>
+        <span class="writing-body"><a href="https://blog.algebraicjulia.org/post/2025/04/analogicaltransfer/">Analogies in Planning using Functorial Data Migrations</a>. <span style="color: var(--text-muted);">AlgebraicJulia Blog.</span></span>
+      </li>
+      <li>
+        <span class="writing-date">Sep 2022</span>
+        <span class="writing-body"><a href="https://topos.site/blog/2022/09/using-categorical-logic-for-ai-planning/">Using categorical logic for AI planning</a>. <span style="color: var(--text-muted);">Topos Institute Blog.</span></span>
+      </li>
+      <li>
+        <span class="writing-date">Aug 2021</span>
+        <span class="writing-body"><a href="https://golem.ph.utexas.edu/category/2021/08/cospans_and_computation_part_2.html">Cospans and Computation</a>. <span style="color: var(--text-muted);">The n-Category Café.</span></span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="software" aria-labelledby="software-title">
+    <h2 class="section-title" id="software-title">Software</h2>
+    <p><a href="https://www.algebraicjulia.org/">AlgebraicJulia</a>: open-source contributor to the ecosystem of Julia packages for applied category theory, including Catlab.jl and AlgebraicRewriting.jl, used for categorical databases, scientific computing, and structured knowledge representation.</p>
+    <p><a href="https://github.com/aaguinal/string-diagram-viewer">string-diagram-viewer</a>: interactive tool for visualizing string diagrams from symmetric monoidal categories, developed during the dissertation work on sequential plan composition.</p>
+    <p>Additional code on <a href="https://github.com/aaguinal">GitHub</a>.</p>
+  </section>
+
+  <section id="service" aria-labelledby="service-title">
+    <h2 class="section-title" id="service-title">Service &amp; Community</h2>
+    <ul class="service-list">
+      <li><span class="service-year">2026</span><span>Co-organizer, Applied Category Theory Special Session, AMS Joint Mathematics Meetings.</span></li>
+      <li><span class="service-year">2024 – 26</span><span>Seminar Series Chair, Agentic AI and Human-AI Collaboration, Johns Hopkins University Applied Physics Laboratory.</span></li>
+      <li><span class="service-year">2023</span><span>Local Organizer, Applied Category Theory (ACT) Conference.</span></li>
+      <li><span class="service-year">2023</span><span>Co-organizer, ICRA Compositional Robotics: Mathematics and Tools Workshop.</span></li>
+      <li><span class="service-year">2022, 2023</span><span>Co-organizer, The Adjoint School.</span></li>
+      <li><span class="service-year">2021</span><span>Student, The Adjoint School.</span></li>
+      <li><span class="service-year">ongoing</span><span>Reviewer, International Conference on Automated Planning and Scheduling (ICAPS).</span></li>
+      <li><span class="service-year">ongoing</span><span>Reviewer, Mathematical Structures in Computer Science</span></li>
+    </ul>
+  </section>
+
+  <section id="media" aria-labelledby="media-title">
+    <h2 class="section-title" id="media-title">In the Media</h2>
+    <ul class="award-list">
+      <li>
+        <span class="award-year">2025</span>
+        <span class="award-text"><a href="https://www.cs.umd.edu/article/2025/11/two-former-graduate-students-receive-larry-s-davis-doctoral-dissertation-awards">UMD Computer Science</a> &middot; Larry S. Davis Doctoral Dissertation Award recipient.</span>
+      </li>
+      <li>
+        <span class="award-year">2023</span>
+        <span class="award-text"><a href="https://www.cs.umd.edu/article/2023/11/phd-student-angeline-aguinaldo-wins-best-paper-award-aaai-fall-symposium">UMD Computer Science</a> &middot; Best Paper Award at AAAI Fall Symposium.</span>
+      </li>
+      <li>
+        <span class="award-year">2020</span>
+        <span class="award-text"><a href="https://www.jhuapl.edu/news/news-releases/200428-fast-company-2020-world-changing-ideas">JHU APL</a> &middot; HADR program named a 2020 Fast Company World Changing Ideas Finalist in the AI &amp; Data category.</span>
+      </li>
+      <li>
+        <span class="award-year">2019</span>
+        <span class="award-text"><a href="https://www.jhuapl.edu/news/news-releases/190926-apl-shaping-intelligent-approach-disaster-response-and-relief">JHU APL</a> &middot; APL Shaping an Intelligent Approach to Disaster Response and Relief.</span>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <div class="row" style="text-align:center;"><i>Last modified
+      <script>document.write(document.lastModified);</script> EST
+    </i></div>
+</footer>
+
+</div>
 
 </body>
-
 </html>
