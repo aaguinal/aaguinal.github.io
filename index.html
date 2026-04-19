@@ -195,9 +195,14 @@
   .news-body, .exp-body, .writing-body, .talk-body { color: var(--text); }
 
   .award-list li {
-    padding: 0.3rem 0;
+    /* padding: 0.3rem 0;
     display: flex;
     gap: 0.75rem;
+    align-items: baseline; */
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    gap: 0.75rem;
+    padding: 0.35rem 0;
     align-items: baseline;
   }
   .award-year {
@@ -355,7 +360,7 @@
   <section id="about" aria-labelledby="about-title">
     <h2 class="section-title" id="about-title">About</h2>
     <p>I am a senior research scientist at the <a href="https://www.jhuapl.edu">Johns Hopkins University Applied Physics Laboratory</a>, where I work on agentic reasoning, planning, and safe autonomous behavior for AI-controlled systems. I recently completed my Ph.D. in Computer Science at the University of Maryland, College Park, advised by <a href="https://robotics.umd.edu/clark/faculty/902/William-Regli">William Regli</a>. My dissertation, <em>Sequential, Hierarchical, and Analogical Plan Transfer in Robotics</em>, received the <strong>Larry S. Davis Doctoral Dissertation Award</strong>.</p>
-    <p>My research sits at the intersection of AI planning, knowledge representation, and category theory. I have built formal frameworks for how robots can reuse and adapt task strategies across different domains and embodiments, a problem foundation-model-driven robot agents now face empirically at scale. At JHU APL, I have led applied research on safety-critical autonomous systems, real-time geospatial computer vision for humanitarian disaster response, and LLM-based agent architectures.</p>
+    <p>My research sits at the intersection of AI planning, knowledge representation, and category theory. I have built formal frameworks for how robots can reuse and adapt task strategies across different domains and embodiments. At JHU APL, I have led applied research on safety-critical autonomous systems, real-time geospatial computer vision for humanitarian disaster response, and LLM-based agent architectures.</p>
   </section>
 
   <section id="news" aria-labelledby="news-title">
@@ -386,7 +391,7 @@
         <span class="news-body">Successfully defended my Ph.D. dissertation (<a href="https://tinyurl.com/angeline-defense">slides</a>).</span>
       </li>
       <li>
-        <span class="news-date">2024</span>
+        <span class="news-date">Apr 2024</span>
         <span class="news-body">Co-authored <a href="https://toposinstitute.github.io/RelationalThinking-Book/intro.html"><em>Relational Thinking: From Abstractions to Applications</em></a>, a digital textbook from the Topos Institute.</span>
       </li>
       <li>
@@ -399,11 +404,9 @@
   <section id="research" aria-labelledby="research-title">
     <h2 class="section-title" id="research-title">Research</h2>
 
-    <p>My work is organized around three threads:</p>
-
     <div class="pillar">
       <p class="pillar-title">Cross-domain plan transfer.</p>
-      <p class="pillar-body">How can a robot reuse learned task plans across different task domains, levels of abstraction, and embodiments without retraining from scratch? My dissertation developed three categories of plan transfer (sequential, hierarchical, and analogical) and formal methods to validate each, with case studies ranging from a Blocksworld-to-Kitchenworld simulation transfer to Baxter & UR5 machine-tending hardware demonstrations in collaboration with Siemens.</p>
+      <p class="pillar-body">How can a robot reuse learned task plans across different task domains, levels of abstraction, and embodiments without retraining from scratch? My dissertation developed three categories of plan transfer (sequential, hierarchical, and analogical) and formal methods to validate each, with case studies ranging from a Blocksworld-to-Kitchenworld simulation transfer to hardware demonstrations.</p>
     </div>
 
     <div class="pillar">
@@ -443,6 +446,10 @@
     <h2 class="section-title" id="awards-title">Awards &amp; Honors</h2>
     <ul class="award-list">
       <li>
+        <span class="award-year">2026</span>
+        <span class="award-text"><strong>Special Achievement Award</strong> &middot; Johns Hopkins University Applied Physics Laboratory</span>
+      </li>
+      <li>
         <span class="award-year">2025</span>
         <span class="award-text"><strong>Larry S. Davis Doctoral Dissertation Award</strong> &middot; UMD Department of Computer Science</span>
       </li>
@@ -451,15 +458,7 @@
         <span class="award-text"><strong>Best Paper Award</strong> &middot; AAAI Fall Symposium on Unifying Representations for Robot Application Development</span>
       </li>
       <li>
-        <span class="award-year">2026</span>
-        <span class="award-text"><strong>Special Achievement Award</strong> &middot; Johns Hopkins University Applied Physics Laboratory</span>
-      </li>
-      <li>
-        <span class="award-year">2021</span>
-        <span class="award-text"><strong>Special Achievement Award</strong> &middot; Johns Hopkins University Applied Physics Laboratory</span>
-      </li>
-      <li>
-        <span class="award-year">2019</span>
+        <span class="award-year">2018 – 2021</span>
         <span class="award-text"><strong>Special Achievement Award</strong> &middot; Johns Hopkins University Applied Physics Laboratory</span>
       </li>
     </ul>
@@ -642,7 +641,7 @@
       <li><span class="service-year">2024 – 26</span><span>Seminar Series Chair, Agentic AI and Human-AI Collaboration, Johns Hopkins University Applied Physics Laboratory.</span></li>
       <li><span class="service-year">2023</span><span>Local Organizer, Applied Category Theory (ACT) Conference.</span></li>
       <li><span class="service-year">2023</span><span>Co-organizer, ICRA Compositional Robotics: Mathematics and Tools Workshop.</span></li>
-      <li><span class="service-year">2022, 2023</span><span>Co-organizer, The Adjoint School.</span></li>
+      <li><span class="service-year">2022 – 23</span><span>Co-organizer, The Adjoint School.</span></li>
       <li><span class="service-year">2021</span><span>Student, The Adjoint School.</span></li>
       <li><span class="service-year">ongoing</span><span>Reviewer, International Conference on Automated Planning and Scheduling (ICAPS).</span></li>
       <li><span class="service-year">ongoing</span><span>Reviewer, Mathematical Structures in Computer Science (MSCS).</span></li>
