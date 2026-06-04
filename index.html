@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Angeline Aguinaldo</title>
-<meta name="description" content="Researcher at Johns Hopkins Applied Physics Laboratory working on formal methods for safe, generalizable decision-making in embodied AI and robotics.">
+<meta name="description" content="Researcher at Johns Hopkins APL developing formal frameworks for compositional reasoning and plan transfer in LLM agent systems, grounded in category theory.">
 
 <meta property="og:title" content="Angeline Aguinaldo">
-<meta property="og:description" content="Researcher working at the intersection of AI planning, robotics, and formal methods for safe autonomy.">
+<meta property="og:description" content="Researcher working at the intersection of AI planning, category theory, and LLM agent systems.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://angelineaguinaldo.com">
 
@@ -341,7 +341,7 @@
   <header class="hero">
     <div class="hero-text">
       <h1 class="name">Angeline Aguinaldo</h1>
-      <p class="tagline">I develop formal and computational methods for safe, generalizable decision-making in embodied AI systems. My work focuses on how robots can transfer task strategies across domains and embodiments, and how to specify their behavior so it stays interpretable when conditions change.</p>
+      <p class="tagline">I develop formal frameworks for compositional reasoning and plan transfer in AI agent systems. My work uses category theory to give algebraic guarantees for cross-domain generalization — transfer that works by construction, not by chance.</p>
       <nav class="links-bar" aria-label="Contact and profiles">
         <a href="mailto:angeline.m.aguinaldo@gmail.com">Email</a>
         <a href="assets/Aguinaldo_CV.pdf">CV</a>
@@ -360,12 +360,16 @@
   <section id="about" aria-labelledby="about-title">
     <h2 class="section-title" id="about-title">About</h2>
     <p>I am a senior research scientist at the <a href="https://www.jhuapl.edu">Johns Hopkins University Applied Physics Laboratory</a>, where I work on agentic reasoning, planning, and safe autonomous behavior for AI-controlled systems. I recently completed my Ph.D. in Computer Science at the University of Maryland, College Park, advised by <a href="https://robotics.umd.edu/clark/faculty/902/William-Regli">William Regli</a>. My dissertation, <em>Sequential, Hierarchical, and Analogical Plan Transfer in Robotics</em>, received the <strong>Larry S. Davis Doctoral Dissertation Award</strong>.</p>
-    <p>My research sits at the intersection of AI planning, knowledge representation, and category theory. I have built formal frameworks for how robots can reuse and adapt task strategies across different domains and embodiments. At JHU APL, I have led applied research on safety-critical autonomous systems, real-time geospatial computer vision for humanitarian disaster response, and LLM-based agent architectures.</p>
+    <p>My research sits at the intersection of AI planning, knowledge representation, and category theory. I build formal frameworks for how agents — robotic and LLM-based — can reuse and adapt task strategies across domains without retraining, grounded in category theory and validated on both robotic planning benchmarks and LLM agent systems. At JHU APL, I lead research on LLM-based agent architectures for long-horizon planning, structured world modeling and policy evaluation under uncertainty, and safety-critical autonomous systems.</p>
   </section>
 
   <section id="news" aria-labelledby="news-title">
     <h2 class="section-title" id="news-title">News</h2>
     <ul class="news-list">
+      <li>
+        <span class="news-date">2026</span>
+        <span class="news-body">Two preprints in preparation on compositional generalization and verifiable reward design for LLM agents operating over structured APIs (arXiv links coming soon).</span>
+      </li>
       <li>
         <span class="news-date">Jan 2026</span>
         <span class="news-body">Co-organized the <a href="https://meetings.ams.org/math/jmm2026/meetingapp.cgi/Session/13329">Applied Category Theory Special Session</a> at the AMS Joint Mathematics Meetings.</span>
@@ -405,8 +409,13 @@
     <h2 class="section-title" id="research-title">Research</h2>
 
     <div class="pillar">
-      <p class="pillar-title">Cross-domain plan transfer.</p>
-      <p class="pillar-body">How can a robot reuse learned task plans across different task domains, levels of abstraction, and embodiments without retraining from scratch? My dissertation developed three categories of plan transfer (sequential, hierarchical, and analogical) and formal methods to validate each, with case studies ranging from a Blocksworld-to-Kitchenworld simulation transfer to hardware demonstrations.</p>
+      <p class="pillar-title">Compositional plan transfer and cross-domain generalization.</p>
+      <p class="pillar-body">How can an agent — robotic or LLM-based — reuse learned task plans across different domains without retraining? My dissertation developed three categories of plan transfer (sequential, hierarchical, analogical) with formal validation methods. More recently, I have extended this to LLM agents operating over structured APIs: a translation functor between OpenAPI schema categories satisfies the functor law, which is sufficient for all four of Hupkes et al.'s compositional generalization criteria to hold by construction — making cross-API plan transfer an algebraic guarantee rather than an empirical regularity.</p>
+    </div>
+
+    <div class="pillar">
+      <p class="pillar-title">Structured world modeling and planning under uncertainty.</p>
+      <p class="pillar-body">How should a planning agent represent the world it operates in — and how should that representation behave under actions and partial observability? I have built simulation environments with probabilistic state dynamics and batch policy evaluation for sequential decision-making under uncertainty. My broader interest is in world representations that are compositional by construction: categorical state spaces where valid transitions are typed, and where the structure of the world is preserved (or deliberately transformed) across abstraction levels. This connects formal planning semantics to the architecture of learned world models.</p>
     </div>
 
     <div class="pillar">
@@ -415,8 +424,8 @@
     </div>
 
     <div class="pillar">
-      <p class="pillar-title">Applied category theory for AI and robotics.</p>
-      <p class="pillar-body">Category theory is a useful mathematical language for compositionality, knowledge representation, and principled plan composition in AI systems. My work contributes practical methods (categorical representation languages for planning, functorial data migrations for analogical transfer, symmetric monoidal categories for composition) and open-source tools within the <a href="https://www.algebraicjulia.org/">AlgebraicJulia</a> ecosystem.</p>
+      <p class="pillar-title">Applied category theory for AI and LLM agent systems.</p>
+      <p class="pillar-body">Category theory is a useful mathematical language for compositionality, knowledge representation, and principled plan composition in AI systems — including world models, where typed state transitions and structured dynamics admit categorical treatment. My work contributes practical methods (functorial data migrations for analogical transfer, categorical representation languages for planning, symmetric monoidal categories for composition) and open-source tools within the <a href="https://www.algebraicjulia.org/">AlgebraicJulia</a> ecosystem.</p>
     </div>
   </section>
 
@@ -519,6 +528,12 @@
     <div class="pub-group">
       <h3 class="pub-group-title">Workshop Papers &amp; Preprints</h3>
       <ol class="pub-list">
+        <li>
+          <span class="pub-self">Aguinaldo, A.</span> Functorial Plan Transfer: Compositional Generalization for LLM Agents via OpenAPI Schema Categories. <span class="pub-venue">In preparation</span>, 2026.
+        </li>
+        <li>
+          <span class="pub-self">Aguinaldo, A.</span> Reinforcement Learning with Verified Functorial Rewards. <span class="pub-venue">In preparation</span>, 2026.
+        </li>
         <li>
           <span class="pub-self">Aguinaldo, A.</span>, Regli, W. Modeling traceability, change information, and synthesis in autonomous system design using symmetric delta lenses. <span class="pub-venue">ICRA Compositional Robotics Workshop</span>, 2022.
           <span class="pub-links"><a href="https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control/idsc-dam/Research_Frazzoli/workshops/ICRA2022CRMT_paper_1880.pdf">paper</a></span>
